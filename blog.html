@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Jurnal - Senyawa Kopi</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* --- 1. SETUP VARIABLES --- */
+        :root {
+            --primary-color: #3E2723;
+            --secondary-color: #C08B5C;
+            --accent-color: #FAF7F2;
+            --text-dark: #2D2420;
+            --light-bg: #ffffff;
+        }
+
+        /* Anti Geser & Dasar Layout */
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--accent-color);
+            padding-top: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Lora', serif;
+        }
+
+        /* --- 2. NAVBAR --- */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: var(--primary-color) !important;
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            font-family: 'Lora', serif;
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            margin-left: 15px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--secondary-color) !important;
+        }
+
+        .cart-nav-item {
+            position: relative;
+            cursor: pointer;
+            margin-left: 20px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -8px;
+            background-color: var(--secondary-color);
+            color: white;
+            font-size: 0.65rem;
+            padding: 3px 6px;
+            border-radius: 50%;
+        }
+
+        /* --- 3. PAGE HEADER --- */
+        .page-header {
+            background: linear-gradient(rgba(62, 39, 35, 0.8), rgba(62, 39, 35, 0.7)), url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 0;
+            padding-top: 80px;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        /* --- 4. BLOG CARD STYLE --- */
+        .blog-card {
+            background: white;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            height: 100%;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-img-wrapper {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .blog-card:hover .blog-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-meta {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .blog-title {
+            font-family: 'Lora', serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            color: var(--primary-color);
+            transition: color 0.3s;
+        }
+
+        .blog-card:hover .blog-title {
+            color: var(--secondary-color);
+        }
+
+        .blog-excerpt {
+            color: #6c757d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more {
+            margin-top: auto;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover .read-more i {
+            transform: translateX(5px);
+        }
+
+        /* --- SEARCH BOX STYLE --- */
+        .search-container .input-group-text {
+            background-color: white;
+            border-right: none;
+        }
+
+        .search-container .form-control {
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .search-container .form-control:focus {
+            box-shadow: none;
+            border-color: #dee2e6;
+        }
+
+        .search-box-wrapper {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 50px;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        /* --- 5. CTA SECTION --- */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235d4037' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            font-weight: 600;
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            text-decoration: none;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* --- 6. FOOTER --- */
+        footer {
+            background-color: #2b1d19;
+            color: #bbb;
+            padding: 70px 0 30px;
+        }
+
+        footer h5 {
+            color: white;
+            font-family: 'Lora', serif;
+            letter-spacing: 1px;
+        }
+
+        footer a {
+            color: #bbb;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-coffee me-2"></i>SENYAWA.</a>
+
+            <a href="keranjang.html" class="d-lg-none ms-auto me-3 position-relative text-dark">
+                <i class="fas fa-shopping-bag fs-5"></i>
+                <span class="cart-badge" id="mobile-cart-count">0</span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="fas fa-bars text-dark"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="produk.html">Produk</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+
+                    <li class="nav-item d-none d-lg-block">
+                        <a href="keranjang.html" class="cart-nav-item text-decoration-none">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span class="cart-badge" id="desktop-cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">Jurnal Senyawa</h1>
+            <p class="lead text-white-50">Cerita, edukasi, dan inspirasi dari dunia kopi.</p>
+        </div>
+    </header>
+
+    <section class="py-5">
+        <div class="container py-5">
+
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-6 search-container">
+                    <div class="search-box-wrapper bg-white">
+                        <div class="input-group">
+                            <span class="input-group-text ps-4 text-muted">
+                                <i class="fas fa-search"></i>
+                            </span>
+                            <input type="text" id="searchInput" class="form-control py-3"
+                                placeholder="Cari judul artikel..." onkeyup="filterArticles()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4" id="blogContainer">
+
+                <div class="col-md-4 col-sm-6 blog-item">
+                    <div class="blog-card" onclick="location.href='blog-1.html'">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Manual Brew">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">Edukasi • 10 Jan 2024</div>
+                            <h3 class="blog-title">Panduan Lengkap V60 Untuk Pemula</h3>
+                            <p class="blog-excerpt">Ingin menyeduh kopi manual di rumah? Simak teknik dasar pour over
+                                menggunakan V60 agar rasa kopi lebih bersih dan optimal.</p>
+                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 blog-item">
+                    <div class="blog-card" onclick="location.href='#'">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1511537632536-34a70295626e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Roasting">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">Behind Scene • 05 Jan 2024</div>
+                            <h3 class="blog-title">Mengapa Roasting Level Itu Penting?</h3>
+                            <p class="blog-excerpt">Light, Medium, atau Dark? Ketahui bagaimana tingkat kematangan
+                                sangrai mempengaruhi rasa asam dan pahit pada biji kopi Anda.</p>
+                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 blog-item">
+                    <div class="blog-card" onclick="location.href='#'">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1525610553991-2bede1a236e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Gayo">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">Origin • 28 Des 2023</div>
+                            <h3 class="blog-title">Mengenal Karakter Kopi Gayo</h3>
+                            <p class="blog-excerpt">Kopi Aceh Gayo dikenal dunia karena body yang tebal dan aroma rempah
+                                yang khas. Mari telusuri sejarah dan keunikannya.</p>
+                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 blog-item">
+                    <div class="blog-card" onclick="location.href='#'">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1517701604599-bb29b5dd7359?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Penyimpanan">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">Tips • 20 Des 2023</div>
+                            <h3 class="blog-title">Cara Menyimpan Biji Kopi Agar Awet</h3>
+                            <p class="blog-excerpt">Jangan simpan di kulkas! Berikut adalah tips menjaga kesegaran aroma
+                                biji kopi setelah kemasan dibuka agar tidak apek.</p>
+                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 blog-item">
+                    <div class="blog-card" onclick="location.href='#'">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Es Kopi">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">Resep • 15 Des 2023</div>
+                            <h3 class="blog-title">Resep Es Kopi Susu Gula Aren</h3>
+                            <p class="blog-excerpt">Bikin es kopi susu kekinian ternyata mudah. Ini dia rasio espresso,
+                                susu, dan gula aren yang pas untuk jualan atau diminum sendiri.</p>
+                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 blog-item">
+                    <div class="blog-card" onclick="location.href='#'">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1596073419667-9d77d59f033f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Bunga Kopi">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">Edukasi • 10 Des 2023</div>
+                            <h3 class="blog-title">Perbedaan Arabika dan Robusta</h3>
+                            <p class="blog-excerpt">Masih bingung membedakan keduanya? Simak perbedaan dari segi bentuk
+                                biji, rasa, kandungan kafein, hingga harga pasarnya.</p>
+                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 blog-item">
+                    <div class="blog-card" onclick="location.href='#'">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Grinder">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">Tips • 01 Des 2023</div>
+                            <h3 class="blog-title">Pentingnya Ukuran Gilingan (Grind Size)</h3>
+                            <p class="blog-excerpt">Mengapa kopi terasa terlalu asam atau terlalu pahit? Jawabannya
+                                seringkali terletak pada ukuran gilingan yang tidak sesuai alat seduh.</p>
+                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 blog-item">
+                    <div class="blog-card" onclick="location.href='#'">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Latte Art">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">Lifestyle • 25 Nov 2023</div>
+                            <h3 class="blog-title">Seni Latte Art: Bukan Sekadar Hiasan</h3>
+                            <p class="blog-excerpt">Melihat bagaimana tekstur susu (microfoam) yang sempurna dapat
+                                menciptakan visual indah sekaligus rasa creamy yang memanjakan lidah.</p>
+                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 blog-item">
+                    <div class="blog-card" onclick="location.href='#'">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Cold Brew">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">Resep • 20 Nov 2023</div>
+                            <h3 class="blog-title">Cold Brew: Seduh Dingin yang Menyegarkan</h3>
+                            <p class="blog-excerpt">Metode seduh tanpa air panas yang menghasilkan kopi dengan keasaman
+                                rendah (low acid) dan rasa manis alami yang menonjol.</p>
+                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h2 class="fw-bold mb-3">Punya Pertanyaan Seputar Kopi?</h2>
+                    <p class="mb-5 text-white-50">Diskusikan topik kopi favorit Anda atau tanyakan produk kami langsung
+                        ke barista Senyawa.</p>
+
+                    <a href="https://wa.me/6282257391460?text=Halo%20Senyawa%20Kopi,%20saya%20membaca%20blog%20Anda%20dan%20ingin%20bertanya..."
+                        class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp fs-4"></i> Chat WhatsApp Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">SENYAWA KOPI</h5>
+                    <p class="small text-secondary">Menghadirkan harmoni rasa dari perkebunan nusantara langsung ke meja
+                        Anda.</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="text-white mb-3">Menu</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="tentang.html">Tentang</a></li>
+                        <li><a href="produk.html">Produk</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="text-white mb-3">Bantuan</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="https://wa.me/6282257391460">Konfirmasi Pembayaran</a></li>
+                        <li><a href="https://wa.me/6282257391460">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="text-white mb-3">Newsletter</h6>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Email Anda">
+                        <button class="btn btn-custom" type="button"
+                            style="background-color: var(--secondary-color); color: white; border:none;">Kirim</button>
+                    </div>
+                    <div>
+                        <a href="#" class="me-3 fs-5"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-3 fs-5"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary mt-4 opacity-25">
+            <div class="text-center pt-2">
+                <p class="small mb-0 text-secondary">&copy; 2024 Senyawa Kopi Indonesia.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Logic Cart Badge (Supaya sinkron)
+        function updateCartBadge() {
+            const cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            const desktopBadge = document.getElementById('desktop-cart-count');
+            const mobileBadge = document.getElementById('mobile-cart-count');
+
+            if (desktopBadge) desktopBadge.innerText = totalItems;
+            if (mobileBadge) mobileBadge.innerText = totalItems;
+        }
+
+        // --- FUNGSI SEARCH BLOG (BARU) ---
+        function filterArticles() {
+            // Ambil nilai input dan ubah ke huruf kecil
+            let input = document.getElementById('searchInput');
+            let filter = input.value.toLowerCase();
+
+            // Ambil semua elemen kolom blog
+            let cards = document.getElementsByClassName('blog-item');
+
+            // Loop semua item
+            for (let i = 0; i < cards.length; i++) {
+                // Cari elemen judul di dalam card
+                let titleElement = cards[i].querySelector('.blog-title');
+                let titleText = titleElement.innerText || titleElement.textContent;
+
+                // Cek apakah judul mengandung kata kunci
+                if (titleText.toLowerCase().indexOf(filter) > -1) {
+                    cards[i].style.display = ""; // Tampilkan
+                } else {
+                    cards[i].style.display = "none"; // Sembunyikan
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', updateCartBadge);
+    </script>
+</body>
+
+</html>

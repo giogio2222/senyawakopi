@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senyawa Kopi - Authentic Coffee Experience</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* --- 1. COLOR PALETTE (EARTH TONES) --- */
+        :root {
+            --primary-color: #3E2723;
+            /* Espresso */
+            --secondary-color: #C08B5C;
+            /* Caramel/Latte */
+            --accent-color: #FAF7F2;
+            /* Cream Background */
+            --text-dark: #2D2420;
+            --light-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--accent-color);
+            overflow-x: hidden;
+
+            /* PENTING: Dibuat 0 agar gambar hero bisa naik ke belakang navbar */
+            padding-top: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Lora', serif;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+            margin: 15px auto 0;
+            transition: width 0.3s;
+        }
+
+        .section-title:hover::after {
+            width: 80px;
+        }
+
+        /* --- 2. NAVBAR (TRANSPARENT & BLUR) --- */
+        .navbar {
+            /* Latar belakang putih transparan supaya gambar Hero terlihat di baliknya */
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            /* Efek blur kaca */
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: var(--primary-color) !important;
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            font-family: 'Lora', serif;
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            margin-left: 15px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--secondary-color) !important;
+        }
+
+        .cart-nav-item {
+            position: relative;
+            cursor: pointer;
+            margin-left: 20px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -8px;
+            background-color: var(--secondary-color);
+            color: white;
+            font-size: 0.65rem;
+            padding: 3px 6px;
+            border-radius: 50%;
+        }
+
+        /* --- 3. HERO SECTION (FULLSCREEN & OVERLAP) --- */
+        .hero-section {
+            background: linear-gradient(rgba(62, 39, 35, 0.7), rgba(62, 39, 35, 0.5)), url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+
+            /* Tinggi full layar */
+            height: 100vh;
+
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+
+            /* PENTING: Memberi jarak agar teks judul TIDAK ketumpuk navbar */
+            /* Gambar tetap di belakang, tapi teks didorong ke bawah */
+            padding-top: 100px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-style: italic;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Responsive Font untuk HP */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-section {
+                height: 90vh;
+                /* Sedikit lebih pendek di HP agar nyaman */
+            }
+        }
+
+        .btn-custom {
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50px;
+            padding: 12px 35px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border: 2px solid var(--secondary-color);
+            transition: all 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-custom-dark {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            padding: 10px 30px;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .btn-custom-dark:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        /* --- 4. ABOUT SECTION --- */
+        .about-section {
+            padding: 100px 0;
+            background-color: #fff;
+        }
+
+        .about-img {
+            border-radius: 20px 0 20px 0;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            box-shadow: 15px 15px 0px var(--secondary-color);
+        }
+
+        /* --- 5. PRODUCT CARDS --- */
+        .product-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+            transition: all 0.4s;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            height: 100%;
+            cursor: pointer;
+            /* TAMBAHAN: Agar terlihat bisa diklik */
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-img-wrapper {
+            overflow: hidden;
+            height: 280px;
+        }
+
+        .product-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .product-card:hover .product-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .price-tag {
+            color: var(--secondary-color);
+            font-weight: 700;
+            font-size: 1.3rem;
+            font-family: 'Lora', serif;
+        }
+
+        /* --- 6. BREWING ASSISTANT --- */
+        .brewing-section {
+            background-color: var(--primary-color);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235d4037' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            color: white;
+            padding: 90px 0;
+        }
+
+        .brew-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ddd;
+            padding: 12px 25px;
+            margin: 5px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .brew-btn:hover,
+        .brew-btn.active {
+            background: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .brew-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
+        }
+
+        /* --- 7. TESTIMONIALS --- */
+        .testimonial-section {
+            background-color: var(--accent-color);
+            padding: 80px 0;
+        }
+
+        .testimonial-box {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .user-img-lg {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid var(--secondary-color);
+        }
+
+        .carousel-indicators [data-bs-target] {
+            background-color: var(--secondary-color);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+
+        /* --- 8. FAQ --- */
+        .accordion-item {
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 15px;
+            border-radius: 10px !important;
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            color: var(--primary-color);
+            font-weight: 600;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: var(--secondary-color);
+            background-color: #fff;
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .05);
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #2b1d19;
+            color: #bbb;
+            padding: 70px 0 30px;
+        }
+
+        footer h5 {
+            color: white;
+            font-family: 'Lora', serif;
+            letter-spacing: 1px;
+        }
+
+        footer a {
+            color: #bbb;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-coffee me-2"></i>SENYAWA.</a>
+
+            <a href="keranjang.html" class="d-lg-none ms-auto me-3 position-relative text-dark">
+                <i class="fas fa-shopping-bag fs-5"></i>
+                <span class="cart-badge" id="mobile-cart-count">0</span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="fas fa-bars text-dark"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="produk.html">Produk</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+
+                    <li class="nav-item d-none d-lg-block">
+                        <a href="keranjang.html" class="cart-nav-item text-decoration-none">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span class="cart-badge" id="desktop-cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="beranda" class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <h1 class="hero-title">Temukan Senyawa Rasa<br>Dalam Setiap Tegukan</h1>
+                    <p class="lead mb-5 text-white-50">Kopi bukan sekadar minuman, ia adalah cerita tentang tanah,
+                        petani, dan ketulusan proses yang sampai ke cangkir Anda.</p>
+                    <a href="produk.html" class="btn btn-custom btn-lg">Jelajahi Rasa</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tentang" class="about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Proses Roasting" class="about-img">
+                </div>
+                <div class="col-md-6 ps-md-5">
+                    <h4 class="text-secondary text-uppercase mb-2" style="font-size: 0.9rem; letter-spacing: 2px;">
+                        Cerita Kami</h4>
+                    <h2 class="fw-bold mb-4" style="color: var(--primary-color);">Lebih Dari Sekadar Biji Kopi</h2>
+                    <p class="text-muted mb-4">
+                        Senyawa Kopi lahir dari kecintaan kami terhadap kekayaan alam Indonesia. Kami bekerja sama
+                        langsung dengan petani lokal dari Gayo hingga Flores untuk memastikan setiap biji dipetik pada
+                        kematangan sempurna.
+                    </p>
+
+                    <div class="d-flex gap-4 mb-4">
+                        <div>
+                            <h3 class="fw-bold mb-0 text-dark">15+</h3>
+                            <small class="text-secondary">Varian Origin</small>
+                        </div>
+                        <div>
+                            <h3 class="fw-bold mb-0 text-dark">100%</h3>
+                            <small class="text-secondary">Arabika Murni</small>
+                        </div>
+                    </div>
+
+                    <a href="tentang.html" class="btn btn-custom-dark px-4">Baca Selengkapnya</a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="katalog" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center">
+                <h2 class="section-title fw-bold">Produk Kami</h2>
+                <p class="text-muted mb-5">Disangrai fresh dengan profil medium-roast.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6">
+                    <div class="product-card" onclick="location.href='arabika-gayo-wine.html'">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Kopi Gayo">
+                        </div>
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Arabika Gayo Wine</h5>
+                            <div class="mb-2 text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-muted small">Notes: Jackfruit, Dark Chocolate, High Acidity.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="price-tag">Rp 125.000</span>
+                                <button class="btn btn-custom-dark btn-sm"
+                                    onclick="addToCart('Arabika Gayo Wine', 125000, event)">+
+                                    Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="product-card" onclick="location.href='produk.html'">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1611854779393-1b2ae93a9d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Kopi Flores">
+                        </div>
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Flores Bajawa</h5>
+                            <div class="mb-2 text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                            <p class="text-muted small">Notes: Floral, Nutty, Medium Body.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="price-tag">Rp 115.000</span>
+                                <button class="btn btn-custom-dark btn-sm"
+                                    onclick="addToCart('Flores Bajawa', 115000, event)">+ Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="product-card" onclick="location.href='produk.html'">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="House Blend">
+                        </div>
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Senyawa House Blend</h5>
+                            <div class="mb-2 text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="text-muted small">Blend 70% Arabika 30% Robusta. Bold & Strong.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="price-tag">Rp 95.000</span>
+                                <button class="btn btn-custom-dark btn-sm"
+                                    onclick="addToCart('Senyawa House Blend', 95000, event)">+
+                                    Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="seduh" class="brewing-section text-center">
+        <div class="container">
+            <h2 class="fw-bold mb-3">Asisten Seduh Virtual</h2>
+            <p class="text-white-50 mb-5">Temukan rasio emas untuk metode seduh favorit Anda.</p>
+
+            <div class="d-flex justify-content-center flex-wrap mb-4">
+                <button class="brew-btn active" onclick="changeMethod('v60', this)">V60 / Pour Over</button>
+                <button class="brew-btn" onclick="changeMethod('tubruk', this)">Kopi Tubruk</button>
+                <button class="brew-btn" onclick="changeMethod('french', this)">French Press</button>
+                <button class="brew-btn" onclick="changeMethod('aeropress', this)">Aeropress</button>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="brew-card">
+                        <div id="brewContent">
+                            <i class="fas fa-filter brew-icon text-warning mb-3" style="font-size: 2.5rem;"></i>
+                            <h3 class="mb-3">Metode V60</h3>
+                            <div class="row mt-4">
+                                <div class="col-4 border-end border-light">
+                                    <h6 class="text-uppercase text-white-50">Gilingan</h6>
+                                    <p class="text-warning fw-bold">Medium-Fine</p>
+                                </div>
+                                <div class="col-4 border-end border-light">
+                                    <h6 class="text-uppercase text-white-50">Suhu</h6>
+                                    <p class="text-warning fw-bold">90° - 93°C</p>
+                                </div>
+                                <div class="col-4">
+                                    <h6 class="text-uppercase text-white-50">Rasio</h6>
+                                    <p class="text-warning fw-bold">1 : 15</p>
+                                </div>
+                            </div>
+                            <hr class="border-light my-4">
+                            <p class="text-white fst-italic">"Tuang air perlahan secara memutar (circular motion).
+                                Biarkan blooming selama 30 detik pertama untuk rasa maksimal."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ulasan" class="testimonial-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title fw-bold">Cerita Penikmat</h2>
+            </div>
+
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0"
+                        class="active"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+                </div>
+
+                <div class="carousel-inner pb-5">
+                    <div class="carousel-item active">
+                        <div class="testimonial-box">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="user-img-lg">
+                            <div class="mb-3 text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <h4 class="fst-italic mb-4 fw-light">"Gayo Wine-nya luar biasa! Aromanya semerbak satu
+                                ruangan pas diseduh."</h4>
+                            <h6 class="fw-bold mb-0">Budi Santoso</h6>
+                            <small class="text-muted">Jakarta Selatan</small>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="testimonial-box">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="user-img-lg">
+                            <div class="mb-3 text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <h4 class="fst-italic mb-4 fw-light">"Senyawa House Blend cocok banget buat bahan es kopi
+                                susu gula aren jualan saya."</h4>
+                            <h6 class="fw-bold mb-0">Siti Aminah</h6>
+                            <small class="text-muted">Bandung</small>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="testimonial-box">
+                            <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="User" class="user-img-lg">
+                            <div class="mb-3 text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <h4 class="fst-italic mb-4 fw-light">"Suka banget sama fitur Asisten Seduh di websitenya.
+                                Sangat membantu pemula."</h4>
+                            <h6 class="fw-bold mb-0">Reza Rahardian</h6>
+                            <small class="text-muted">Surabaya</small>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title fw-bold">Pertanyaan Umum (FAQ)</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item shadow-sm border-0">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne">Berapa lama kopi bertahan setelah kemasan
+                                    dibuka?</button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Sebaiknya habiskan dalam <strong>1
+                                        bulan</strong>. Simpan di wadah kedap udara.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item shadow-sm border-0">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo">Apakah bisa request gilingan?</button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Ya, Anda bisa memilih Biji Utuh, Kasar, Medium,
+                                    atau Halus saat checkout.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item shadow-sm border-0">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree">Ongkos kirim Jabodetabek?</button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Sekitar Rp 9.000 - Rp 12.000, 1-2 hari sampai.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item shadow-sm border-0">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFour">Apakah ada harga grosir untuk Cafe?</button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Ya, silakan hubungi kami via WhatsApp untuk
+                                    katalog Wholesale Partner.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item shadow-sm border-0">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFive">Apakah pengiriman luar pulau aman?</button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Aman, kami menggunakan bubble wrap tebal dan
+                                    kardus double wall.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">SENYAWA KOPI</h5>
+                    <p class="small text-secondary">Menghadirkan harmoni rasa dari perkebunan nusantara langsung ke meja
+                        Anda.</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="text-white mb-3">Menu</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="#">Beranda</a></li>
+                        <li><a href="tentang.html">Tentang</a></li>
+                        <li><a href="produk.html">Produk</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="text-white mb-3">Bantuan</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="http://wa.me/6282257391460">Konfirmasi Pembayaran</a></li>
+                        <li><a href="http://wa.me/6282257391460">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="text-white mb-3">Newsletter</h6>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Email Anda">
+                        <button class="btn btn-custom" type="button">Kirim</button>
+                    </div>
+                    <div>
+                        <a href="#" class="me-3 fs-5"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-3 fs-5"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary mt-4 opacity-25">
+            <div class="text-center pt-2">
+                <p class="small mb-0 text-secondary">&copy; 2024 Senyawa Kopi Indonesia.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function updateCartBadge() {
+            const cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('desktop-cart-count').innerText = totalItems;
+            document.getElementById('mobile-cart-count').innerText = totalItems;
+        }
+
+        // --- MODIFIED ADD TO CART (Sesuai produk.html) ---
+        function addToCart(name, price, event) {
+            // PENTING: Mencegah parent div (kartu) diklik saat tombol ditekan
+            event.stopPropagation();
+
+            let cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) { existingItem.qty += 1; }
+            else { cart.push({ name: name, price: price, qty: 1 }); }
+            localStorage.setItem('senyawaCart', JSON.stringify(cart));
+            updateCartBadge();
+
+            // Efek feedback sederhana (TIDAK ADA ALERT)
+            const btn = event.target;
+            const originalText = btn.innerText;
+            btn.innerText = "✔ Added";
+            btn.classList.add('bg-success', 'border-success'); // Mengubah warna tombol jadi hijau
+
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.remove('bg-success', 'border-success');
+            }, 1000);
+        }
+        updateCartBadge();
+
+        const brewData = {
+            'v60': { icon: 'fa-filter', title: 'Metode V60', grind: 'Medium-Fine', temp: '90° - 93°C', ratio: '1 : 15', desc: '"Tuang air perlahan secara memutar. Blooming 30 detik."' },
+            'tubruk': { icon: 'fa-mug-hot', title: 'Kopi Tubruk', grind: 'Fine (Halus)', temp: '95° - 98°C', ratio: '1 : 12', desc: '"Tuang air panas, aduk 3x, diamkan 4 menit."' },
+            'french': { icon: 'fa-compress-arrows-alt', title: 'French Press', grind: 'Coarse (Kasar)', temp: '93°C', ratio: '1 : 14', desc: '"Tuang air, aduk, pasang tutup, tunggu 4 menit lalu tekan."' },
+            'aeropress': { icon: 'fa-rocket', title: 'Aeropress', grind: 'Medium-Fine', temp: '85° - 90°C', ratio: '1 : 16', desc: '"Aduk 10 detik, tekan perlahan 20-30 detik."' }
+        };
+
+        function changeMethod(method, btnElement) {
+            document.querySelectorAll('.brew-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+            const contentDiv = document.getElementById('brewContent');
+            contentDiv.style.opacity = 0;
+            setTimeout(() => {
+                const data = brewData[method];
+                contentDiv.innerHTML = `<i class="fas ${data.icon} brew-icon text-warning mb-3" style="font-size: 2.5rem;"></i><h3 class="mb-3">${data.title}</h3><div class="row mt-4"><div class="col-4 border-end border-light"><h6 class="text-white-50">Gilingan</h6><p class="text-warning fw-bold">${data.grind}</p></div><div class="col-4 border-end border-light"><h6 class="text-white-50">Suhu</h6><p class="text-warning fw-bold">${data.temp}</p></div><div class="col-4"><h6 class="text-white-50">Rasio</h6><p class="text-warning fw-bold">${data.ratio}</p></div></div><hr class="border-light my-4"><p class="text-white fst-italic">${data.desc}</p>`;
+                contentDiv.style.opacity = 1;
+            }, 200);
+        }
+    </script>
+</body>
+
+</html>

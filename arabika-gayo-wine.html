@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arabika Gayo Wine - Senyawa Kopi</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* --- 1. CONFIGURATION (SAMA PERSIS DENGAN INDEX) --- */
+        :root {
+            --primary-color: #3E2723;
+            --secondary-color: #C08B5C;
+            --accent-color: #FAF7F2;
+            --text-dark: #2D2420;
+            --light-bg: #ffffff;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--accent-color);
+            padding-top: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Lora', serif;
+        }
+
+        /* --- 2. NAVBAR (SAMA PERSIS) --- */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: var(--primary-color) !important;
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            font-family: 'Lora', serif;
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            margin-left: 15px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--secondary-color) !important;
+        }
+
+        .cart-nav-item {
+            position: relative;
+            cursor: pointer;
+            margin-left: 20px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -8px;
+            background-color: var(--secondary-color);
+            color: white;
+            font-size: 0.65rem;
+            padding: 3px 6px;
+            border-radius: 50%;
+        }
+
+        /* --- 3. DETAIL PAGE SPECIFIC STYLES --- */
+        .breadcrumb-item a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item.active {
+            color: var(--text-dark);
+        }
+
+        /* Image Wrapper agar terlihat premium */
+        .main-product-img-wrapper {
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            height: 500px;
+            /* Tinggi fix agar konsisten */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-product-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+
+        .main-product-img:hover {
+            transform: scale(1.02);
+        }
+
+        .product-price-lg {
+            color: var(--secondary-color);
+            font-family: 'Lora', serif;
+            font-weight: 700;
+            font-size: 2rem;
+            margin: 15px 0;
+        }
+
+        .flavor-badge {
+            background-color: rgba(192, 139, 92, 0.1);
+            /* Secondary color soft */
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            border: 1px solid rgba(192, 139, 92, 0.2);
+        }
+
+        .btn-add-large {
+            background-color: var(--primary-color);
+            color: white;
+            width: 100%;
+            padding: 15px;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border: 2px solid var(--primary-color);
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-add-large:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        /* Accordion Custom Style */
+        .accordion-button {
+            color: var(--primary-color);
+            font-weight: 600;
+            background-color: white;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: var(--secondary-color);
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+        }
+
+        .accordion-button:focus {
+            border-color: rgba(192, 139, 92, 0.2);
+            box-shadow: none;
+        }
+
+        /* --- 4. CARD STYLE (Untuk Related Products - SAMA DENGAN INDEX) --- */
+        .product-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+            transition: all 0.4s;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-img-wrapper {
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .product-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .product-card:hover .product-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .price-tag {
+            color: var(--secondary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+            font-family: 'Lora', serif;
+        }
+
+        .btn-custom-dark {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            padding: 5px 20px;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .btn-custom-dark:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        /* --- 5. FOOTER (SAMA PERSIS) --- */
+        footer {
+            background-color: #2b1d19;
+            color: #bbb;
+            padding: 70px 0 30px;
+        }
+
+        footer h5 {
+            color: white;
+            font-family: 'Lora', serif;
+            letter-spacing: 1px;
+        }
+
+        footer a {
+            color: #bbb;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .main-product-img-wrapper {
+                height: 350px;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-coffee me-2"></i>SENYAWA.</a>
+
+            <a href="keranjang.html" class="d-lg-none ms-auto me-3 position-relative text-dark">
+                <i class="fas fa-shopping-bag fs-5"></i>
+                <span class="cart-badge" id="mobile-cart-count">0</span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="fas fa-bars text-dark"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="produk.html">Produk</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+
+                    <li class="nav-item d-none d-lg-block">
+                        <a href="keranjang.html" class="cart-nav-item text-decoration-none">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span class="cart-badge" id="desktop-cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-5 mt-5">
+        <div class="container py-4">
+
+            <div class="row align-items-start">
+
+                <div class="col-lg-6">
+                    <div class="main-product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Arabika Gayo Wine" class="main-product-img">
+                    </div>
+                </div>
+
+                <div class="col-lg-6 ps-lg-5">
+                    <h1 class="fw-bold mb-2">Arabika Gayo Wine</h1>
+
+                    <div class="mb-3 text-warning">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-muted ms-2 small">(45 Ulasan)</span>
+                    </div>
+
+                    <div class="product-price-lg">Rp 125.000 <span class="text-muted fs-6 fw-normal">/ 200g</span></div>
+
+                    <p class="text-muted leading-relaxed mb-4">
+                        Kopi Arabika Gayo dengan proses pasca panen <em>Wine Process</em> yang menghasilkan aroma
+                        fermentasi buah yang kuat dan menyegarkan. Dipetik merah sempurna dari dataran tinggi Aceh
+                        Tengah, biji kopi ini menawarkan pengalaman rasa eksotis dengan body yang tebal dan clean
+                        aftertaste.
+                    </p>
+
+                    <div class="mb-4">
+                        <h6 class="text-uppercase small fw-bold text-secondary mb-2">Tasting Notes:</h6>
+                        <span class="flavor-badge">Jackfruit</span>
+                        <span class="flavor-badge">Dark Chocolate</span>
+                        <span class="flavor-badge">High Acidity</span>
+                        <span class="flavor-badge">Winey</span>
+                    </div>
+
+                    <button class="btn btn-add-large" onclick="addToCart('Arabika Gayo Wine', 125000, event)">
+                        <i class="fas fa-shopping-bag me-2"></i> Tambahkan ke Keranjang
+                    </button>
+
+                    <div class="accordion mt-5" id="productAccordion">
+                        <div class="accordion-item border-0 border-bottom">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne">
+                                    Detail Origin
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse"
+                                data-bs-parent="#productAccordion">
+                                <div class="accordion-body px-0 text-muted small">
+                                    <ul class="list-unstyled">
+                                        <li><strong>Wilayah:</strong> Takengon, Aceh Tengah</li>
+                                        <li><strong>Ketinggian:</strong> 1.500 - 1.700 mdpl</li>
+                                        <li><strong>Varietas:</strong> Ateng Super, Tim Tim</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 border-bottom">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo">
+                                    Proses Pengolahan
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse"
+                                data-bs-parent="#productAccordion">
+                                <div class="accordion-body px-0 text-muted small">
+                                    Natural Wine Process. Cherry kopi difermentasi utuh selama 30-45 hari hingga
+                                    mengering seperti kismis, menciptakan profil rasa buah fermentasi yang menyerupai
+                                    wine.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 border-bottom">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree">
+                                    Saran Penyeduhan
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse"
+                                data-bs-parent="#productAccordion">
+                                <div class="accordion-body px-0 text-muted small">
+                                    Sangat cocok diseduh menggunakan metode V60 atau Japanese Iced Coffee untuk
+                                    menonjolkan karakter fruity dan acidity-nya yang menyegarkan.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h3 class="fw-bold mb-4" style="color: var(--primary-color);">Produk Sejenis</h3>
+
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6">
+                    <div class="product-card" onclick="window.location.href='#'">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1611854779393-1b2ae93a9d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Flores Bajawa">
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Flores Bajawa</h5>
+                            <div class="mb-2 text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                            <p class="text-muted small mb-3">Notes: Floral, Nutty, Medium Body.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="price-tag">Rp 115.000</span>
+                                <button class="btn btn-custom-dark btn-sm"
+                                    onclick="addToCart('Flores Bajawa', 115000, event)">+ Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="product-card" onclick="window.location.href='#'">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="House Blend">
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Senyawa House Blend</h5>
+                            <div class="mb-2 text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="text-muted small mb-3">Blend 70% Arabika 30% Robusta.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="price-tag">Rp 95.000</span>
+                                <button class="btn btn-custom-dark btn-sm"
+                                    onclick="addToCart('Senyawa House Blend', 95000, event)">+ Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="product-card" onclick="window.location.href='#'">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Bali Kintamani">
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Bali Kintamani</h5>
+                            <div class="mb-2 text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-muted small mb-3">Notes: Citrus Orange, Brown Sugar.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="price-tag">Rp 110.000</span>
+                                <button class="btn btn-custom-dark btn-sm"
+                                    onclick="addToCart('Bali Kintamani', 110000, event)">+ Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">SENYAWA KOPI</h5>
+                    <p class="small text-secondary">Menghadirkan harmoni rasa dari perkebunan nusantara langsung ke meja
+                        Anda.</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="text-white mb-3">Menu</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="tentang.html">Tentang</a></li>
+                        <li><a href="produk.html">Produk</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="text-white mb-3">Bantuan</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="https://wa.me/6282257391460">Konfirmasi Pembayaran</a></li>
+                        <li><a href="https://wa.me/6282257391460">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="text-white mb-3">Newsletter</h6>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Email Anda">
+                        <button class="btn btn-custom" type="button"
+                            style="background-color: var(--secondary-color); color: white; border:none;">Kirim</button>
+                    </div>
+                    <div>
+                        <a href="#" class="me-3 fs-5"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-3 fs-5"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary mt-4 opacity-25">
+            <div class="text-center pt-2">
+                <p class="small mb-0 text-secondary">&copy; 2024 Senyawa Kopi Indonesia.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // --- LOGIC KERANJANG BELANJA (FIXED BUTTON SIZE) ---
+        function updateCartBadge() {
+            const cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            const desktopBadge = document.getElementById('desktop-cart-count');
+            const mobileBadge = document.getElementById('mobile-cart-count');
+
+            if (desktopBadge) desktopBadge.innerText = totalItems;
+            if (mobileBadge) mobileBadge.innerText = totalItems;
+        }
+
+        function addToCart(name, price, event) {
+            // Mencegah bubbling jika diklik dari dalam card
+            if (event) event.stopPropagation();
+
+            let cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
+            const existingItem = cart.find(item => item.name === name);
+
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    qty: 1,
+                    image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80'
+                });
+            }
+
+            localStorage.setItem('senyawaCart', JSON.stringify(cart));
+            updateCartBadge();
+
+            // --- VISUAL EFFECT LOGIC ---
+            const btn = event.target.closest('button');
+            const originalHTML = btn.innerHTML;
+
+            // Cek apakah ini tombol besar (halaman detail) atau kecil (card produk)
+            const isLargeButton = btn.classList.contains('btn-add-large');
+
+            // 1. Ubah Teks & Warna
+            btn.innerHTML = '<i class="fas fa-check me-2"></i> Berhasil';
+            btn.classList.remove('btn-custom-dark', 'btn-add-large');
+            btn.classList.add('btn-success', 'text-white');
+            btn.style.borderColor = '#198754';
+
+            // 2. PERBAIKAN: Jika tombol aslinya besar, paksa tetap lebar 100%
+            if (isLargeButton) {
+                btn.classList.add('w-100');
+            }
+
+            // 3. Kembalikan ke semula setelah 1.5 detik
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.classList.remove('btn-success', 'text-white', 'w-100'); // Hapus class w-100 juga
+
+                // Kembalikan class asli sesuai jenis tombol
+                if (isLargeButton) {
+                    btn.classList.add('btn-add-large');
+                } else {
+                    btn.classList.add('btn-custom-dark');
+                }
+                btn.style.borderColor = '';
+            }, 1500);
+        }
+
+        document.addEventListener('DOMContentLoaded', updateCartBadge);
+    </script>
+</body>
+
+</html>

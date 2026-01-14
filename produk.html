@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk - Senyawa Kopi</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* --- 1. CONFIGURATION (SAME AS INDEX) --- */
+        :root {
+            --primary-color: #3E2723;
+            --secondary-color: #C08B5C;
+            --accent-color: #FAF7F2;
+            --text-dark: #2D2420;
+            --light-bg: #ffffff;
+        }
+
+        /* Anti Scroll Samping */
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--accent-color);
+            padding-top: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Lora', serif;
+        }
+
+        /* --- 2. NAVBAR (IDENTIK) --- */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: var(--primary-color) !important;
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            font-family: 'Lora', serif;
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            margin-left: 15px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--secondary-color) !important;
+        }
+
+        .cart-nav-item {
+            position: relative;
+            cursor: pointer;
+            margin-left: 20px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -8px;
+            background-color: var(--secondary-color);
+            color: white;
+            font-size: 0.65rem;
+            padding: 3px 6px;
+            border-radius: 50%;
+        }
+
+        /* --- 3. HERO HEADER --- */
+        .page-header {
+            /* Gambar berbeda untuk halaman produk */
+            background: linear-gradient(rgba(62, 39, 35, 0.8), rgba(62, 39, 35, 0.7)), url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 0;
+            padding-top: 80px;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        /* --- 4. PRODUCT CARD STYLES --- */
+        .product-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            height: 100%;
+            cursor: pointer;
+            /* Menunjukkan bisa diklik */
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-img-wrapper {
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+        }
+
+        .product-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .price-tag {
+            color: var(--secondary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+            font-family: 'Lora', serif;
+        }
+
+        .btn-add-cart {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            padding: 8px 25px;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s;
+            font-size: 0.85rem;
+            z-index: 2;
+            /* Agar tombol berada di atas link kartu */
+            position: relative;
+        }
+
+        .btn-add-cart:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        /* --- 5. CTA WHATSAPP --- */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235d4037' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            font-weight: 600;
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            text-decoration: none;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* --- 6. FOOTER (IDENTIK) --- */
+        footer {
+            background-color: #2b1d19;
+            color: #bbb;
+            padding: 70px 0 30px;
+        }
+
+        footer h5 {
+            color: white;
+            font-family: 'Lora', serif;
+            letter-spacing: 1px;
+        }
+
+        footer a {
+            color: #bbb;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .product-img-wrapper {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-coffee me-2"></i>SENYAWA.</a>
+
+            <a href="keranjang.html" class="d-lg-none ms-auto me-3 position-relative text-dark">
+                <i class="fas fa-shopping-bag fs-5"></i>
+                <span class="cart-badge" id="mobile-cart-count">0</span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="fas fa-bars text-dark"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="produk.html">Produk</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+
+                    <li class="nav-item d-none d-lg-block">
+                        <a href="keranjang.html" class="cart-nav-item text-decoration-none">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span class="cart-badge" id="desktop-cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">Koleksi Single Origin</h1>
+            <p class="lead text-white-50">Dikurasi dari perkebunan terbaik di Nusantara.</p>
+        </div>
+    </header>
+
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <h4 class="fw-bold text-dark">Semua Produk</h4>
+
+                <select id="sortFilter" class="form-select w-auto border-0 bg-white shadow-sm"
+                    style="border-radius: 20px;" onchange="sortProducts()">
+                    <option value="default">Urutkan: Populer</option>
+                    <option value="low">Harga Terendah</option>
+                    <option value="high">Harga Tertinggi</option>
+                </select>
+            </div>
+
+            <div id="productContainer" class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+
+                <div class="col product-item">
+                    <div class="product-card h-100" onclick="window.location.href='detail-produk.html'">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Gayo">
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Arabika Gayo Wine</h5>
+                            <div class="mb-2 text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-muted small mb-3 flex-grow-1">Notes: Jackfruit, Dark Chocolate, High Acidity.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="price-tag">Rp 125.000</span>
+                                <button class="btn btn-add-cart"
+                                    onclick="addToCart('Arabika Gayo Wine', 125000, event)">+ Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col product-item">
+                    <div class="product-card h-100" onclick="window.location.href='detail-produk.html'">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1611854779393-1b2ae93a9d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Flores">
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Flores Bajawa</h5>
+                            <div class="mb-2 text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                            <p class="text-muted small mb-3 flex-grow-1">Notes: Floral, Nutty, Medium Body, Sweet
+                                Aftertaste.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="price-tag">Rp 115.000</span>
+                                <button class="btn btn-add-cart" onclick="addToCart('Flores Bajawa', 115000, event)">+
+                                    Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col product-item">
+                    <div class="product-card h-100" onclick="window.location.href='detail-produk.html'">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Blend">
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Senyawa House Blend</h5>
+                            <div class="mb-2 text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="text-muted small mb-3 flex-grow-1">Blend 70% Arabika 30% Robusta. Bold & Strong
+                                Character.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="price-tag">Rp 95.000</span>
+                                <button class="btn btn-add-cart"
+                                    onclick="addToCart('Senyawa House Blend', 95000, event)">+ Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col product-item">
+                    <div class="product-card h-100" onclick="window.location.href='detail-produk.html'">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Kintamani">
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Bali Kintamani</h5>
+                            <div class="mb-2 text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-muted small mb-3 flex-grow-1">Notes: Citrus Orange, Brown Sugar, Clean
+                                Aftertaste.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="price-tag">Rp 110.000</span>
+                                <button class="btn btn-add-cart" onclick="addToCart('Bali Kintamani', 110000, event)">+
+                                    Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col product-item">
+                    <div class="product-card h-100" onclick="window.location.href='detail-produk.html'">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Toraja">
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Toraja Sapan</h5>
+                            <div class="mb-2 text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-muted small mb-3 flex-grow-1">Notes: Herbal, Spicy, Dark Cocoa, Full Body.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="price-tag">Rp 120.000</span>
+                                <button class="btn btn-add-cart" onclick="addToCart('Toraja Sapan', 120000, event)">+
+                                    Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col product-item">
+                    <div class="product-card h-100" onclick="window.location.href='detail-produk.html'">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1621267860478-dbdd589372db?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Papua">
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Papua Wamena</h5>
+                            <div class="mb-2 text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                            <p class="text-muted small mb-3 flex-grow-1">Notes: Floral, Tropical Fruit, Smooth Balance.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="price-tag">Rp 130.000</span>
+                                <button class="btn btn-add-cart" onclick="addToCart('Papua Wamena', 130000, event)">+
+                                    Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col product-item">
+                    <div class="product-card h-100" onclick="window.location.href='detail-produk.html'">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1504630083234-141d7a021d5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Robusta">
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Robusta Temanggung</h5>
+                            <div class="mb-2 text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="text-muted small mb-3 flex-grow-1">Notes: Mocca, Caramel, Tobacco, High Caffeine.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="price-tag">Rp 85.000</span>
+                                <button class="btn btn-add-cart"
+                                    onclick="addToCart('Robusta Temanggung', 85000, event)">+ Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col product-item">
+                    <div class="product-card h-100" onclick="window.location.href='detail-produk.html'">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Preanger">
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">West Java Preanger</h5>
+                            <div class="mb-2 text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-muted small mb-3 flex-grow-1">Notes: Tea-like, Lemon, Honey Sweetness.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="price-tag">Rp 115.000</span>
+                                <button class="btn btn-add-cart"
+                                    onclick="addToCart('West Java Preanger', 115000, event)">+ Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h2 class="fw-bold mb-3">Butuh Saran Beans?</h2>
+                    <p class="mb-5 text-white-50">Konsultasikan selera kopi Anda dengan roaster kami. Kami siap membantu
+                        Anda menemukan karakter rasa yang tepat.</p>
+
+                    <a href="https://wa.me/6282257391460?text=Halo%20Senyawa%20Kopi,%20saya%20mau%20tanya%20tentang%20produk%20kopi%20Anda."
+                        class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp fs-4"></i> Konsultasi via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">SENYAWA KOPI</h5>
+                    <p class="small text-secondary">Menghadirkan harmoni rasa dari perkebunan nusantara langsung ke meja
+                        Anda.</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="text-white mb-3">Menu</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="tentang.html">Tentang</a></li>
+                        <li><a href="produk.html">Produk</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="text-white mb-3">Bantuan</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="https://wa.me/6282257391460">Konfirmasi Pembayaran</a></li>
+                        <li><a href="https://wa.me/6282257391460">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="text-white mb-3">Newsletter</h6>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Email Anda">
+                        <button class="btn btn-add-cart" type="button"
+                            style="border-radius: 0 50px 50px 0;">Kirim</button>
+                    </div>
+                    <div>
+                        <a href="#" class="me-3 fs-5"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-3 fs-5"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary mt-4 opacity-25">
+            <div class="text-center pt-2">
+                <p class="small mb-0 text-secondary">&copy; 2024 Senyawa Kopi Indonesia.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // --- CART LOGIC ---
+        function updateCartBadge() {
+            const cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            const desktopBadge = document.getElementById('desktop-cart-count');
+            const mobileBadge = document.getElementById('mobile-cart-count');
+
+            if (desktopBadge) desktopBadge.innerText = totalItems;
+            if (mobileBadge) mobileBadge.innerText = totalItems;
+        }
+
+        function addToCart(name, price, event) {
+            // PENTING: Mencegah parent div (kartu) diklik saat tombol ditekan
+            event.stopPropagation();
+
+            let cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
+            const existingItem = cart.find(item => item.name === name);
+
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({ name: name, price: price, qty: 1 });
+            }
+
+            localStorage.setItem('senyawaCart', JSON.stringify(cart));
+            updateCartBadge();
+
+            // Efek feedback sederhana
+            const btn = event.target;
+            const originalText = btn.innerText;
+            btn.innerText = "✔ Added";
+            btn.classList.add('bg-success', 'border-success');
+
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.remove('bg-success', 'border-success');
+            }, 1000);
+        }
+
+        // --- SORTING LOGIC (BARU) ---
+        function getPrice(element) {
+            // Mengambil teks harga, menghapus "Rp " dan titik, lalu ubah jadi angka
+            const priceText = element.querySelector('.price-tag').innerText;
+            return parseInt(priceText.replace(/[^0-9]/g, ''));
+        }
+
+        function sortProducts() {
+            const select = document.getElementById('sortFilter');
+            const container = document.getElementById('productContainer');
+            // Mengambil semua elemen produk (.col) sebagai array
+            const products = Array.from(container.children);
+            const value = select.value;
+
+            if (value === 'low') {
+                // Urutkan harga terendah ke tertinggi (a - b)
+                products.sort((a, b) => getPrice(a) - getPrice(b));
+            } else if (value === 'high') {
+                // Urutkan harga tertinggi ke terendah (b - a)
+                products.sort((a, b) => getPrice(b) - getPrice(a));
+            } else {
+                // Urutkan berdasarkan data-index original
+                products.sort((a, b) => a.getAttribute('data-index') - b.getAttribute('data-index'));
+            }
+
+            // Memasukkan kembali elemen yang sudah diurutkan ke container
+            container.innerHTML = '';
+            products.forEach(product => container.appendChild(product));
+        }
+
+        // Init Cart Badge & Set Original Index for Sorting
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartBadge();
+
+            // Simpan urutan awal (default) menggunakan data-attribute
+            const container = document.getElementById('productContainer');
+            const products = container.children;
+            for (let i = 0; i < products.length; i++) {
+                products[i].setAttribute('data-index', i);
+            }
+        });
+    </script>
+</body>
+
+</html>

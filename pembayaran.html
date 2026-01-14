@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pembayaran - Senyawa Kopi</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&family=Courier+Prime&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* --- 1. PALETTE WARNA (IDENTIK DENGAN INDEX) --- */
+        :root {
+            --primary-color: #3E2723;
+            /* Espresso */
+            --secondary-color: #C08B5C;
+            /* Caramel */
+            --accent-color: #FAF7F2;
+            /* Cream Background */
+            --text-dark: #2D2420;
+            --text-muted: #6D6D6D;
+            --light-bg: #ffffff;
+        }
+
+        /* PERBAIKAN: Mencegah Layar Geser Kanan Kiri */
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--accent-color);
+            color: var(--text-dark);
+            padding-bottom: 50px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Lora', serif;
+        }
+
+        /* --- 2. NAVBAR STYLE (IDENTIK DENGAN KERANJANG) --- */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .navbar-brand {
+            color: var(--primary-color) !important;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            font-family: 'Lora', serif;
+        }
+
+        .nav-back-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-back-link:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- 3. CARD FORM --- */
+        .payment-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            /* Lebih bulat sesuai style baru */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+            border: 1px solid rgba(0, 0, 0, 0.02);
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        .form-control,
+        .form-select {
+            border-radius: 10px;
+            padding: 12px;
+            border: 1px solid #eee;
+            background-color: #fcfcfc;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.2rem rgba(192, 139, 92, 0.25);
+        }
+
+        /* --- 4. BUTTON STYLE (PILL SHAPE) --- */
+        .btn-confirm {
+            background-color: var(--secondary-color);
+            color: white;
+            font-weight: 600;
+            width: 100%;
+            padding: 14px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 50px;
+            /* Style Kapsul */
+            transition: 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-confirm:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+        }
+
+        /* --- 5. RECEIPT STYLE (STRUK) --- */
+        #receipt-area {
+            display: none;
+            max-width: 400px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 25px;
+            /* Border bergerigi ala struk */
+            background-image: radial-gradient(circle at top left, transparent 10px, #fff 10px), radial-gradient(circle at top right, transparent 10px, #fff 10px);
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+            font-family: 'Courier Prime', monospace;
+            position: relative;
+        }
+
+        .receipt-header {
+            text-align: center;
+            border-bottom: 2px dashed #ddd;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .receipt-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .receipt-total {
+            border-top: 2px dashed #ddd;
+            padding-top: 10px;
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .status-paid {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 8px;
+            transform: rotate(-3deg);
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+        }
+
+        /* Loading Overlay */
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .text-primary-custom {
+            color: var(--primary-color);
+        }
+
+        /* Tambahan Responsif Mobile */
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .payment-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar sticky-top">
+        <div class="container">
+            <a class="nav-back-link" href="keranjang.html">
+                <i class="fas fa-arrow-left me-2"></i> Kembali
+            </a>
+            <span class="navbar-brand mb-0 h1">PEMBAYARAN.</span>
+        </div>
+    </nav>
+
+    <div class="container" id="payment-form-container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="payment-card">
+                    <h4 class="mb-4 fw-bold text-primary-custom" style="font-family: 'Lora', serif;">
+                        <i class="far fa-address-card me-2"></i>Data Pengiriman
+                    </h4>
+                    <form id="checkoutForm" onsubmit="processPayment(event)">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="customerName"
+                                    placeholder="Contoh: Budi Santoso" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Nomor WhatsApp</label>
+                                <input type="tel" class="form-control" id="customerPhone" placeholder="0812..."
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Alamat Lengkap</label>
+                            <textarea class="form-control" id="customerAddress" rows="2"
+                                placeholder="Jalan, No. Rumah, Kecamatan, Kota" required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Catatan Pesanan (Opsional)</label>
+                            <textarea class="form-control" id="customerNote" rows="2"
+                                placeholder="Contoh: Tolong giling halus untuk espresso, atau jangan pakai lakban berlebih..."></textarea>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Metode Pembayaran</label>
+                            <select class="form-select" id="paymentMethod">
+                                <option value="Transfer BCA">Transfer Bank BCA</option>
+                                <option value="QRIS">QRIS (GoPay/Ovo/Dana)</option>
+                                <option value="COD">COD (Bayar di Tempat)</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-confirm shadow-sm">
+                            <i class="fab fa-whatsapp me-2"></i>Buat Pesanan & Kirim
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="payment-card bg-white">
+                    <h5 class="fw-bold mb-4" style="font-family: 'Lora', serif; color: var(--primary-color);">Rincian
+                        Pesanan</h5>
+
+                    <div id="checkout-items-list" class="mb-3">
+                    </div>
+
+                    <hr style="opacity: 0.1">
+                    <div class="d-flex justify-content-between mb-2 text-muted small">
+                        <span>Subtotal Produk</span>
+                        <span id="checkout-subtotal">Rp 0</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2 text-muted small">
+                        <span>Ongkos Kirim (Flat)</span>
+                        <span>Rp 15.000</span>
+                    </div>
+                    <hr style="opacity: 0.1">
+                    <div class="d-flex justify-content-between fw-bold fs-5 text-primary-custom">
+                        <span>Total Bayar</span>
+                        <span id="finalTotal" style="color: var(--secondary-color);">Rp 0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5" id="receipt-container" style="display: none;">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold section-title" style="margin-bottom: 1rem;">Pesanan Diterima!</h2>
+            <p class="text-muted mx-auto" style="max-width: 600px;">
+                Terima kasih telah memilih Senyawa Kopi. Pesanan Anda telah kami teruskan ke admin WhatsApp untuk
+                konfirmasi pembayaran.
+            </p>
+        </div>
+
+        <div id="receipt-area">
+            <div class="receipt-header">
+                <h5 class="fw-bold">SENYAWA KOPI</h5>
+                <small>Authentic Coffee Experience</small><br>
+                <small>Date: <span id="receiptDate"></span></small><br>
+                <small>Order ID: <span id="orderId"></span></small>
+            </div>
+
+            <div class="mb-3 small">
+                <span class="text-muted">Customer:</span><br>
+                <span id="receiptName" class="fw-bold text-uppercase"></span><br>
+                <span id="receiptPhone"></span>
+            </div>
+
+            <div class="mb-3 small" id="receiptNoteContainer" style="display: none;">
+                <span class="text-muted">Catatan:</span><br>
+                <span id="receiptNote" class="fst-italic"></span>
+            </div>
+
+            <div style="border-bottom: 1px dashed #ddd; margin-bottom: 10px;"></div>
+
+            <div id="receipt-items-list"></div>
+
+            <div style="border-bottom: 1px dashed #ddd; margin: 10px 0;"></div>
+
+            <div class="receipt-row">
+                <span>Ongkir</span>
+                <span>15.000</span>
+            </div>
+            <div class="receipt-total receipt-row">
+                <span>TOTAL</span>
+                <span id="receiptTotal">Rp 0</span>
+            </div>
+
+            <div class="receipt-row mt-3 small text-muted">
+                <span>Metode:</span>
+                <span id="receiptMethod" class="text-uppercase"></span>
+            </div>
+
+            <div class="text-center">
+                <div class="status-paid">MENUNGGU KONFIRMASI</div>
+            </div>
+
+            <div class="text-center mt-4" style="font-size: 0.7rem; color: #aaa;">
+                -- Terima Kasih --
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="index.html" class="btn btn-confirm px-5 w-auto">
+                Kembali ke Beranda
+            </a>
+        </div>
+    </div>
+
+    <div id="loading-overlay">
+        <div class="spinner-border text-secondary mb-3" role="status" style="width: 3rem; height: 3rem;"></div>
+        <h5 style="font-family: 'Lora', serif; color: var(--primary-color);">Memproses Pesanan...</h5>
+        <p class="text-muted small">Mohon tunggu sebentar</p>
+    </div>
+
+    <script>
+        // --- KONFIGURASI NOMOR WA ADMIN ---
+        const adminPhone = "6282257391460"; // Ganti dengan No WA Anda
+
+        const shippingCost = 15000;
+        let grandTotal = 0;
+
+        // Helper Format Rupiah
+        function formatRupiah(num) {
+            return 'Rp ' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+        }
+
+        // 1. Load Data Pesanan dari LocalStorage
+        function loadOrderSummary() {
+            const cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
+            const itemList = document.getElementById('checkout-items-list');
+
+            if (cart.length === 0) {
+                // Jika kosong, redirect ke home
+                window.location.href = 'index.html';
+                return;
+            }
+
+            let subtotal = 0;
+            let htmlContent = ''; // PERBAIKAN: Gunakan variabel string untuk mencegah glitch
+
+            cart.forEach(item => {
+                subtotal += item.price * item.qty;
+                htmlContent += `
+                    <div class="d-flex justify-content-between mb-2 small text-dark">
+                        <span>${item.name} <span class="text-muted">x${item.qty}</span></span>
+                        <span class="fw-bold">${formatRupiah(item.price * item.qty)}</span>
+                    </div>
+                `;
+            });
+
+            // Render sekaligus
+            itemList.innerHTML = htmlContent;
+
+            grandTotal = subtotal + shippingCost;
+
+            document.getElementById('checkout-subtotal').innerText = formatRupiah(subtotal);
+            document.getElementById('finalTotal').innerText = formatRupiah(grandTotal);
+        }
+
+        // 2. Proses Pembayaran & Kirim WA
+        function processPayment(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('customerName').value;
+            const phone = document.getElementById('customerPhone').value;
+            const address = document.getElementById('customerAddress').value;
+            const note = document.getElementById('customerNote').value;
+            const method = document.getElementById('paymentMethod').value;
+            const cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
+
+            // Tampilkan Loading
+            document.getElementById('loading-overlay').style.display = 'flex';
+
+            setTimeout(() => {
+                document.getElementById('loading-overlay').style.display = 'none';
+                document.getElementById('payment-form-container').style.display = 'none';
+                document.getElementById('receipt-container').style.display = 'block';
+
+                window.scrollTo(0, 0);
+
+                // --- ISI DATA RESI HTML ---
+                const today = new Date();
+                const dateStr = today.toLocaleDateString('id-ID') + ' ' + today.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                const randomId = 'ORD-' + Math.floor(Math.random() * 100000);
+
+                document.getElementById('receiptDate').innerText = dateStr;
+                document.getElementById('orderId').innerText = randomId;
+                document.getElementById('receiptName').innerText = name;
+                document.getElementById('receiptPhone').innerText = phone;
+                document.getElementById('receiptMethod').innerText = method;
+                document.getElementById('receiptTotal').innerText = formatRupiah(grandTotal);
+
+                if (note && note.trim() !== "") {
+                    document.getElementById('receiptNoteContainer').style.display = 'block';
+                    document.getElementById('receiptNote').innerText = note;
+                }
+
+                // Loop Item ke Resi (Gunakan buffer string juga agar tidak glitch)
+                const receiptList = document.getElementById('receipt-items-list');
+                let receiptHtml = '';
+                let waItems = "";
+
+                cart.forEach(item => {
+                    receiptHtml += `
+                        <div class="receipt-row">
+                            <span>${item.qty}x ${item.name}</span>
+                            <span>${formatRupiah(item.price * item.qty)}</span>
+                        </div>
+                    `;
+                    waItems += `- ${item.name} (${item.qty}x) : ${formatRupiah(item.price * item.qty)}%0a`;
+                });
+
+                receiptList.innerHTML = receiptHtml;
+
+                // --- FORMAT PESAN WA ---
+                let noteString = "";
+                if (note && note.trim() !== "") {
+                    noteString = `*Catatan:* ${note}%0a`;
+                }
+
+                const message = `Halo Admin Senyawa Kopi, pesanan baru:%0a%0a` +
+                    `*No. Order:* ${randomId}%0a` +
+                    `*Nama:* ${name}%0a` +
+                    `*No HP:* ${phone}%0a` +
+                    `*Alamat:* ${address}%0a` +
+                    noteString +
+                    `*Metode:* ${method}%0a%0a` +
+                    `*Rincian Pesanan:*%0a${waItems}` +
+                    `*Ongkir:* ${formatRupiah(shippingCost)}%0a` +
+                    `*TOTAL BAYAR:* ${formatRupiah(grandTotal)}%0a%0a` +
+                    `Mohon diproses segera.`;
+
+                const waLink = `https://wa.me/${adminPhone}?text=${message}`;
+                window.open(waLink, '_blank');
+
+                localStorage.removeItem('senyawaCart');
+
+            }, 2000);
+        }
+
+        // Jalankan saat DOM sudah siap sepenuhnya (Mencegah error element not found)
+        document.addEventListener('DOMContentLoaded', loadOrderSummary);
+    </script>
+
+</body>
+
+</html>
