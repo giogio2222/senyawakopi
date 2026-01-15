@@ -12,6 +12,7 @@
         content="tentang senyawa kopi, supplier biji kopi, direct trade coffee indonesia, artisan roastery malang, sejarah senyawa kopi">
     <meta name="author" content="Senyawa Kopi Indonesia">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#3E2723">
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="Tentang Kami - Senyawa Kopi Indonesia">
@@ -24,7 +25,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
-    <meta name="theme-color" content="#3E2723">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <link rel="preload" as="image" href="img/kopi/hero.webp" fetchpriority="high">
 
@@ -76,11 +81,16 @@
             --accent-color: #FAF7F2;
             --text-dark: #2D2420;
             --light-bg: #ffffff;
-            /* Accessibility: High Contrast Footer Text (Fix Skor 84 -> 100) */
-            --text-footer: #d1d1d1;
+            /* Optimasi Kontras Accessibility (Lulus WCAG AAA) */
+            --text-footer: #e0e0e0;
+            --bg-footer: #241815;
         }
 
-        /* Anti Geser Kanan Kiri */
+        /* Anti Geser Kanan Kiri & Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
         html,
         body {
             overflow-x: hidden;
@@ -106,9 +116,11 @@
 
         /* --- 2. NAVBAR STYLE --- */
         .navbar {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.98);
+            /* Sedikit lebih solid untuk performa paint */
             backdrop-filter: blur(10px);
-            padding: 1rem 0;
+            padding: 0.8rem 0;
+            /* Sedikit lebih compact */
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             z-index: 1000;
         }
@@ -123,14 +135,14 @@
 
         .nav-link {
             color: var(--text-dark) !important;
-            margin-left: 15px;
-            font-weight: 500;
+            margin-left: 10px;
+            font-weight: 600;
+            /* Sedikit lebih tebal untuk readability */
             font-size: 0.95rem;
-            /* Accessibility: Larger font */
             text-transform: uppercase;
             transition: color 0.3s;
-            padding: 10px;
-            /* Accessibility: Touch target */
+            padding: 12px;
+            /* Touch target diperbesar untuk Mobile Score */
         }
 
         .nav-link:hover,
@@ -141,31 +153,38 @@
         .cart-nav-item {
             position: relative;
             cursor: pointer;
-            margin-left: 20px;
+            margin-left: 15px;
             color: var(--primary-color);
             font-size: 1.2rem;
             transition: transform 0.2s;
             padding: 10px;
+            display: inline-flex;
+            /* Fix alignment */
+            align-items: center;
         }
 
         .cart-badge {
             position: absolute;
-            top: 0;
-            right: -5px;
+            top: 2px;
+            right: -2px;
             background-color: var(--secondary-color);
             color: white;
             font-size: 0.65rem;
-            padding: 3px 6px;
+            padding: 2px 6px;
             border-radius: 50%;
+            font-weight: bold;
         }
 
-        /* --- 3. PAGE HEADER HERO --- */
+        /* --- 3. PAGE HEADER HERO (Optimized LCP) --- */
         .page-header {
-            /* LCP Optimization: Match preload */
-            background: linear-gradient(rgba(62, 39, 35, 0.8), rgba(62, 39, 35, 0.7)), url('img/kopi/hero.webp');
+            /* Fallback color while image loads */
+            background-color: var(--primary-color);
+            background-image: linear-gradient(rgba(62, 39, 35, 0.8), rgba(62, 39, 35, 0.7)), url('img/kopi/hero.webp');
             background-size: cover;
             background-position: center;
             height: 60vh;
+            /* Mengurangi CLS pada load awal */
+            min-height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -173,30 +192,31 @@
             color: white;
             margin-bottom: 0;
             padding-top: 80px;
-            content-visibility: auto;
-            /* Performance: Faster Rendering */
-            contain: paint;
+            /* content-visibility dihapus di Hero agar LCP terdeteksi instan */
         }
 
         .page-title {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            /* Responsive Font Size */
             font-weight: 600;
             font-style: italic;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            /* Readability */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
         }
 
         /* --- 4. CONTENT STYLES --- */
         .content-section {
             padding: 80px 0;
             content-visibility: auto;
+            /* Bagus untuk performa rendering bagian bawah */
+            contain-intrinsic-size: 800px;
+            /* Mencegah layout shift saat scroll */
         }
 
         .story-img {
             width: 100%;
-            height: 100%;
-            min-height: 400px;
+            height: auto;
+            /* Aspect ratio handled by HTML attributes */
             object-fit: cover;
             border-radius: 20px;
             box-shadow: 15px 15px 0px var(--secondary-color);
@@ -207,9 +227,11 @@
             padding: 40px 30px;
             border-radius: 15px;
             text-align: center;
-            transition: 0.3s;
+            transition: transform 0.3s ease;
             height: 100%;
             border: 1px solid rgba(0, 0, 0, 0.05);
+            will-change: transform;
+            /* Hint browser untuk animasi GPU */
         }
 
         .value-card:hover {
@@ -229,19 +251,21 @@
             color: white;
             padding: 80px 0;
             text-align: center;
+            /* SVG pattern di-encode dengan benar */
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235d4037' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             content-visibility: auto;
+            contain-intrinsic-size: 300px;
         }
 
         .btn-whatsapp {
             background-color: #25D366;
             color: white;
-            font-weight: 600;
+            font-weight: 700;
             padding: 15px 40px;
             border-radius: 50px;
             border: none;
             font-size: 1.1rem;
-            transition: 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -255,27 +279,27 @@
             transform: scale(1.05);
         }
 
-        /* --- 6. FOOTER --- */
+        /* --- 6. FOOTER (Accessibility Optimized) --- */
         footer {
-            background-color: #2b1d19;
+            background-color: var(--bg-footer);
             color: var(--text-footer);
-            /* Accessibility Fix: Better Contrast */
             padding: 70px 0 30px;
         }
 
-        footer h5 {
+        footer h5,
+        footer h6 {
             color: white;
             font-family: 'Lora', serif;
             letter-spacing: 1px;
+            font-weight: 600;
         }
 
         footer a {
             color: var(--text-footer);
-            /* Accessibility Fix */
             text-decoration: none;
-            transition: 0.3s;
+            transition: color 0.3s, padding-left 0.3s;
             padding: 8px 0;
-            /* Accessibility: Larger touch target */
+            /* Touch target size optimized */
             display: inline-block;
         }
 
@@ -284,19 +308,31 @@
             padding-left: 5px;
         }
 
+        /* Fix ikon di footer agar kontras */
+        .hover-white {
+            color: var(--text-footer) !important;
+            transition: color 0.3s;
+            padding: 10px;
+            /* Touch area */
+        }
+
+        .hover-white:hover {
+            color: white !important;
+        }
+
         /* Responsive Mobile */
         @media (max-width: 768px) {
-            .page-title {
-                font-size: 2.5rem;
+            .page-header {
+                height: 50vh;
             }
 
             .story-img {
-                height: 300px;
                 margin-bottom: 30px;
             }
 
-            .page-header {
-                height: 50vh;
+            .nav-link {
+                margin-left: 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             }
         }
 
@@ -310,6 +346,8 @@
             flex-direction: column;
             align-items: center;
             gap: 15px;
+            pointer-events: none;
+            /* Agar area transparan tidak menghalangi klik */
         }
 
         .btn-floating {
@@ -326,6 +364,8 @@
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             border: none;
+            pointer-events: auto;
+            /* Mengaktifkan klik kembali */
         }
 
         .btn-wa {
@@ -372,12 +412,6 @@
                 height: 55px;
                 font-size: 28px;
             }
-
-            .btn-top {
-                width: 45px;
-                height: 45px;
-                font-size: 22px;
-            }
         }
     </style>
 </head>
@@ -386,16 +420,18 @@
 
     <nav class="navbar navbar-expand-lg fixed-top" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><i class="fas fa-coffee me-2" aria-hidden="true"></i>SENYAWA.</a>
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-coffee me-2" aria-hidden="true"></i>SENYAWA.
+            </a>
 
             <a href="keranjang.html" class="d-lg-none ms-auto me-3 position-relative text-dark"
-                aria-label="Lihat Keranjang Belanja">
+                aria-label="Lihat Keranjang Belanja" style="padding: 10px;">
                 <i class="fas fa-shopping-bag fs-5" aria-hidden="true"></i>
                 <span class="cart-badge" id="mobile-cart-count">0</span>
             </a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="padding: 10px;">
                 <span class="fas fa-bars text-dark" aria-hidden="true"></span>
             </button>
 
@@ -462,8 +498,8 @@
                 </div>
 
                 <div class="col-lg-6 order-1 order-lg-2 mb-5 mb-lg-0 ps-lg-5">
-                    <img src="img/kopi/about.webp" alt="Proses Kopi" class="story-img" width="636" height="400"
-                        loading="lazy">
+                    <img src="img/kopi/about.webp" alt="Proses roasting biji kopi Senyawa" class="story-img" width="636"
+                        height="400" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -571,12 +607,12 @@
                     </ul>
 
                     <div>
-                        <a href="#" class="me-3 fs-5 text-white-50 hover-white" aria-label="Instagram"><i
-                                class="fab fa-instagram" aria-hidden="true"></i></a>
-                        <a href="https://wa.me/6282257391460" class="me-3 fs-5 text-white-50 hover-white"
-                            aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-                        <a href="#" class="me-3 fs-5 text-white-50 hover-white" aria-label="TikTok"><i
-                                class="fab fa-tiktok" aria-hidden="true"></i></a>
+                        <a href="#" class="me-3 fs-5 hover-white" aria-label="Instagram"><i class="fab fa-instagram"
+                                aria-hidden="true"></i></a>
+                        <a href="https://wa.me/6282257391460" class="me-3 fs-5 hover-white" aria-label="WhatsApp"><i
+                                class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                        <a href="#" class="me-3 fs-5 hover-white" aria-label="TikTok"><i class="fab fa-tiktok"
+                                aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -603,28 +639,39 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     <script>
         function updateCartBadge() {
-            const cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
-            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-            const desktopBadge = document.getElementById('desktop-cart-count');
-            const mobileBadge = document.getElementById('mobile-cart-count');
+            try {
+                const cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
+                const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+                const desktopBadge = document.getElementById('desktop-cart-count');
+                const mobileBadge = document.getElementById('mobile-cart-count');
 
-            if (desktopBadge) desktopBadge.innerText = totalItems;
-            if (mobileBadge) mobileBadge.innerText = totalItems;
+                if (desktopBadge) desktopBadge.innerText = totalItems;
+                if (mobileBadge) mobileBadge.innerText = totalItems;
+            } catch (e) {
+                console.error("Error updating cart:", e);
+            }
         }
 
         document.addEventListener('DOMContentLoaded', updateCartBadge);
 
-        // --- LOGIC BACK TO TOP (Optimized) ---
+        // --- LOGIC BACK TO TOP (Optimized with RequestAnimationFrame for smoothness) ---
         const backToTopBtn = document.getElementById('backToTopBtn');
 
-        // Performance: Passive Listener
+        let isScrolling = false;
+
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
+            if (!isScrolling) {
+                window.requestAnimationFrame(() => {
+                    if (window.scrollY > 300) {
+                        backToTopBtn.classList.add('show');
+                    } else {
+                        backToTopBtn.classList.remove('show');
+                    }
+                    isScrolling = false;
+                });
+                isScrolling = true;
             }
-        }, { passive: true });
+        }, { passive: true }); // Passive listener for better scroll performance
 
         backToTopBtn.addEventListener('click', (e) => {
             e.preventDefault();
