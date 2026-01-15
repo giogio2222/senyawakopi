@@ -536,6 +536,98 @@
                 text-align: center;
             }
         }
+
+        /* --- 9. FLOATING BUTTONS (FIXED & RESPONSIVE) --- */
+        .floating-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            /* Menyusun tombol secara vertikal (atas-bawah) */
+            align-items: center;
+            gap: 15px;
+            /* Jarak antara tombol Back to Top dan WA */
+        }
+
+        .btn-floating {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: none;
+            /* Menghilangkan border default button */
+        }
+
+        /* Tombol WhatsApp */
+        .btn-wa {
+            background-color: #25D366;
+        }
+
+        .btn-wa:hover {
+            background-color: #1ebc57;
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Tombol Back to Top */
+        .btn-top {
+            background-color: var(--secondary-color);
+            /* Menggunakan warna Caramel/Latte */
+            width: 50px;
+            /* Sedikit lebih kecil dari WA agar estetis */
+            height: 50px;
+            font-size: 24px;
+
+            /* State awal: Tersembunyi */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        /* Class untuk memunculkan tombol Top saat discroll */
+        .btn-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .btn-top:hover {
+            background-color: var(--primary-color);
+            /* Berubah jadi warna Espresso saat hover */
+            transform: translateY(-5px);
+            color: white;
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+            .floating-container {
+                bottom: 20px;
+                right: 20px;
+                gap: 10px;
+            }
+
+            .btn-floating {
+                width: 55px;
+                height: 55px;
+                font-size: 28px;
+            }
+
+            .btn-top {
+                width: 45px;
+                height: 45px;
+                font-size: 22px;
+            }
+        }
     </style>
 </head>
 
@@ -590,8 +682,7 @@
 
             <article class="article-content">
                 <figure>
-                    <img src="https://images.unsplash.com/photo-1511537632536-34a70295626e?q=80&w=1200&auto=format&fit=crop"
-                        alt="Level Sangrai Kopi">
+                    <img src="img/blog/grean-bean.webp" alt="Level Sangrai Kopi">
                     <figcaption>Perbedaan warna biji kopi dari Green Bean hingga Dark Roast.</figcaption>
                 </figure>
 
@@ -709,8 +800,7 @@
                 </blockquote>
 
                 <figure>
-                    <img src="https://images.unsplash.com/photo-1581635390977-83d8753232c9?q=80&w=1200&auto=format&fit=crop"
-                        alt="Mesin Roasting Kopi">
+                    <img src="img/detail/roasting-kopi.jpg" alt="Mesin Roasting Kopi">
                     <figcaption>Drum Roaster modern yang dilengkapi kontrol suhu presisi.</figcaption>
                 </figure>
 
@@ -845,8 +935,7 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="related-card">
                         <div class="r-img">
-                            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="V60 Guide">
+                            <img src="img/blog/pouring.webp" alt="V60 Guide">
                         </div>
                         <div class="r-content">
                             <h5 class="fw-bold mb-2">Panduan V60 Pemula</h5>
@@ -861,14 +950,14 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="related-card">
                         <div class="r-img">
-                            <img src="https://images.unsplash.com/photo-1525610553991-2bede1a236e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Gayo">
+                            <img src="img/blog/arabika-gayo.webp" alt="Gayo">
                         </div>
                         <div class="r-content">
                             <h5 class="fw-bold mb-2">Karakter Kopi Gayo</h5>
                             <p class="small text-muted mb-3">Menelusuri jejak sejarah dan cita rasa kopi Aceh yang
                                 mendunia.</p>
-                            <a href="#" class="r-btn">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></a>
+                            <a href="blog-3.html" class="r-btn">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right small"></i></a>
                         </div>
                     </div>
                 </div>
@@ -876,14 +965,14 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="related-card">
                         <div class="r-img">
-                            <img src="https://images.unsplash.com/photo-1517701604599-bb29b5dd7359?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Simpan Kopi">
+                            <img src="img/blog/toples-kopi.webp" alt="Simpan Kopi">
                         </div>
                         <div class="r-content">
                             <h5 class="fw-bold mb-2">Tips Menyimpan Biji Kopi</h5>
                             <p class="small text-muted mb-3">Cara menjaga kesegaran aroma biji kopi agar awet dan tidak
                                 apek.</p>
-                            <a href="#" class="r-btn">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></a>
+                            <a href="blog-4.html" class="r-btn">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right small"></i></a>
                         </div>
                     </div>
                 </div>
@@ -953,6 +1042,17 @@
             </div>
         </div>
     </footer>
+
+    <div class="floating-container">
+        <a href="#" class="btn-floating btn-top" id="backToTopBtn" title="Kembali ke Atas">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+
+        <a href="https://wa.me/6282257391460?text=Halo%20Senyawa%20Kopi,%20saya%20tertarik%20dengan%20produk%20Anda."
+            target="_blank" class="btn-floating btn-wa" title="Chat WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -1040,6 +1140,26 @@
             if (desktopBadge) desktopBadge.innerText = totalItems;
             if (mobileBadge) mobileBadge.innerText = totalItems;
         }
+
+        // --- LOGIC BACK TO TOP ---
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            // Jika scroll lebih dari 300px ke bawah, munculkan tombol
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Mencegah loncat kasar (default anchor behavior)
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Scroll halus ke atas
+            });
+        });
     </script>
 </body>
 

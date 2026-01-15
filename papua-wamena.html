@@ -25,7 +25,6 @@
         html,
         body {
             overflow-x: hidden;
-            /* Mencegah geser kanan kiri */
             width: 100%;
         }
 
@@ -44,7 +43,7 @@
             font-family: 'Lora', serif;
         }
 
-        /* --- 2. NAVBAR (SAMA PERSIS) --- */
+        /* --- 2. NAVBAR --- */
         .navbar {
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
@@ -186,7 +185,7 @@
             box-shadow: none;
         }
 
-        /* --- 4. CARD STYLE (SAMA PERSIS DENGAN REFERENSI) --- */
+        /* --- 4. CARD STYLE --- */
         .product-card {
             border: none;
             border-radius: 15px;
@@ -241,7 +240,7 @@
             color: var(--primary-color);
         }
 
-        /* --- 5. FOOTER (SAMA PERSIS) --- */
+        /* --- 5. FOOTER --- */
         footer {
             background-color: #2b1d19;
             color: #bbb;
@@ -265,11 +264,102 @@
             padding-left: 5px;
         }
 
-        /* Responsive Fixes */
         @media (max-width: 768px) {
             .main-product-img-wrapper {
                 height: 350px;
                 margin-bottom: 20px;
+            }
+        }
+
+        /* --- 9. FLOATING BUTTONS (FIXED & RESPONSIVE) --- */
+        .floating-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            /* Menyusun tombol secara vertikal (atas-bawah) */
+            align-items: center;
+            gap: 15px;
+            /* Jarak antara tombol Back to Top dan WA */
+        }
+
+        .btn-floating {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: none;
+            /* Menghilangkan border default button */
+        }
+
+        /* Tombol WhatsApp */
+        .btn-wa {
+            background-color: #25D366;
+        }
+
+        .btn-wa:hover {
+            background-color: #1ebc57;
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Tombol Back to Top */
+        .btn-top {
+            background-color: var(--secondary-color);
+            /* Menggunakan warna Caramel/Latte */
+            width: 50px;
+            /* Sedikit lebih kecil dari WA agar estetis */
+            height: 50px;
+            font-size: 24px;
+
+            /* State awal: Tersembunyi */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        /* Class untuk memunculkan tombol Top saat discroll */
+        .btn-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .btn-top:hover {
+            background-color: var(--primary-color);
+            /* Berubah jadi warna Espresso saat hover */
+            transform: translateY(-5px);
+            color: white;
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+            .floating-container {
+                bottom: 20px;
+                right: 20px;
+                gap: 10px;
+            }
+
+            .btn-floating {
+                width: 55px;
+                height: 55px;
+                font-size: 28px;
+            }
+
+            .btn-top {
+                width: 45px;
+                height: 45px;
+                font-size: 22px;
             }
         }
     </style>
@@ -315,8 +405,7 @@
 
                 <div class="col-lg-6">
                     <div class="main-product-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Papua Wamena" class="main-product-img">
+                        <img src="img/produk/papua-wamena.webp" alt="Papua Wamena" class="main-product-img">
                     </div>
                 </div>
 
@@ -344,22 +433,23 @@
                         <span class="flavor-badge">Smooth Balance</span>
                     </div>
 
-                    <button class="btn btn-add-large" onclick="addToCart('Papua Wamena', 130000, event)">
+                    <button class="btn btn-add-large"
+                        onclick="addToCart('Papua Wamena', 130000, 'img/produk/papua-wamena.webp', event)">
                         <i class="fas fa-shopping-bag me-2"></i> Tambahkan ke Keranjang
                     </button>
 
                     <div class="accordion mt-5" id="productAccordion">
                         <div class="accordion-item border-0 border-bottom">
                             <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse"
+                                <button class="accordion-button collapsed px-3" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseOne">
                                     Detail Origin
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse"
                                 data-bs-parent="#productAccordion">
-                                <div class="accordion-body px-0 text-muted small">
-                                    <ul class="list-unstyled">
+                                <div class="accordion-body px-3 text-muted small">
+                                    <ul class="list-unstyled mb-0">
                                         <li><strong>Wilayah:</strong> Lembah Baliem, Jayawijaya, Papua</li>
                                         <li><strong>Ketinggian:</strong> 1.600 - 2.000 mdpl</li>
                                         <li><strong>Varietas:</strong> Typica, Lini S</li>
@@ -369,14 +459,14 @@
                         </div>
                         <div class="accordion-item border-0 border-bottom">
                             <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse"
+                                <button class="accordion-button collapsed px-3" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseTwo">
                                     Proses Pengolahan
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse"
                                 data-bs-parent="#productAccordion">
-                                <div class="accordion-body px-0 text-muted small">
+                                <div class="accordion-body px-3 text-muted small">
                                     Semi Washed (Giling Basah). Proses ini menghasilkan body yang medium-full dan
                                     keasaman (acidity) yang lembut namun tetap terasa segar.
                                 </div>
@@ -384,14 +474,14 @@
                         </div>
                         <div class="accordion-item border-0 border-bottom">
                             <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse"
+                                <button class="accordion-button collapsed px-3" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseThree">
                                     Saran Penyeduhan
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse"
                                 data-bs-parent="#productAccordion">
-                                <div class="accordion-body px-0 text-muted small">
+                                <div class="accordion-body px-3 text-muted small">
                                     Sangat nikmat diseduh dengan metode Pour Over (V60/Kalita) untuk menonjolkan aroma
                                     floralnya, atau Tubruk untuk mendapatkan body yang maksimal.
                                 </div>
@@ -410,10 +500,9 @@
 
             <div class="row g-4">
                 <div class="col-md-4 col-sm-6">
-                    <div class="product-card" onclick="window.location.href='#'">
+                    <div class="product-card" onclick="window.location.href='flores-bajawa.html'">
                         <div class="product-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1611854779393-1b2ae93a9d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Flores Bajawa">
+                            <img src="img/produk/flores-bajawa.webp" alt="Flores Bajawa">
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Flores Bajawa</h5>
@@ -425,17 +514,17 @@
                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <span class="price-tag">Rp 115.000</span>
                                 <button class="btn btn-custom-dark btn-sm"
-                                    onclick="addToCart('Flores Bajawa', 115000, event)">+ Add</button>
+                                    onclick="addToCart('Flores Bajawa', 115000, 'img/produk/flores-bajawa.webp', event)">+
+                                    Add</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-4 col-sm-6">
-                    <div class="product-card" onclick="window.location.href='#'">
+                    <div class="product-card" onclick="window.location.href='arabika-gayo-wine.html'">
                         <div class="product-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Arabika Gayo Wine">
+                            <img src="img/produk/arabika-gayo.webp" alt="Arabika Gayo Wine">
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Arabika Gayo Wine</h5>
@@ -447,17 +536,17 @@
                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <span class="price-tag">Rp 125.000</span>
                                 <button class="btn btn-custom-dark btn-sm"
-                                    onclick="addToCart('Arabika Gayo Wine', 125000, event)">+ Add</button>
+                                    onclick="addToCart('Arabika Gayo Wine', 125000, 'img/produk/arabika-gayo.webp', event)">+
+                                    Add</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-4 col-sm-6">
-                    <div class="product-card" onclick="window.location.href='#'">
+                    <div class="product-card" onclick="window.location.href='bali-kintamani.html'">
                         <div class="product-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Bali Kintamani">
+                            <img src="img/produk/bali-kintamani.webp" alt="Bali Kintamani">
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Bali Kintamani</h5>
@@ -469,7 +558,8 @@
                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <span class="price-tag">Rp 110.000</span>
                                 <button class="btn btn-custom-dark btn-sm"
-                                    onclick="addToCart('Bali Kintamani', 110000, event)">+ Add</button>
+                                    onclick="addToCart('Bali Kintamani', 110000, 'img/produk/bali-kintamani.webp', event)">+
+                                    Add</button>
                             </div>
                         </div>
                     </div>
@@ -540,9 +630,20 @@
         </div>
     </footer>
 
+    <div class="floating-container">
+        <a href="#" class="btn-floating btn-top" id="backToTopBtn" title="Kembali ke Atas">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+
+        <a href="https://wa.me/6282257391460?text=Halo%20Senyawa%20Kopi,%20saya%20tertarik%20dengan%20produk%20Anda."
+            target="_blank" class="btn-floating btn-wa" title="Chat WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // --- LOGIC KERANJANG BELANJA (SAME AS SOURCE) ---
+        // --- LOGIC KERANJANG BELANJA (UPDATED TO MATCH ARABIKA GAYO) ---
         function updateCartBadge() {
             const cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
             const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
@@ -553,7 +654,8 @@
             if (mobileBadge) mobileBadge.innerText = totalItems;
         }
 
-        function addToCart(name, price, event) {
+        // PERUBAHAN: Menambahkan parameter 'image' agar dinamis
+        function addToCart(name, price, image, event) {
             // Mencegah bubbling jika diklik dari dalam card
             if (event) event.stopPropagation();
 
@@ -567,7 +669,8 @@
                     name: name,
                     price: price,
                     qty: 1,
-                    image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80'
+                    // PERUBAHAN: Menggunakan image yang dikirim dari parameter, bukan placeholder
+                    image: image
                 });
             }
 
@@ -577,8 +680,6 @@
             // --- VISUAL EFFECT LOGIC ---
             const btn = event.target.closest('button');
             const originalHTML = btn.innerHTML;
-
-            // Cek apakah ini tombol besar (halaman detail) atau kecil (card produk)
             const isLargeButton = btn.classList.contains('btn-add-large');
 
             // 1. Ubah Teks & Warna
@@ -587,7 +688,7 @@
             btn.classList.add('btn-success', 'text-white');
             btn.style.borderColor = '#198754';
 
-            // 2. Jika tombol aslinya besar, paksa tetap lebar 100% agar tidak glitch
+            // 2. Jika tombol aslinya besar, paksa tetap lebar 100%
             if (isLargeButton) {
                 btn.classList.add('w-100');
             }
@@ -597,7 +698,6 @@
                 btn.innerHTML = originalHTML;
                 btn.classList.remove('btn-success', 'text-white', 'w-100');
 
-                // Kembalikan class asli sesuai jenis tombol
                 if (isLargeButton) {
                     btn.classList.add('btn-add-large');
                 } else {
@@ -608,6 +708,26 @@
         }
 
         document.addEventListener('DOMContentLoaded', updateCartBadge);
+
+        // --- LOGIC BACK TO TOP ---
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            // Jika scroll lebih dari 300px ke bawah, munculkan tombol
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Mencegah loncat kasar (default anchor behavior)
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Scroll halus ke atas
+            });
+        });
     </script>
 </body>
 

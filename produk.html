@@ -98,7 +98,7 @@
         /* --- 3. HERO HEADER --- */
         .page-header {
             /* Gambar berbeda untuk halaman produk */
-            background: linear-gradient(rgba(62, 39, 35, 0.8), rgba(62, 39, 35, 0.7)), url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(62, 39, 35, 0.8), rgba(62, 39, 35, 0.7)), url('img/kopi/hero.webp');
             background-size: cover;
             background-position: center;
             height: 50vh;
@@ -239,6 +239,98 @@
                 height: 200px;
             }
         }
+
+        /* --- 9. FLOATING BUTTONS (FIXED & RESPONSIVE) --- */
+        .floating-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            /* Menyusun tombol secara vertikal (atas-bawah) */
+            align-items: center;
+            gap: 15px;
+            /* Jarak antara tombol Back to Top dan WA */
+        }
+
+        .btn-floating {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: none;
+            /* Menghilangkan border default button */
+        }
+
+        /* Tombol WhatsApp */
+        .btn-wa {
+            background-color: #25D366;
+        }
+
+        .btn-wa:hover {
+            background-color: #1ebc57;
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Tombol Back to Top */
+        .btn-top {
+            background-color: var(--secondary-color);
+            /* Menggunakan warna Caramel/Latte */
+            width: 50px;
+            /* Sedikit lebih kecil dari WA agar estetis */
+            height: 50px;
+            font-size: 24px;
+
+            /* State awal: Tersembunyi */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        /* Class untuk memunculkan tombol Top saat discroll */
+        .btn-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .btn-top:hover {
+            background-color: var(--primary-color);
+            /* Berubah jadi warna Espresso saat hover */
+            transform: translateY(-5px);
+            color: white;
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+            .floating-container {
+                bottom: 20px;
+                right: 20px;
+                gap: 10px;
+            }
+
+            .btn-floating {
+                width: 55px;
+                height: 55px;
+                font-size: 28px;
+            }
+
+            .btn-top {
+                width: 45px;
+                height: 45px;
+                font-size: 22px;
+            }
+        }
     </style>
 </head>
 
@@ -300,8 +392,7 @@
                 <div class="col product-item">
                     <div class="product-card h-100" onclick="window.location.href='arabika-gayo-wine.html'">
                         <div class="product-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Gayo">
+                            <img src="img/produk/arabika-gayo.webp" alt="Gayo">
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Arabika Gayo Wine</h5>
@@ -314,7 +405,8 @@
                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <span class="price-tag">Rp 125.000</span>
                                 <button class="btn btn-add-cart"
-                                    onclick="addToCart('Arabika Gayo Wine', 125000, event)">+ Add</button>
+                                    onclick="addToCart('Arabika Gayo Wine', 125000, 'img/produk/arabika-gayo.webp', event)">+
+                                    Add</button>
                             </div>
                         </div>
                     </div>
@@ -323,8 +415,7 @@
                 <div class="col product-item">
                     <div class="product-card h-100" onclick="window.location.href='flores-bajawa.html'">
                         <div class="product-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1611854779393-1b2ae93a9d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Flores">
+                            <img src="img/produk/flores-bajawa.webp" alt="Flores">
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Flores Bajawa</h5>
@@ -336,7 +427,8 @@
                                 Aftertaste.</p>
                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <span class="price-tag">Rp 115.000</span>
-                                <button class="btn btn-add-cart" onclick="addToCart('Flores Bajawa', 115000, event)">+
+                                <button class="btn btn-add-cart"
+                                    onclick="addToCart('Flores Bajawa', 115000, 'img/produk/flores-bajawa.webp', event)">+
                                     Add</button>
                             </div>
                         </div>
@@ -346,8 +438,7 @@
                 <div class="col product-item">
                     <div class="product-card h-100" onclick="window.location.href='house-blend.html'">
                         <div class="product-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Blend">
+                            <img src="img/produk/house-blend.webp" alt="Blend">
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Senyawa House Blend</h5>
@@ -360,7 +451,8 @@
                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <span class="price-tag">Rp 95.000</span>
                                 <button class="btn btn-add-cart"
-                                    onclick="addToCart('Senyawa House Blend', 95000, event)">+ Add</button>
+                                    onclick="addToCart('Senyawa House Blend', 95000, 'img/produk/house-blend.webp', event)">+
+                                    Add</button>
                             </div>
                         </div>
                     </div>
@@ -369,8 +461,7 @@
                 <div class="col product-item">
                     <div class="product-card h-100" onclick="window.location.href='bali-kintamani.html'">
                         <div class="product-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Kintamani">
+                            <img src="img/produk/bali-kintamani.webp" alt="Kintamani">
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Bali Kintamani</h5>
@@ -382,7 +473,8 @@
                                 Aftertaste.</p>
                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <span class="price-tag">Rp 110.000</span>
-                                <button class="btn btn-add-cart" onclick="addToCart('Bali Kintamani', 110000, event)">+
+                                <button class="btn btn-add-cart"
+                                    onclick="addToCart('Bali Kintamani', 110000, 'img/produk/bali-kintamani.webp', event)">+
                                     Add</button>
                             </div>
                         </div>
@@ -392,8 +484,7 @@
                 <div class="col product-item">
                     <div class="product-card h-100" onclick="window.location.href='toraja-sapan.html'">
                         <div class="product-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Toraja">
+                            <img src="img/produk/toraja-sapan.webp" alt="Toraja">
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Toraja Sapan</h5>
@@ -405,7 +496,8 @@
                             </p>
                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <span class="price-tag">Rp 120.000</span>
-                                <button class="btn btn-add-cart" onclick="addToCart('Toraja Sapan', 120000, event)">+
+                                <button class="btn btn-add-cart"
+                                    onclick="addToCart('Toraja Sapan', 120000, 'img/produk/toraja-sapan.webp', event)">+
                                     Add</button>
                             </div>
                         </div>
@@ -415,8 +507,7 @@
                 <div class="col product-item">
                     <div class="product-card h-100" onclick="window.location.href='papua-wamena.html'">
                         <div class="product-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1621267860478-dbdd589372db?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Papua">
+                            <img src="img/produk/papua-wamena.webp" alt="Papua">
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Papua Wamena</h5>
@@ -428,7 +519,8 @@
                             </p>
                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <span class="price-tag">Rp 130.000</span>
-                                <button class="btn btn-add-cart" onclick="addToCart('Papua Wamena', 130000, event)">+
+                                <button class="btn btn-add-cart"
+                                    onclick="addToCart('Papua Wamena', 130000, 'img/produk/papua-wamena.webp', event)">+
                                     Add</button>
                             </div>
                         </div>
@@ -438,8 +530,7 @@
                 <div class="col product-item">
                     <div class="product-card h-100" onclick="window.location.href='robusta-temanggung.html'">
                         <div class="product-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1504630083234-141d7a021d5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Robusta">
+                            <img src="img/produk/robusta-temanggung.webp" alt="Robusta">
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Robusta Temanggung</h5>
@@ -452,7 +543,8 @@
                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <span class="price-tag">Rp 85.000</span>
                                 <button class="btn btn-add-cart"
-                                    onclick="addToCart('Robusta Temanggung', 85000, event)">+ Add</button>
+                                    onclick="addToCart('Robusta Temanggung', 85000, 'img/produk/robusta-temanggung.webp', event)">+
+                                    Add</button>
                             </div>
                         </div>
                     </div>
@@ -461,8 +553,7 @@
                 <div class="col product-item">
                     <div class="product-card h-100" onclick="window.location.href='west-java.html'">
                         <div class="product-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Preanger">
+                            <img src="img/produk/west-java.webp" alt="Preanger">
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">West Java Preanger</h5>
@@ -474,7 +565,8 @@
                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <span class="price-tag">Rp 115.000</span>
                                 <button class="btn btn-add-cart"
-                                    onclick="addToCart('West Java Preanger', 115000, event)">+ Add</button>
+                                    onclick="addToCart('West Java Preanger', 115000, 'img/produk/west-java.webp', event)">+
+                                    Add</button>
                             </div>
                         </div>
                     </div>
@@ -563,6 +655,17 @@
         </div>
     </footer>
 
+    <div class="floating-container">
+        <a href="#" class="btn-floating btn-top" id="backToTopBtn" title="Kembali ke Atas">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+
+        <a href="https://wa.me/6282257391460?text=Halo%20Senyawa%20Kopi,%20saya%20tertarik%20dengan%20produk%20Anda."
+            target="_blank" class="btn-floating btn-wa" title="Chat WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // --- CART LOGIC ---
@@ -576,7 +679,8 @@
             if (mobileBadge) mobileBadge.innerText = totalItems;
         }
 
-        function addToCart(name, price, event) {
+        // PERUBAHAN: Menambahkan parameter image
+        function addToCart(name, price, image, event) {
             // PENTING: Mencegah parent div (kartu) diklik saat tombol ditekan
             event.stopPropagation();
 
@@ -586,7 +690,8 @@
             if (existingItem) {
                 existingItem.qty += 1;
             } else {
-                cart.push({ name: name, price: price, qty: 1 });
+                // Simpan image yang diterima dari parameter HTML
+                cart.push({ name: name, price: price, image: image, qty: 1 });
             }
 
             localStorage.setItem('senyawaCart', JSON.stringify(cart));
@@ -604,9 +709,8 @@
             }, 1000);
         }
 
-        // --- SORTING LOGIC (BARU) ---
+        // --- SORTING LOGIC ---
         function getPrice(element) {
-            // Mengambil teks harga, menghapus "Rp " dan titik, lalu ubah jadi angka
             const priceText = element.querySelector('.price-tag').innerText;
             return parseInt(priceText.replace(/[^0-9]/g, ''));
         }
@@ -614,36 +718,48 @@
         function sortProducts() {
             const select = document.getElementById('sortFilter');
             const container = document.getElementById('productContainer');
-            // Mengambil semua elemen produk (.col) sebagai array
             const products = Array.from(container.children);
             const value = select.value;
 
             if (value === 'low') {
-                // Urutkan harga terendah ke tertinggi (a - b)
                 products.sort((a, b) => getPrice(a) - getPrice(b));
             } else if (value === 'high') {
-                // Urutkan harga tertinggi ke terendah (b - a)
                 products.sort((a, b) => getPrice(b) - getPrice(a));
             } else {
-                // Urutkan berdasarkan data-index original
                 products.sort((a, b) => a.getAttribute('data-index') - b.getAttribute('data-index'));
             }
 
-            // Memasukkan kembali elemen yang sudah diurutkan ke container
             container.innerHTML = '';
             products.forEach(product => container.appendChild(product));
         }
 
-        // Init Cart Badge & Set Original Index for Sorting
         document.addEventListener('DOMContentLoaded', () => {
             updateCartBadge();
-
-            // Simpan urutan awal (default) menggunakan data-attribute
             const container = document.getElementById('productContainer');
             const products = container.children;
             for (let i = 0; i < products.length; i++) {
                 products[i].setAttribute('data-index', i);
             }
+        });
+
+        // --- LOGIC BACK TO TOP ---
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            // Jika scroll lebih dari 300px ke bawah, munculkan tombol
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Mencegah loncat kasar (default anchor behavior)
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Scroll halus ke atas
+            });
         });
     </script>
 </body>

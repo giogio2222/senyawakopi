@@ -4,23 +4,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senyawa Kopi - Authentic Coffee Experience</title>
+
+    <title>Senyawa Kopi - Authentic Coffee Experience & Beans</title>
+    <meta name="description"
+        content="Senyawa Kopi menghadirkan biji kopi Arabika Gayo, Flores, dan House Blend terbaik. Nikmati pengalaman ngopi autentik dengan panduan seduh manual (V60, Tubruk).">
+    <meta name="keywords"
+        content="kopi arabika, biji kopi, coffee shop malang, gayo wine, flores bajawa, manual brew, v60 recipe">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Senyawa Kopi Indonesia">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Senyawa Kopi - Authentic Coffee Experience">
+    <meta property="og:description"
+        content="Temukan harmoni rasa dari perkebunan nusantara. Biji kopi fresh roast dan panduan seduh untuk Anda.">
+    <meta property="og:image" content="img/kopi/hero.webp">
+    <meta property="og:url" content="https://senyawakopi.com">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#3E2723">
+
+    <link rel="preload" as="image" href="img/kopi/hero.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
     <link
         href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap"
         rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CoffeeShop",
+      "name": "Senyawa Kopi",
+      "image": "img/kopi/hero.webp",
+      "description": "Menghadirkan harmoni rasa dari perkebunan nusantara langsung ke meja Anda.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Senyawa Rasa No. 88",
+        "addressLocality": "Malang",
+        "addressRegion": "Jawa Timur",
+        "postalCode": "65100",
+        "addressCountry": "ID"
+      },
+      "telephone": "+6282257391460",
+      "priceRange": "$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "08:00",
+          "closes": "22:00"
+        }
+      ],
+      "menu": "https://senyawakopi.com/produk.html"
+    }
+    </script>
 
     <style>
         /* --- 1. COLOR PALETTE (EARTH TONES) --- */
         :root {
             --primary-color: #3E2723;
-            /* Espresso */
             --secondary-color: #C08B5C;
-            /* Caramel/Latte */
             --accent-color: #FAF7F2;
-            /* Cream Background */
             --text-dark: #2D2420;
             --light-bg: #ffffff;
         }
@@ -30,9 +89,10 @@
             color: var(--text-dark);
             background-color: var(--accent-color);
             overflow-x: hidden;
-
-            /* PENTING: Dibuat 0 agar gambar hero bisa naik ke belakang navbar */
             padding-top: 0;
+            /* Improved Rendering Performance */
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
         }
 
         h1,
@@ -67,10 +127,8 @@
 
         /* --- 2. NAVBAR (TRANSPARENT & BLUR) --- */
         .navbar {
-            /* Latar belakang putih transparan supaya gambar Hero terlihat di baliknya */
             background-color: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(8px);
-            /* Efek blur kaca */
             padding: 1rem 0;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             z-index: 1000;
@@ -120,21 +178,17 @@
 
         /* --- 3. HERO SECTION (FULLSCREEN & OVERLAP) --- */
         .hero-section {
-            background: linear-gradient(rgba(62, 39, 35, 0.7), rgba(62, 39, 35, 0.5)), url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(62, 39, 35, 0.7), rgba(62, 39, 35, 0.5)), url('img/kopi/hero.webp');
             background-size: cover;
             background-position: center;
-
-            /* Tinggi full layar */
             height: 100vh;
-
             display: flex;
             align-items: center;
             color: white;
             text-align: center;
-
-            /* PENTING: Memberi jarak agar teks judul TIDAK ketumpuk navbar */
-            /* Gambar tetap di belakang, tapi teks didorong ke bawah */
             padding-top: 100px;
+            /* Performance: Ensure text is visible immediately */
+            content-visibility: auto;
         }
 
         .hero-title {
@@ -144,7 +198,6 @@
             animation: fadeInUp 1s ease-out;
         }
 
-        /* Responsive Font untuk HP */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
@@ -152,7 +205,6 @@
 
             .hero-section {
                 height: 90vh;
-                /* Sedikit lebih pendek di HP agar nyaman */
             }
         }
 
@@ -197,6 +249,7 @@
             border-radius: 20px 0 20px 0;
             width: 100%;
             height: 400px;
+            /* Explicit height defined in CSS, matched in HTML */
             object-fit: cover;
             box-shadow: 15px 15px 0px var(--secondary-color);
         }
@@ -211,7 +264,6 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
             height: 100%;
             cursor: pointer;
-            /* TAMBAHAN: Agar terlihat bisa diklik */
         }
 
         .product-card:hover {
@@ -245,6 +297,7 @@
         /* --- 6. BREWING ASSISTANT --- */
         .brewing-section {
             background-color: var(--primary-color);
+            /* SVG URL Optimization: Encoded directly */
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235d4037' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             color: white;
             padding: 90px 0;
@@ -275,6 +328,8 @@
             padding: 40px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             margin-top: 30px;
+            min-height: 350px;
+            /* Prevent layout shift on content change */
         }
 
         /* --- 7. TESTIMONIALS --- */
@@ -353,6 +408,9 @@
             color: #bbb;
             text-decoration: none;
             transition: 0.3s;
+            /* Accessible touch target size */
+            padding: 5px 0;
+            display: inline-block;
         }
 
         footer a:hover {
@@ -371,22 +429,104 @@
                 transform: translateY(0);
             }
         }
+
+        /* --- 9. FLOATING BUTTONS --- */
+        .floating-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-floating {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-wa {
+            background-color: #25D366;
+        }
+
+        .btn-wa:hover {
+            background-color: #1ebc57;
+            transform: scale(1.1);
+            color: white;
+        }
+
+        .btn-top {
+            background-color: var(--secondary-color);
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .btn-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .btn-top:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .floating-container {
+                bottom: 20px;
+                right: 20px;
+                gap: 10px;
+            }
+
+            .btn-floating {
+                width: 55px;
+                height: 55px;
+                font-size: 28px;
+            }
+
+            .btn-top {
+                width: 45px;
+                height: 45px;
+                font-size: 22px;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-coffee me-2"></i>SENYAWA.</a>
+            <a class="navbar-brand" href="#"><i class="fas fa-coffee me-2" aria-hidden="true"></i>SENYAWA.</a>
 
-            <a href="keranjang.html" class="d-lg-none ms-auto me-3 position-relative text-dark">
-                <i class="fas fa-shopping-bag fs-5"></i>
+            <a href="keranjang.html" class="d-lg-none ms-auto me-3 position-relative text-dark"
+                aria-label="Lihat Keranjang Belanja">
+                <i class="fas fa-shopping-bag fs-5" aria-hidden="true"></i>
                 <span class="cart-badge" id="mobile-cart-count">0</span>
             </a>
 
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="fas fa-bars text-dark"></span>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fas fa-bars text-dark" aria-hidden="true"></span>
             </button>
 
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -397,8 +537,9 @@
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
 
                     <li class="nav-item d-none d-lg-block">
-                        <a href="keranjang.html" class="cart-nav-item text-decoration-none">
-                            <i class="fas fa-shopping-bag"></i>
+                        <a href="keranjang.html" class="cart-nav-item text-decoration-none"
+                            aria-label="Keranjang Belanja">
+                            <i class="fas fa-shopping-bag" aria-hidden="true"></i>
                             <span class="cart-badge" id="desktop-cart-count">0</span>
                         </a>
                     </li>
@@ -424,8 +565,8 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 mb-4 mb-md-0">
-                    <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                        alt="Proses Roasting" class="about-img">
+                    <img src="img/kopi/about.webp" alt="Proses Roasting biji kopi Senyawa" class="about-img" width="636"
+                        height="400" loading="lazy">
                 </div>
                 <div class="col-md-6 ps-md-5">
                     <h4 class="text-secondary text-uppercase mb-2" style="font-size: 0.9rem; letter-spacing: 2px;">
@@ -466,21 +607,25 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="product-card" onclick="location.href='arabika-gayo-wine.html'">
                         <div class="product-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                alt="Kopi Gayo">
+                            <img src="img/produk/arabika-gayo.webp" alt="Kemasan Kopi Arabika Gayo Wine" width="400"
+                                height="280" loading="lazy">
                         </div>
                         <div class="card-body p-4">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Arabika Gayo Wine</h5>
-                            <div class="mb-2 text-warning small">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <div class="mb-2 text-warning small" aria-label="Rating 5 dari 5">
+                                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                                    aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i
+                                    class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                                    aria-hidden="true"></i>
                             </div>
                             <p class="text-muted small">Notes: Jackfruit, Dark Chocolate, High Acidity.</p>
                             <div class="d-flex justify-content-between align-items-center mt-3">
                                 <span class="price-tag">Rp 125.000</span>
                                 <button class="btn btn-custom-dark btn-sm"
-                                    onclick="addToCart('Arabika Gayo Wine', 125000, event)">+
-                                    Add</button>
+                                    onclick="addToCart('Arabika Gayo Wine', 125000, 'img/produk/arabika-gayo.webp', event)"
+                                    aria-label="Tambah Arabika Gayo Wine ke keranjang">
+                                    + Add
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -489,20 +634,25 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="product-card" onclick="location.href='flores-bajawa.html'">
                         <div class="product-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1611854779393-1b2ae93a9d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                alt="Kopi Flores">
+                            <img src="img/produk/flores-bajawa.webp" alt="Kemasan Kopi Flores Bajawa" width="400"
+                                height="280" loading="lazy">
                         </div>
                         <div class="card-body p-4">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Flores Bajawa</h5>
-                            <div class="mb-2 text-warning small">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="far fa-star"></i>
+                            <div class="mb-2 text-warning small" aria-label="Rating 4 dari 5">
+                                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                                    aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i
+                                    class="fas fa-star" aria-hidden="true"></i><i class="far fa-star"
+                                    aria-hidden="true"></i>
                             </div>
                             <p class="text-muted small">Notes: Floral, Nutty, Medium Body.</p>
                             <div class="d-flex justify-content-between align-items-center mt-3">
                                 <span class="price-tag">Rp 115.000</span>
                                 <button class="btn btn-custom-dark btn-sm"
-                                    onclick="addToCart('Flores Bajawa', 115000, event)">+ Add</button>
+                                    onclick="addToCart('Flores Bajawa', 115000, 'img/produk/flores-bajawa.webp', event)"
+                                    aria-label="Tambah Flores Bajawa ke keranjang">
+                                    + Add
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -511,21 +661,25 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="product-card" onclick="location.href='house-blend.html'">
                         <div class="product-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                alt="House Blend">
+                            <img src="img/produk/house-blend.webp" alt="Kemasan Kopi Senyawa House Blend" width="400"
+                                height="280" loading="lazy">
                         </div>
                         <div class="card-body p-4">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Senyawa House Blend</h5>
-                            <div class="mb-2 text-warning small">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <div class="mb-2 text-warning small" aria-label="Rating 4.5 dari 5">
+                                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                                    aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i
+                                    class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt"
+                                    aria-hidden="true"></i>
                             </div>
                             <p class="text-muted small">Blend 70% Arabika 30% Robusta. Bold & Strong.</p>
                             <div class="d-flex justify-content-between align-items-center mt-3">
                                 <span class="price-tag">Rp 95.000</span>
                                 <button class="btn btn-custom-dark btn-sm"
-                                    onclick="addToCart('Senyawa House Blend', 95000, event)">+
-                                    Add</button>
+                                    onclick="addToCart('Senyawa House Blend', 95000, 'img/produk/house-blend.webp', event)"
+                                    aria-label="Tambah Senyawa House Blend ke keranjang">
+                                    + Add
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -539,7 +693,7 @@
             <h2 class="fw-bold mb-3">Asisten Seduh Virtual</h2>
             <p class="text-white-50 mb-5">Temukan rasio emas untuk metode seduh favorit Anda.</p>
 
-            <div class="d-flex justify-content-center flex-wrap mb-4">
+            <div class="d-flex justify-content-center flex-wrap mb-4" role="group" aria-label="Pilihan metode seduh">
                 <button class="brew-btn active" onclick="changeMethod('v60', this)">V60 / Pour Over</button>
                 <button class="brew-btn" onclick="changeMethod('tubruk', this)">Kopi Tubruk</button>
                 <button class="brew-btn" onclick="changeMethod('french', this)">French Press</button>
@@ -549,8 +703,9 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="brew-card">
-                        <div id="brewContent">
-                            <i class="fas fa-filter brew-icon text-warning mb-3" style="font-size: 2.5rem;"></i>
+                        <div id="brewContent" aria-live="polite">
+                            <i class="fas fa-filter brew-icon text-warning mb-3" style="font-size: 2.5rem;"
+                                aria-hidden="true"></i>
                             <h3 class="mb-3">Metode V60</h3>
                             <div class="row mt-4">
                                 <div class="col-4 border-end border-light">
@@ -584,19 +739,24 @@
 
             <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0"
-                        class="active"></button>
-                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
                 </div>
 
                 <div class="carousel-inner pb-5">
                     <div class="carousel-item active">
                         <div class="testimonial-box">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="user-img-lg">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto Profil Budi Santoso"
+                                class="user-img-lg" width="80" height="80" loading="lazy">
                             <div class="mb-3 text-warning">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                                    aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i
+                                    class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                                    aria-hidden="true"></i>
                             </div>
                             <h4 class="fst-italic mb-4 fw-light">"Gayo Wine-nya luar biasa! Aromanya semerbak satu
                                 ruangan pas diseduh."</h4>
@@ -607,10 +767,13 @@
 
                     <div class="carousel-item">
                         <div class="testimonial-box">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="user-img-lg">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Foto Profil Siti Aminah"
+                                class="user-img-lg" width="80" height="80" loading="lazy">
                             <div class="mb-3 text-warning">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                                    aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i
+                                    class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                                    aria-hidden="true"></i>
                             </div>
                             <h4 class="fst-italic mb-4 fw-light">"Senyawa House Blend cocok banget buat bahan es kopi
                                 susu gula aren jualan saya."</h4>
@@ -621,10 +784,13 @@
 
                     <div class="carousel-item">
                         <div class="testimonial-box">
-                            <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="User" class="user-img-lg">
+                            <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Foto Profil Reza Rahardian"
+                                class="user-img-lg" width="80" height="80" loading="lazy">
                             <div class="mb-3 text-warning">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                                    aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i
+                                    class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt"
+                                    aria-hidden="true"></i>
                             </div>
                             <h4 class="fst-italic mb-4 fw-light">"Suka banget sama fitur Asisten Seduh di websitenya.
                                 Sangat membantu pemula."</h4>
@@ -635,11 +801,11 @@
                 </div>
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
-                    data-bs-slide="prev">
+                    data-bs-slide="prev" aria-label="Previous">
                     <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
-                    data-bs-slide="next">
+                    data-bs-slide="next" aria-label="Next">
                     <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
                 </button>
             </div>
@@ -657,7 +823,8 @@
                         <div class="accordion-item shadow-sm border-0">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne">Berapa lama kopi bertahan setelah kemasan
+                                    data-bs-target="#collapseOne" aria-expanded="true"
+                                    aria-controls="collapseOne">Berapa lama kopi bertahan setelah kemasan
                                     dibuka?</button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show"
@@ -669,7 +836,8 @@
                         <div class="accordion-item shadow-sm border-0">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo">Apakah bisa request gilingan?</button>
+                                    data-bs-target="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseTwo">Apakah bisa request gilingan?</button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-muted">Ya, Anda bisa memilih Biji Utuh, Kasar, Medium,
@@ -679,7 +847,8 @@
                         <div class="accordion-item shadow-sm border-0">
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree">Ongkos kirim Jabodetabek?</button>
+                                    data-bs-target="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseThree">Ongkos kirim Jabodetabek?</button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-muted">Sekitar Rp 9.000 - Rp 12.000, 1-2 hari sampai.
@@ -689,7 +858,8 @@
                         <div class="accordion-item shadow-sm border-0">
                             <h2 class="accordion-header" id="headingFour">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFour">Apakah ada harga grosir untuk Cafe?</button>
+                                    data-bs-target="#collapseFour" aria-expanded="false"
+                                    aria-controls="collapseFour">Apakah ada harga grosir untuk Cafe?</button>
                             </h2>
                             <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-muted">Ya, silakan hubungi kami via WhatsApp untuk
@@ -699,7 +869,8 @@
                         <div class="accordion-item shadow-sm border-0">
                             <h2 class="accordion-header" id="headingFive">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFive">Apakah pengiriman luar pulau aman?</button>
+                                    data-bs-target="#collapseFive" aria-expanded="false"
+                                    aria-controls="collapseFive">Apakah pengiriman luar pulau aman?</button>
                             </h2>
                             <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-muted">Aman, kami menggunakan bubble wrap tebal dan
@@ -734,8 +905,10 @@
                 <div class="col-md-2 mb-4">
                     <h6 class="text-white mb-3">Bantuan</h6>
                     <ul class="list-unstyled small">
-                        <li><a href="https://wa.me/6282257391460">Konfirmasi Pembayaran</a></li>
-                        <li><a href="https://wa.me/6282257391460">Hubungi Kami</a></li>
+                        <li><a href="https://wa.me/6282257391460"
+                                aria-label="Konfirmasi Pembayaran via WhatsApp">Konfirmasi Pembayaran</a></li>
+                        <li><a href="https://wa.me/6282257391460" aria-label="Hubungi Kami via WhatsApp">Hubungi
+                                Kami</a></li>
                         <li><a href="#">Syarat & Ketentuan</a></li>
                     </ul>
                 </div>
@@ -744,24 +917,26 @@
                     <h6 class="text-white mb-3">Hubungi Kami</h6>
                     <ul class="list-unstyled small text-secondary">
                         <li class="mb-2">
-                            <i class="fas fa-map-marker-alt me-2 text-white-50"></i>
+                            <i class="fas fa-map-marker-alt me-2 text-white-50" aria-hidden="true"></i>
                             Jl. Senyawa Rasa No. 88, Malang, Jawa Timur
                         </li>
                         <li class="mb-2">
-                            <i class="fas fa-phone me-2 text-white-50"></i>
+                            <i class="fas fa-phone me-2 text-white-50" aria-hidden="true"></i>
                             +62 822-5739-1460
                         </li>
                         <li class="mb-3">
-                            <i class="fas fa-envelope me-2 text-white-50"></i>
+                            <i class="fas fa-envelope me-2 text-white-50" aria-hidden="true"></i>
                             halo@senyawakopi.com
                         </li>
                     </ul>
 
                     <div>
-                        <a href="#" class="me-3 fs-5 text-white-50 hover-white"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/6282257391460" class="me-3 fs-5 text-white-50 hover-white"><i
-                                class="fab fa-whatsapp"></i></a>
-                        <a href="#" class="me-3 fs-5 text-white-50 hover-white"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="me-3 fs-5 text-white-50 hover-white" aria-label="Instagram"><i
+                                class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://wa.me/6282257391460" class="me-3 fs-5 text-white-50 hover-white"
+                            aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                        <a href="#" class="me-3 fs-5 text-white-50 hover-white" aria-label="TikTok"><i
+                                class="fab fa-tiktok" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -774,59 +949,92 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="floating-container">
+        <a href="#" class="btn-floating btn-top" id="backToTopBtn" title="Kembali ke Atas" aria-label="Kembali ke atas">
+            <i class="fas fa-arrow-up" aria-hidden="true"></i>
+        </a>
+
+        <a href="https://wa.me/6282257391460?text=Halo%20Senyawa%20Kopi,%20saya%20tertarik%20dengan%20produk%20Anda."
+            target="_blank" class="btn-floating btn-wa" title="Chat WhatsApp" aria-label="Chat via WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
 
     <script>
-        function updateCartBadge() {
-            const cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
-            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-            document.getElementById('desktop-cart-count').innerText = totalItems;
-            document.getElementById('mobile-cart-count').innerText = totalItems;
-        }
+        document.addEventListener("DOMContentLoaded", function () {
+            function updateCartBadge() {
+                const cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
+                const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+                const deskBadge = document.getElementById('desktop-cart-count');
+                const mobBadge = document.getElementById('mobile-cart-count');
+                if (deskBadge) deskBadge.innerText = totalItems;
+                if (mobBadge) mobBadge.innerText = totalItems;
+            }
 
-        // --- MODIFIED ADD TO CART (Sesuai produk.html) ---
-        function addToCart(name, price, event) {
-            // PENTING: Mencegah parent div (kartu) diklik saat tombol ditekan
-            event.stopPropagation();
+            // Make it global to be accessible by inline onclick (though addEventListener is better practice)
+            window.addToCart = function (name, price, image, event) {
+                event.stopPropagation();
+                let cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
+                const existingItem = cart.find(item => item.name === name);
+                if (existingItem) {
+                    existingItem.qty += 1;
+                } else {
+                    cart.push({ name: name, price: price, image: image, qty: 1 });
+                }
+                localStorage.setItem('senyawaCart', JSON.stringify(cart));
+                updateCartBadge();
 
-            let cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
-            const existingItem = cart.find(item => item.name === name);
-            if (existingItem) { existingItem.qty += 1; }
-            else { cart.push({ name: name, price: price, qty: 1 }); }
-            localStorage.setItem('senyawaCart', JSON.stringify(cart));
+                const btn = event.target;
+                const originalText = btn.innerText;
+                btn.innerText = "✔ Added";
+                btn.classList.add('bg-success', 'border-success');
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.remove('bg-success', 'border-success');
+                }, 1000);
+            }
+
             updateCartBadge();
 
-            // Efek feedback sederhana (TIDAK ADA ALERT)
-            const btn = event.target;
-            const originalText = btn.innerText;
-            btn.innerText = "✔ Added";
-            btn.classList.add('bg-success', 'border-success'); // Mengubah warna tombol jadi hijau
+            const brewData = {
+                'v60': { icon: 'fa-filter', title: 'Metode V60', grind: 'Medium-Fine', temp: '90° - 93°C', ratio: '1 : 15', desc: '"Tuang air perlahan secara memutar. Blooming 30 detik."' },
+                'tubruk': { icon: 'fa-mug-hot', title: 'Kopi Tubruk', grind: 'Fine (Halus)', temp: '95° - 98°C', ratio: '1 : 12', desc: '"Tuang air panas, aduk 3x, diamkan 4 menit."' },
+                'french': { icon: 'fa-compress-arrows-alt', title: 'French Press', grind: 'Coarse (Kasar)', temp: '93°C', ratio: '1 : 14', desc: '"Tuang air, aduk, pasang tutup, tunggu 4 menit lalu tekan."' },
+                'aeropress': { icon: 'fa-rocket', title: 'Aeropress', grind: 'Medium-Fine', temp: '85° - 90°C', ratio: '1 : 16', desc: '"Aduk 10 detik, tekan perlahan 20-30 detik."' }
+            };
 
-            setTimeout(() => {
-                btn.innerText = originalText;
-                btn.classList.remove('bg-success', 'border-success');
-            }, 1000);
-        }
-        updateCartBadge();
+            window.changeMethod = function (method, btnElement) {
+                document.querySelectorAll('.brew-btn').forEach(btn => btn.classList.remove('active'));
+                btnElement.classList.add('active');
+                const contentDiv = document.getElementById('brewContent');
+                contentDiv.style.opacity = 0;
+                setTimeout(() => {
+                    const data = brewData[method];
+                    contentDiv.innerHTML = `<i class="fas ${data.icon} brew-icon text-warning mb-3" style="font-size: 2.5rem;" aria-hidden="true"></i><h3 class="mb-3">${data.title}</h3><div class="row mt-4"><div class="col-4 border-end border-light"><h6 class="text-white-50">Gilingan</h6><p class="text-warning fw-bold">${data.grind}</p></div><div class="col-4 border-end border-light"><h6 class="text-white-50">Suhu</h6><p class="text-warning fw-bold">${data.temp}</p></div><div class="col-4"><h6 class="text-white-50">Rasio</h6><p class="text-warning fw-bold">${data.ratio}</p></div></div><hr class="border-light my-4"><p class="text-white fst-italic">${data.desc}</p>`;
+                    contentDiv.style.opacity = 1;
+                }, 200);
+            }
 
-        const brewData = {
-            'v60': { icon: 'fa-filter', title: 'Metode V60', grind: 'Medium-Fine', temp: '90° - 93°C', ratio: '1 : 15', desc: '"Tuang air perlahan secara memutar. Blooming 30 detik."' },
-            'tubruk': { icon: 'fa-mug-hot', title: 'Kopi Tubruk', grind: 'Fine (Halus)', temp: '95° - 98°C', ratio: '1 : 12', desc: '"Tuang air panas, aduk 3x, diamkan 4 menit."' },
-            'french': { icon: 'fa-compress-arrows-alt', title: 'French Press', grind: 'Coarse (Kasar)', temp: '93°C', ratio: '1 : 14', desc: '"Tuang air, aduk, pasang tutup, tunggu 4 menit lalu tekan."' },
-            'aeropress': { icon: 'fa-rocket', title: 'Aeropress', grind: 'Medium-Fine', temp: '85° - 90°C', ratio: '1 : 16', desc: '"Aduk 10 detik, tekan perlahan 20-30 detik."' }
-        };
+            // Back to top Logic
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
 
-        function changeMethod(method, btnElement) {
-            document.querySelectorAll('.brew-btn').forEach(btn => btn.classList.remove('active'));
-            btnElement.classList.add('active');
-            const contentDiv = document.getElementById('brewContent');
-            contentDiv.style.opacity = 0;
-            setTimeout(() => {
-                const data = brewData[method];
-                contentDiv.innerHTML = `<i class="fas ${data.icon} brew-icon text-warning mb-3" style="font-size: 2.5rem;"></i><h3 class="mb-3">${data.title}</h3><div class="row mt-4"><div class="col-4 border-end border-light"><h6 class="text-white-50">Gilingan</h6><p class="text-warning fw-bold">${data.grind}</p></div><div class="col-4 border-end border-light"><h6 class="text-white-50">Suhu</h6><p class="text-warning fw-bold">${data.temp}</p></div><div class="col-4"><h6 class="text-white-50">Rasio</h6><p class="text-warning fw-bold">${data.ratio}</p></div></div><hr class="border-light my-4"><p class="text-white fst-italic">${data.desc}</p>`;
-                contentDiv.style.opacity = 1;
-            }, 200);
-        }
+            backToTopBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 
