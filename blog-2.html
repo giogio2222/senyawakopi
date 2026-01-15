@@ -4,11 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mengapa Roasting Level Itu Penting? - Senyawa Kopi</title>
 
+    <title>Mengapa Roasting Level Itu Penting? - Senyawa Kopi</title>
     <meta name="description"
-        content="Light, Medium, atau Dark? Ketahui bagaimana tingkat kematangan sangrai (roasting level) mempengaruhi rasa asam, body, dan aroma kopi Anda secara mendalam.">
+        content="Pelajari perbedaan Light, Medium, dan Dark Roast secara mendalam. Ketahui bagaimana tingkat sangrai mempengaruhi rasa asam, body, dan aroma kopi Anda.">
     <meta name="author" content="Senyawa Kopi">
+    <meta name="keywords"
+        content="roasting level kopi, light roast, medium roast, dark roast, perbedaan roasting kopi, belajar kopi, senyawa kopi">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.senyawakopi.com/blog-2.html">
+
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <meta name="theme-color" content="#3E2723">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Mengapa Roasting Level Itu Penting? - Senyawa Kopi">
+    <meta property="og:description"
+        content="Light, Medium, atau Dark? Simak panduan lengkap pengaruh roasting level terhadap cita rasa kopi.">
+    <meta property="og:url" content="https://www.senyawakopi.com/blog-2.html">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1521302080334-4bebac2763a6?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:site_name" content="Senyawa Kopi">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mengapa Roasting Level Itu Penting? - Senyawa Kopi">
+    <meta name="twitter:description" content="Panduan lengkap memahami profil roasting kopi dari Light hingga Dark.">
+    <meta name="twitter:image"
+        content="https://images.unsplash.com/photo-1521302080334-4bebac2763a6?q=80&w=1200&auto=format&fit=crop">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.senyawakopi.com/blog-2.html"
+      },
+      "headline": "Mengapa Roasting Level Itu Penting? - Senyawa Kopi",
+      "description": "Light, Medium, atau Dark? Ketahui bagaimana tingkat kematangan sangrai (roasting level) mempengaruhi rasa asam, body, dan aroma kopi Anda secara mendalam.",
+      "image": "https://images.unsplash.com/photo-1521302080334-4bebac2763a6?q=80&w=1920&auto=format&fit=crop",  
+      "author": {
+        "@type": "Person",
+        "name": "Budi Barista",
+        "url": "https://www.senyawakopi.com/tentang.html"
+      },  
+      "publisher": {
+        "@type": "Organization",
+        "name": "Senyawa Kopi",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.senyawakopi.com/img/logo.png"
+        }
+      },
+      "datePublished": "2024-01-05",
+      "dateModified": "2024-01-05"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://images.unsplash.com">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -105,7 +164,6 @@
         }
 
         /* --- 3. HERO SECTION (BLOG DETAIL) --- */
-        /* Menggunakan gambar background yang berbeda sesuai tema Roasting */
         .blog-hero {
             height: 60vh;
             width: 100%;
@@ -210,7 +268,6 @@
 
         figure img {
             width: 100%;
-            /* WAJIB 4:3 SESUAI REQUEST */
             aspect-ratio: 4 / 3;
             object-fit: cover;
             border-radius: 15px;
@@ -545,10 +602,8 @@
             z-index: 9999;
             display: flex;
             flex-direction: column;
-            /* Menyusun tombol secara vertikal (atas-bawah) */
             align-items: center;
             gap: 15px;
-            /* Jarak antara tombol Back to Top dan WA */
         }
 
         .btn-floating {
@@ -565,7 +620,6 @@
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             border: none;
-            /* Menghilangkan border default button */
         }
 
         /* Tombol WhatsApp */
@@ -582,13 +636,9 @@
         /* Tombol Back to Top */
         .btn-top {
             background-color: var(--secondary-color);
-            /* Menggunakan warna Caramel/Latte */
             width: 50px;
-            /* Sedikit lebih kecil dari WA agar estetis */
             height: 50px;
             font-size: 24px;
-
-            /* State awal: Tersembunyi */
             opacity: 0;
             visibility: hidden;
             transform: translateY(20px);
@@ -603,7 +653,6 @@
 
         .btn-top:hover {
             background-color: var(--primary-color);
-            /* Berubah jadi warna Espresso saat hover */
             transform: translateY(-5px);
             color: white;
         }
@@ -668,7 +717,7 @@
             <h1>Mengapa Roasting Level Itu Penting?</h1>
             <div class="author-meta">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"
-                    alt="Author">
+                    alt="Foto Profil Budi Barista" width="50" height="50">
                 <div class="text-start">
                     <strong>Budi Barista</strong><br>
                     <span style="opacity: 0.8;">05 Jan 2024 • 12 Menit Baca</span>
@@ -682,7 +731,8 @@
 
             <article class="article-content">
                 <figure>
-                    <img src="img/blog/grean-bean.webp" alt="Level Sangrai Kopi">
+                    <img src="img/blog/grean-bean.webp" alt="Perbandingan warna biji kopi green bean hingga dark roast"
+                        loading="lazy" width="800" height="600">
                     <figcaption>Perbedaan warna biji kopi dari Green Bean hingga Dark Roast.</figcaption>
                 </figure>
 
@@ -725,15 +775,13 @@
                 <p>
                     Menyangrai kopi bukan sekadar memanaskan biji hingga cokelat. Ini adalah proses kimia yang kompleks.
                     Ketika biji kopi dipanaskan di dalam drum roaster, terjadi serangkaian reaksi kimia yang masif.
-                    Salah
-                    satu yang paling penting adalah <strong>Reaksi Maillard</strong>.
+                    Salah satu yang paling penting adalah <strong>Reaksi Maillard</strong>.
                 </p>
                 <p>
                     Reaksi Maillard terjadi pada suhu sekitar 150°C - 200°C, di mana gula alami dan asam amino dalam
-                    biji
-                    kopi bereaksi membentuk senyawa aroma dan rasa baru, sekaligus mengubah warna biji menjadi
-                    kecokelatan.
-                    Selanjutnya, terjadi karamelisasi sukrosa yang memberikan rasa manis dan kompleksitas body.
+                    biji kopi bereaksi membentuk senyawa aroma dan rasa baru, sekaligus mengubah warna biji menjadi
+                    kecokelatan. Selanjutnya, terjadi karamelisasi sukrosa yang memberikan rasa manis dan kompleksitas
+                    body.
                 </p>
                 <p>
                     Seorang roaster (penyangrai) memegang kendali penuh. Jika mereka menghentikan proses terlalu cepat,
@@ -744,22 +792,20 @@
                 <h2>2. Klasifikasi Roasting Level</h2>
                 <p>
                     Secara umum, industri kopi membagi tingkat kematangan menjadi tiga kategori besar: Light, Medium,
-                    dan
-                    Dark. Namun, di antara kategori tersebut terdapat spektrum yang luas. Mari kita bedah satu per satu.
+                    dan Dark. Namun, di antara kategori tersebut terdapat spektrum yang luas. Mari kita bedah satu per
+                    satu.
                 </p>
 
                 <h3>Light Roast (Sangrai Ringan)</h3>
                 <p>
                     Light roast biasanya dihentikan sesaat setelah "First Crack" (bunyi retakan pertama seperti
-                    popcorn).
-                    Biji berwarna cokelat muda, kering, dan tidak berminyak di permukaannya.
+                    popcorn). Biji berwarna cokelat muda, kering, dan tidak berminyak di permukaannya.
                 </p>
                 <p>
                     <strong>Karakter Rasa:</strong> Light roast mempertahankan karakter asli biji kopi (origin) paling
                     kuat. Tingkat keasaman (acidity) sangat tinggi, body tipis, dan sering memiliki notes floral (bunga)
                     atau fruity (buah-buahan). Ini adalah level favorit pecinta kopi gelombang ketiga (Third Wave
-                    Coffee)
-                    yang ingin merasakan keaslian terroir kopi.
+                    Coffee) yang ingin merasakan keaslian terroir kopi.
                 </p>
 
                 <h3>Medium Roast (Sangrai Menengah)</h3>
@@ -770,45 +816,40 @@
                 </p>
                 <p>
                     <strong>Karakter Rasa:</strong> Ini adalah titik keseimbangan (balance). Acidity mulai menurun,
-                    namun
-                    rasa manis (sweetness) dari karamelisasi mulai menonjol. Body kopi menjadi lebih tebal dibanding
-                    Light
-                    Roast, namun aroma gosong belum muncul. Medium roast adalah level paling aman bagi pemula karena
-                    rasanya yang "bersahabat".
+                    namun rasa manis (sweetness) dari karamelisasi mulai menonjol. Body kopi menjadi lebih tebal
+                    dibanding Light Roast, namun aroma gosong belum muncul. Medium roast adalah level paling aman bagi
+                    pemula karena rasanya yang "bersahabat".
                 </p>
 
                 <h3>Dark Roast (Sangrai Gelap)</h3>
                 <p>
                     Pada level ini, biji kopi berwarna cokelat tua hingga hampir hitam. Minyak kopi akan terlihat jelas
                     mengilap di permukaan biji. Proses biasanya dihentikan saat atau setelah "Second Crack" (bunyi
-                    retakan
-                    kedua yang lebih halus).
+                    retakan kedua yang lebih halus).
                 </p>
                 <p>
                     <strong>Karakter Rasa:</strong> Karakter asli biji kopi (origin) hampir hilang sepenuhnya,
-                    digantikan
-                    oleh rasa hasil penyangraian. Acidity sangat rendah, body sangat tebal, dan dominan rasa pahit
-                    (bitter),
-                    smoky, dark chocolate, atau kacang-kacangan. Kopi tipe ini sangat cocok dicampur susu kental manis
-                    atau dijadikan bahan dasar minuman kopi kekinian yang manis.
+                    digantikan oleh rasa hasil penyangraian. Acidity sangat rendah, body sangat tebal, dan dominan rasa
+                    pahit (bitter), smoky, dark chocolate, atau kacang-kacangan. Kopi tipe ini sangat cocok dicampur
+                    susu kental manis atau dijadikan bahan dasar minuman kopi kekinian yang manis.
                 </p>
 
                 <blockquote>
                     "Semakin gelap level roasting, semakin sedikit karakter asli daerah (origin) yang tersisa. Anda
-                    tidak
-                    lagi mencicipi 'Kopi Gayo' atau 'Kopi Bali', melainkan mencicipi rasa panggangan (roast taste)."
+                    tidak lagi mencicipi 'Kopi Gayo' atau 'Kopi Bali', melainkan mencicipi rasa panggangan (roast
+                    taste)."
                 </blockquote>
 
                 <figure>
-                    <img src="img/detail/roasting-kopi.jpg" alt="Mesin Roasting Kopi">
+                    <img src="img/detail/roasting-kopi.jpg" alt="Mesin Drum Roaster modern dengan kontrol suhu presisi"
+                        loading="lazy" width="800" height="600">
                     <figcaption>Drum Roaster modern yang dilengkapi kontrol suhu presisi.</figcaption>
                 </figure>
 
                 <h2>3. Mitos Kafein: Mana yang Lebih Kuat?</h2>
                 <p>
                     Ini adalah pertanyaan paling umum: "Apakah Dark Roast memiliki kafein lebih banyak karena rasanya
-                    lebih
-                    pahit dan 'nendang'?"
+                    lebih pahit dan 'nendang'?"
                 </p>
                 <p>
                     Faktanya justru mengejutkan. Secara teknis, kadar kafein sangat stabil dan hanya berkurang sedikit
@@ -824,7 +865,7 @@
 
                 <div class="promo-gif">
                     <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZ0ZnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKrEzvLbsVAud8I/giphy.gif"
-                        alt="Promo Coffee Beans">
+                        alt="Animasi biji kopi berputar promo Senyawa Kopi" loading="lazy">
                     <div class="bg-dark text-white p-2 text-center small">Cari Profil Roasting Favoritmu di Senyawa
                         Kopi!</div>
                 </div>
@@ -837,15 +878,12 @@
                 <ul>
                     <li><strong>Untuk Light Roast:</strong> Gunakan metode <em>Pour Over</em> (V60, Kalita Wave) atau
                         <em>Aeropress</em>. Metode ini menonjolkan kejernihan rasa dan keasaman yang kompleks. Hindari
-                        menggunakan mesin Espresso karena akan menghasilkan rasa yang terlalu asam (sour).
-                    </li>
+                        menggunakan mesin Espresso karena akan menghasilkan rasa yang terlalu asam (sour).</li>
                     <li><strong>Untuk Medium Roast:</strong> Sangat fleksibel. Bisa digunakan untuk Pour Over, French
-                        Press,
-                        Siphon, hingga Cold Brew. Ini adalah level serba bisa.</li>
+                        Press, Siphon, hingga Cold Brew. Ini adalah level serba bisa.</li>
                     <li><strong>Untuk Dark Roast:</strong> Gunakan <em>French Press</em>, <em>Moka Pot</em>, atau mesin
                         <em>Espresso</em>. Karakter Dark Roast yang berminyak dan rendah asam sangat cocok untuk
-                        ekstraksi
-                        tekanan tinggi yang menghasilkan krema tebal. Juga sangat cocok untuk Vietnam Drip.
+                        ekstraksi tekanan tinggi yang menghasilkan krema tebal. Juga sangat cocok untuk Vietnam Drip.
                     </li>
                 </ul>
 
@@ -872,9 +910,8 @@
                     <details class="faq-item">
                         <summary>Kenapa kopi Light Roast terasa kecut/asam?</summary>
                         <p>Itu bukan kecut basi, melainkan <em>acidity</em> alami buah kopi. Kopi adalah buah ceri.
-                            Light
-                            roast mempertahankan asam organik (seperti malic acid, citric acid) yang memberikan rasa
-                            segar.</p>
+                            Light roast mempertahankan asam organik (seperti malic acid, citric acid) yang memberikan
+                            rasa segar.</p>
                     </details>
                     <details class="faq-item">
                         <summary>Berapa lama umur simpan biji kopi berdasarkan roasting?</summary>
@@ -888,21 +925,21 @@
                     <p>
                         Roasting Level adalah faktor penentu utama rasa kopi setelah varietas biji. Memahami perbedaan
                         Light, Medium, dan Dark akan membantu Anda membeli biji kopi yang tidak mengecewakan dan
-                        menyeduhnya
-                        dengan metode yang tepat. Jangan takut mencoba profil rasa baru!
+                        menyeduhnya dengan metode yang tepat. Jangan takut mencoba profil rasa baru!
                     </p>
                 </div>
 
                 <div class="promo-gif">
                     <a href="produk.html">
-                        <img src="https://media.giphy.com/media/3o7TKrEzvLbsVAud8I/giphy.gif" alt="Promo Akhir Artikel">
+                        <img src="https://media.giphy.com/media/3o7TKrEzvLbsVAud8I/giphy.gif"
+                            alt="Promo Akhir Artikel Senyawa Kopi" loading="lazy">
                     </a>
                 </div>
 
                 <div class="post-footer">
                     <div class="author-box">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"
-                            alt="Budi Barista">
+                            alt="Budi Barista Head Roaster" width="80" height="80">
                         <div>
                             <h5 class="fw-bold mb-1" style="color: var(--primary-color);">Budi Barista</h5>
                             <small class="text-muted">Head Roaster @SenyawaKopi. Spesialis kurasi green bean dan profil
@@ -911,13 +948,13 @@
                     </div>
                     <div class="share-box text-center text-md-end w-100 w-md-auto">
                         <p class="small text-muted mb-2">Bagikan wawasan ini:</p>
-                        <button class="social-share-btn" onclick="shareSocial('wa')"><i
+                        <button class="social-share-btn" onclick="shareSocial('wa')" aria-label="Share to WhatsApp"><i
                                 class="fab fa-whatsapp"></i></button>
-                        <button class="social-share-btn" onclick="shareSocial('fb')"><i
+                        <button class="social-share-btn" onclick="shareSocial('fb')" aria-label="Share to Facebook"><i
                                 class="fab fa-facebook-f"></i></button>
-                        <button class="social-share-btn" onclick="shareSocial('tw')"><i
+                        <button class="social-share-btn" onclick="shareSocial('tw')" aria-label="Share to Twitter"><i
                                 class="fab fa-twitter"></i></button>
-                        <button class="social-share-btn" onclick="shareSocial('li')"><i
+                        <button class="social-share-btn" onclick="shareSocial('li')" aria-label="Share to LinkedIn"><i
                                 class="fab fa-linkedin-in"></i></button>
                     </div>
                 </div>
@@ -935,7 +972,8 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="related-card">
                         <div class="r-img">
-                            <img src="img/blog/pouring.webp" alt="V60 Guide">
+                            <img src="img/blog/pouring.webp" alt="Panduan menyeduh kopi manual brew V60" loading="lazy"
+                                width="400" height="200">
                         </div>
                         <div class="r-content">
                             <h5 class="fw-bold mb-2">Panduan V60 Pemula</h5>
@@ -950,7 +988,8 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="related-card">
                         <div class="r-img">
-                            <img src="img/blog/arabika-gayo.webp" alt="Gayo">
+                            <img src="img/blog/arabika-gayo.webp" alt="Biji Kopi Arabika Gayo Aceh" loading="lazy"
+                                width="400" height="200">
                         </div>
                         <div class="r-content">
                             <h5 class="fw-bold mb-2">Karakter Kopi Gayo</h5>
@@ -965,7 +1004,8 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="related-card">
                         <div class="r-img">
-                            <img src="img/blog/toples-kopi.webp" alt="Simpan Kopi">
+                            <img src="img/blog/toples-kopi.webp" alt="Toples penyimpanan biji kopi kedap udara"
+                                loading="lazy" width="400" height="200">
                         </div>
                         <div class="r-content">
                             <h5 class="fw-bold mb-2">Tips Menyimpan Biji Kopi</h5>
@@ -1027,10 +1067,12 @@
                     </ul>
 
                     <div>
-                        <a href="#" class="me-3 fs-5 text-white-50 hover-white"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/6282257391460" class="me-3 fs-5 text-white-50 hover-white"><i
-                                class="fab fa-whatsapp"></i></a>
-                        <a href="#" class="me-3 fs-5 text-white-50 hover-white"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="me-3 fs-5 text-white-50 hover-white" aria-label="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/6282257391460" class="me-3 fs-5 text-white-50 hover-white"
+                            aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="me-3 fs-5 text-white-50 hover-white" aria-label="TikTok"><i
+                                class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
             </div>
@@ -1044,12 +1086,12 @@
     </footer>
 
     <div class="floating-container">
-        <a href="#" class="btn-floating btn-top" id="backToTopBtn" title="Kembali ke Atas">
+        <a href="#" class="btn-floating btn-top" id="backToTopBtn" title="Kembali ke Atas" aria-label="Kembali ke atas">
             <i class="fas fa-arrow-up"></i>
         </a>
 
         <a href="https://wa.me/6282257391460?text=Halo%20Senyawa%20Kopi,%20saya%20tertarik%20dengan%20produk%20Anda."
-            target="_blank" class="btn-floating btn-wa" title="Chat WhatsApp">
+            target="_blank" class="btn-floating btn-wa" title="Chat WhatsApp" aria-label="Chat WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>

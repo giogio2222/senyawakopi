@@ -4,16 +4,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bali Kintamani - Senyawa Kopi</title>
+    <title>Jual Kopi Bali Kintamani Arabika Premium - Senyawa Kopi</title>
+    <meta name="description"
+        content="Beli Kopi Bali Kintamani (200g) asli di Senyawa Kopi. Profil rasa Citrus Orange & Brown Sugar yang menyegarkan. Arabika Full Washed terbaik dari Bangli.">
+    <meta name="keywords"
+        content="kopi bali kintamani, arabika bali, kopi kintamani, senyawa kopi, biji kopi citrus, jual kopi bali malang, single origin bali">
+    <meta name="author" content="Senyawa Kopi">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://senyawakopi.com/bali-kintamani.html">
+
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="Bali Kintamani - Arabika Citrus Segar">
+    <meta property="og:description"
+        content="Nikmati kesegaran aroma jeruk Kintamani yang khas. Clean aftertaste dengan manis gula aren.">
+    <meta property="og:image" content="https://senyawakopi.com/img/produk/bali-kintamani.webp">
+    <meta property="og:url" content="https://senyawakopi.com/bali-kintamani.html">
+    <meta property="product:price:amount" content="110000">
+    <meta property="product:price:currency" content="IDR">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap"
         rel="stylesheet">
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Bali Kintamani Arabika",
+      "image": [
+        "https://senyawakopi.com/img/produk/bali-kintamani.webp"
+      ],
+      "description": "Kopi Bali Kintamani terkenal dengan profil rasa unik sitrus dan gula aren. Ditanam di tanah vulkanik Bangli. Proses Full Washed.",
+      "sku": "SK-BALIKINT-200",
+      "brand": {
+        "@type": "Brand",
+        "name": "Senyawa Kopi"
+      },
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Pencinta Kopi"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "54"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://senyawakopi.com/bali-kintamani.html",
+        "priceCurrency": "IDR",
+        "price": "110000",
+        "priceValidUntil": "2026-12-31",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "Senyawa Kopi"
+        }
+      }
+    }
+    </script>
+
     <style>
-        /* --- 1. CONFIGURATION (SAMA PERSIS DENGAN REFERENSI) --- */
+        /* --- 1. CONFIGURATION --- */
         :root {
             --primary-color: #3E2723;
             --secondary-color: #C08B5C;
@@ -279,10 +352,8 @@
             z-index: 9999;
             display: flex;
             flex-direction: column;
-            /* Menyusun tombol secara vertikal (atas-bawah) */
             align-items: center;
             gap: 15px;
-            /* Jarak antara tombol Back to Top dan WA */
         }
 
         .btn-floating {
@@ -299,10 +370,8 @@
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             border: none;
-            /* Menghilangkan border default button */
         }
 
-        /* Tombol WhatsApp */
         .btn-wa {
             background-color: #25D366;
         }
@@ -313,22 +382,16 @@
             color: white;
         }
 
-        /* Tombol Back to Top */
         .btn-top {
             background-color: var(--secondary-color);
-            /* Menggunakan warna Caramel/Latte */
             width: 50px;
-            /* Sedikit lebih kecil dari WA agar estetis */
             height: 50px;
             font-size: 24px;
-
-            /* State awal: Tersembunyi */
             opacity: 0;
             visibility: hidden;
             transform: translateY(20px);
         }
 
-        /* Class untuk memunculkan tombol Top saat discroll */
         .btn-top.show {
             opacity: 1;
             visibility: visible;
@@ -337,7 +400,6 @@
 
         .btn-top:hover {
             background-color: var(--primary-color);
-            /* Berubah jadi warna Espresso saat hover */
             transform: translateY(-5px);
             color: white;
         }
@@ -371,12 +433,14 @@
         <div class="container">
             <a class="navbar-brand" href="index.html"><i class="fas fa-coffee me-2"></i>SENYAWA.</a>
 
-            <a href="keranjang.html" class="d-lg-none ms-auto me-3 position-relative text-dark">
+            <a href="keranjang.html" class="d-lg-none ms-auto me-3 position-relative text-dark"
+                aria-label="Lihat Keranjang">
                 <i class="fas fa-shopping-bag fs-5"></i>
                 <span class="cart-badge" id="mobile-cart-count">0</span>
             </a>
 
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-label="Toggle navigation">
                 <span class="fas fa-bars text-dark"></span>
             </button>
 
@@ -388,7 +452,8 @@
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
 
                     <li class="nav-item d-none d-lg-block">
-                        <a href="keranjang.html" class="cart-nav-item text-decoration-none">
+                        <a href="keranjang.html" class="cart-nav-item text-decoration-none"
+                            aria-label="Lihat Keranjang">
                             <i class="fas fa-shopping-bag"></i>
                             <span class="cart-badge" id="desktop-cart-count">0</span>
                         </a>
@@ -405,7 +470,8 @@
 
                 <div class="col-lg-6">
                     <div class="main-product-img-wrapper">
-                        <img src="img/produk/bali-kintamani.webp" alt="Bali Kintamani" class="main-product-img">
+                        <img src="img/produk/bali-kintamani.webp" alt="Biji Kopi Bali Kintamani Senyawa Kopi"
+                            class="main-product-img" width="500" height="500">
                     </div>
                 </div>
 
@@ -506,7 +572,8 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="product-card" onclick="window.location.href='arabika-gayo-wine.html'">
                         <div class="product-img-wrapper">
-                            <img src="img/produk/arabika-gayo.webp" alt="Arabika Gayo Wine">
+                            <img src="img/produk/arabika-gayo.webp" alt="Kopi Arabika Gayo Wine" width="400"
+                                height="250" loading="lazy">
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Arabika Gayo Wine</h5>
@@ -528,7 +595,8 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="product-card" onclick="window.location.href='house-blend.html'">
                         <div class="product-img-wrapper">
-                            <img src="img/produk/house-blend.webp" alt="House Blend">
+                            <img src="img/produk/house-blend.webp" alt="Kopi House Blend Senyawa" width="400"
+                                height="250" loading="lazy">
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Senyawa House Blend</h5>
@@ -550,7 +618,8 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="product-card" onclick="window.location.href='flores-bajawa.html'">
                         <div class="product-img-wrapper">
-                            <img src="img/produk/flores-bajawa.webp" alt="Flores Bajawa">
+                            <img src="img/produk/flores-bajawa.webp" alt="Kopi Flores Bajawa" width="400" height="250"
+                                loading="lazy">
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Flores Bajawa</h5>
@@ -619,10 +688,12 @@
                     </ul>
 
                     <div>
-                        <a href="#" class="me-3 fs-5 text-white-50 hover-white"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/6282257391460" class="me-3 fs-5 text-white-50 hover-white"><i
-                                class="fab fa-whatsapp"></i></a>
-                        <a href="#" class="me-3 fs-5 text-white-50 hover-white"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="me-3 fs-5 text-white-50 hover-white" aria-label="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/6282257391460" class="me-3 fs-5 text-white-50 hover-white"
+                            aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="me-3 fs-5 text-white-50 hover-white" aria-label="TikTok"><i
+                                class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
             </div>
@@ -636,19 +707,19 @@
     </footer>
 
     <div class="floating-container">
-        <a href="#" class="btn-floating btn-top" id="backToTopBtn" title="Kembali ke Atas">
+        <a href="#" class="btn-floating btn-top" id="backToTopBtn" title="Kembali ke Atas" aria-label="Kembali ke Atas">
             <i class="fas fa-arrow-up"></i>
         </a>
 
         <a href="https://wa.me/6282257391460?text=Halo%20Senyawa%20Kopi,%20saya%20tertarik%20dengan%20produk%20Anda."
-            target="_blank" class="btn-floating btn-wa" title="Chat WhatsApp">
+            target="_blank" class="btn-floating btn-wa" title="Chat WhatsApp" aria-label="Chat WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // --- LOGIC KERANJANG BELANJA (UPDATED TO MATCH ARABIKA-GAYO-WINE) ---
+        // --- LOGIC KERANJANG BELANJA ---
         function updateCartBadge() {
             const cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
             const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
@@ -659,9 +730,7 @@
             if (mobileBadge) mobileBadge.innerText = totalItems;
         }
 
-        // PERUBAHAN: Menambahkan parameter 'image'
         function addToCart(name, price, image, event) {
-            // Mencegah bubbling jika diklik dari dalam card
             if (event) event.stopPropagation();
 
             let cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
@@ -674,7 +743,6 @@
                     name: name,
                     price: price,
                     qty: 1,
-                    // PERUBAHAN: Menggunakan image yang dikirim dari parameter, bukan placeholder
                     image: image
                 });
             }
@@ -682,23 +750,20 @@
             localStorage.setItem('senyawaCart', JSON.stringify(cart));
             updateCartBadge();
 
-            // --- VISUAL EFFECT LOGIC ---
+            // VISUAL EFFECT
             const btn = event.target.closest('button');
             const originalHTML = btn.innerHTML;
             const isLargeButton = btn.classList.contains('btn-add-large');
 
-            // 1. Ubah Teks & Warna
             btn.innerHTML = '<i class="fas fa-check me-2"></i> Berhasil';
             btn.classList.remove('btn-custom-dark', 'btn-add-large');
             btn.classList.add('btn-success', 'text-white');
             btn.style.borderColor = '#198754';
 
-            // 2. Jika tombol aslinya besar, paksa tetap lebar 100%
             if (isLargeButton) {
                 btn.classList.add('w-100');
             }
 
-            // 3. Kembalikan ke semula setelah 1.5 detik
             setTimeout(() => {
                 btn.innerHTML = originalHTML;
                 btn.classList.remove('btn-success', 'text-white', 'w-100');
@@ -718,7 +783,6 @@
         const backToTopBtn = document.getElementById('backToTopBtn');
 
         window.addEventListener('scroll', () => {
-            // Jika scroll lebih dari 300px ke bawah, munculkan tombol
             if (window.scrollY > 300) {
                 backToTopBtn.classList.add('show');
             } else {
@@ -727,10 +791,10 @@
         });
 
         backToTopBtn.addEventListener('click', (e) => {
-            e.preventDefault(); // Mencegah loncat kasar (default anchor behavior)
+            e.preventDefault();
             window.scrollTo({
                 top: 0,
-                behavior: 'smooth' // Scroll halus ke atas
+                behavior: 'smooth'
             });
         });
     </script>
