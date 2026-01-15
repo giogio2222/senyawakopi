@@ -26,10 +26,13 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#3E2723">
 
-    <link rel="preload" as="image" href="img/kopi/hero.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="img/kopi/hero2.webp" fetchpriority="high">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -38,10 +41,6 @@
     <noscript>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </noscript>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap"
-        rel="stylesheet">
 
     <script type="application/ld+json">
     {
@@ -84,11 +83,11 @@
         /* --- 1. COLOR PALETTE --- */
         :root {
             --primary-color: #3E2723;
-            --secondary-color: #C08B5C;
+            /* Accessibility Fix: Darkened Gold for WCAG AA Contrast compliance on white bg */
+            --secondary-color: #A07145;
             --accent-color: #FAF7F2;
             --text-dark: #2D2420;
             --light-bg: #ffffff;
-            /* Accessibility Fix: Darker Gold for proper contrast on white */
             --star-color: #bfa01d;
         }
 
@@ -110,7 +109,6 @@
             font-family: 'Lora', serif;
         }
 
-        /* Helper for Accessibility Contrast */
         .text-star {
             color: var(--star-color);
         }
@@ -140,7 +138,6 @@
         /* --- 2. NAVBAR --- */
         .navbar {
             background-color: rgba(255, 255, 255, 0.95);
-            /* Sedikit lebih solid untuk kontras */
             backdrop-filter: blur(10px);
             padding: 1rem 0;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -160,11 +157,9 @@
             margin-left: 15px;
             font-weight: 500;
             font-size: 0.95rem;
-            /* Up font size for accessibility */
             text-transform: uppercase;
             transition: color 0.3s;
             padding: 10px;
-            /* Bigger touch target */
         }
 
         .nav-link:hover,
@@ -180,7 +175,6 @@
             font-size: 1.2rem;
             transition: transform 0.2s;
             padding: 10px;
-            /* Touch target */
         }
 
         .cart-badge {
@@ -194,20 +188,30 @@
             border-radius: 50%;
         }
 
-        /* --- 3. HERO SECTION --- */
+        /* --- 3. HERO SECTION (LCP OPTIMIZED) --- */
         .hero-section {
-            background: linear-gradient(rgba(62, 39, 35, 0.7), rgba(62, 39, 35, 0.5)), url('img/kopi/hero2.webp');
-            background-size: cover;
-            background-position: center;
+            /* Remove CSS background image to improve LCP discovery */
+            position: relative;
             height: 100vh;
             display: flex;
             align-items: center;
             color: white;
             text-align: center;
             padding-top: 80px;
-            /* LCP Optimization */
-            content-visibility: auto;
-            contain: paint;
+            overflow: hidden;
+        }
+
+        /* New Class for LCP Image */
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            /* Dark overlay effect via filter/brightness if needed, or use overlay div */
+            filter: brightness(0.6);
         }
 
         .hero-title {
@@ -216,7 +220,6 @@
             font-style: italic;
             animation: fadeInUp 1s ease-out;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            /* Text readability */
         }
 
         @media (max-width: 768px) {
@@ -265,7 +268,6 @@
             padding: 100px 0;
             background-color: #fff;
             content-visibility: auto;
-            /* Render performance */
             contain-intrinsic-size: 600px;
         }
 
@@ -298,7 +300,6 @@
             overflow: hidden;
             height: 280px;
             background-color: #f0f0f0;
-            /* Placeholder color for CLS */
         }
 
         .product-img-wrapper img {
@@ -420,7 +421,6 @@
         footer {
             background-color: #2b1d19;
             color: #d1d1d1;
-            /* Accessibility Fix: Lightened from #bbb for better contrast */
             padding: 70px 0 30px;
         }
 
@@ -432,11 +432,9 @@
 
         footer a {
             color: #d1d1d1;
-            /* Accessibility Fix */
             text-decoration: none;
             transition: 0.3s;
             padding: 8px 0;
-            /* Accessibility Fix: Larger tap target */
             display: inline-block;
         }
 
@@ -576,7 +574,10 @@
     </nav>
 
     <section id="beranda" class="hero-section">
-        <div class="container">
+        <img src="img/kopi/hero2.webp" class="hero-bg-image" alt="Senyawa Kopi Hero Background" width="1920"
+            height="1080" fetchpriority="high" decoding="async">
+
+        <div class="container position-relative z-1">
             <div class="row justify-content-center">
                 <div class="col-md-10">
                     <h1 class="hero-title">Temukan Senyawa Rasa<br>Dalam Setiap Tegukan</h1>
@@ -828,11 +829,11 @@
                 </div>
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
-                    data-bs-slide="prev" aria-label="Previous">
+                    data-bs-slide="prev" aria-label="Lihat ulasan sebelumnya">
                     <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
-                    data-bs-slide="next" aria-label="Next">
+                    data-bs-slide="next" aria-label="Lihat ulasan selanjutnya">
                     <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
                 </button>
             </div>
@@ -1054,7 +1055,7 @@
                 } else {
                     backToTopBtn.classList.remove('show');
                 }
-            }, { passive: true }); // Optimized listener
+            }, { passive: true });
 
             backToTopBtn.addEventListener('click', (e) => {
                 e.preventDefault();
