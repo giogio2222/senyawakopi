@@ -26,13 +26,19 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#3E2723">
 
-    <link rel="preload" as="image" href="img/kopi/hero.webp">
+    <link rel="preload" as="image" href="img/kopi/hero.webp" fetchpriority="high">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+
     <link
         href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap"
         rel="stylesheet">
@@ -75,13 +81,15 @@
     </script>
 
     <style>
-        /* --- 1. COLOR PALETTE (EARTH TONES) --- */
+        /* --- 1. COLOR PALETTE --- */
         :root {
             --primary-color: #3E2723;
             --secondary-color: #C08B5C;
             --accent-color: #FAF7F2;
             --text-dark: #2D2420;
             --light-bg: #ffffff;
+            /* Accessibility Fix: Darker Gold for proper contrast on white */
+            --star-color: #bfa01d;
         }
 
         body {
@@ -90,7 +98,6 @@
             background-color: var(--accent-color);
             overflow-x: hidden;
             padding-top: 0;
-            /* Improved Rendering Performance */
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
         }
@@ -101,6 +108,11 @@
         h4,
         h5 {
             font-family: 'Lora', serif;
+        }
+
+        /* Helper for Accessibility Contrast */
+        .text-star {
+            color: var(--star-color);
         }
 
         .section-title {
@@ -125,10 +137,11 @@
             width: 80px;
         }
 
-        /* --- 2. NAVBAR (TRANSPARENT & BLUR) --- */
+        /* --- 2. NAVBAR --- */
         .navbar {
-            background-color: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.95);
+            /* Sedikit lebih solid untuk kontras */
+            backdrop-filter: blur(10px);
             padding: 1rem 0;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             z-index: 1000;
@@ -146,9 +159,12 @@
             color: var(--text-dark) !important;
             margin-left: 15px;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            /* Up font size for accessibility */
             text-transform: uppercase;
             transition: color 0.3s;
+            padding: 10px;
+            /* Bigger touch target */
         }
 
         .nav-link:hover,
@@ -163,12 +179,14 @@
             color: var(--primary-color);
             font-size: 1.2rem;
             transition: transform 0.2s;
+            padding: 10px;
+            /* Touch target */
         }
 
         .cart-badge {
             position: absolute;
-            top: -5px;
-            right: -8px;
+            top: 0;
+            right: -5px;
             background-color: var(--secondary-color);
             color: white;
             font-size: 0.65rem;
@@ -176,7 +194,7 @@
             border-radius: 50%;
         }
 
-        /* --- 3. HERO SECTION (FULLSCREEN & OVERLAP) --- */
+        /* --- 3. HERO SECTION --- */
         .hero-section {
             background: linear-gradient(rgba(62, 39, 35, 0.7), rgba(62, 39, 35, 0.5)), url('img/kopi/hero.webp');
             background-size: cover;
@@ -186,9 +204,10 @@
             align-items: center;
             color: white;
             text-align: center;
-            padding-top: 100px;
-            /* Performance: Ensure text is visible immediately */
+            padding-top: 80px;
+            /* LCP Optimization */
             content-visibility: auto;
+            contain: paint;
         }
 
         .hero-title {
@@ -196,6 +215,8 @@
             margin-bottom: 20px;
             font-style: italic;
             animation: fadeInUp 1s ease-out;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            /* Text readability */
         }
 
         @media (max-width: 768px) {
@@ -243,13 +264,15 @@
         .about-section {
             padding: 100px 0;
             background-color: #fff;
+            content-visibility: auto;
+            /* Render performance */
+            contain-intrinsic-size: 600px;
         }
 
         .about-img {
             border-radius: 20px 0 20px 0;
             width: 100%;
             height: 400px;
-            /* Explicit height defined in CSS, matched in HTML */
             object-fit: cover;
             box-shadow: 15px 15px 0px var(--secondary-color);
         }
@@ -274,6 +297,8 @@
         .product-img-wrapper {
             overflow: hidden;
             height: 280px;
+            background-color: #f0f0f0;
+            /* Placeholder color for CLS */
         }
 
         .product-img-wrapper img {
@@ -297,10 +322,10 @@
         /* --- 6. BREWING ASSISTANT --- */
         .brewing-section {
             background-color: var(--primary-color);
-            /* SVG URL Optimization: Encoded directly */
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235d4037' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             color: white;
             padding: 90px 0;
+            content-visibility: auto;
         }
 
         .brew-btn {
@@ -329,13 +354,13 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             margin-top: 30px;
             min-height: 350px;
-            /* Prevent layout shift on content change */
         }
 
         /* --- 7. TESTIMONIALS --- */
         .testimonial-section {
             background-color: var(--accent-color);
             padding: 80px 0;
+            content-visibility: auto;
         }
 
         .testimonial-box {
@@ -394,7 +419,8 @@
         /* --- FOOTER --- */
         footer {
             background-color: #2b1d19;
-            color: #bbb;
+            color: #d1d1d1;
+            /* Accessibility Fix: Lightened from #bbb for better contrast */
             padding: 70px 0 30px;
         }
 
@@ -405,11 +431,12 @@
         }
 
         footer a {
-            color: #bbb;
+            color: #d1d1d1;
+            /* Accessibility Fix */
             text-decoration: none;
             transition: 0.3s;
-            /* Accessible touch target size */
-            padding: 5px 0;
+            padding: 8px 0;
+            /* Accessibility Fix: Larger tap target */
             display: inline-block;
         }
 
@@ -569,8 +596,8 @@
                         height="400" loading="lazy">
                 </div>
                 <div class="col-md-6 ps-md-5">
-                    <h4 class="text-secondary text-uppercase mb-2" style="font-size: 0.9rem; letter-spacing: 2px;">
-                        Cerita Kami</h4>
+                    <p class="h6 text-secondary text-uppercase mb-2" style="font-size: 0.9rem; letter-spacing: 2px;">
+                        Cerita Kami</p>
                     <h2 class="fw-bold mb-4" style="color: var(--primary-color);">Lebih Dari Sekadar Biji Kopi</h2>
                     <p class="text-muted mb-4">
                         Senyawa Kopi lahir dari kecintaan kami terhadap kekayaan alam Indonesia. Kami bekerja sama
@@ -580,11 +607,11 @@
 
                     <div class="d-flex gap-4 mb-4">
                         <div>
-                            <h3 class="fw-bold mb-0 text-dark">15+</h3>
+                            <p class="h3 fw-bold mb-0 text-dark">15+</p>
                             <small class="text-secondary">Varian Origin</small>
                         </div>
                         <div>
-                            <h3 class="fw-bold mb-0 text-dark">100%</h3>
+                            <p class="h3 fw-bold mb-0 text-dark">100%</p>
                             <small class="text-secondary">Arabika Murni</small>
                         </div>
                     </div>
@@ -612,7 +639,7 @@
                         </div>
                         <div class="card-body p-4">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Arabika Gayo Wine</h5>
-                            <div class="mb-2 text-warning small" aria-label="Rating 5 dari 5">
+                            <div class="mb-2 text-star small" aria-label="Rating 5 dari 5">
                                 <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
                                     aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i
                                     class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
@@ -639,7 +666,7 @@
                         </div>
                         <div class="card-body p-4">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Flores Bajawa</h5>
-                            <div class="mb-2 text-warning small" aria-label="Rating 4 dari 5">
+                            <div class="mb-2 text-star small" aria-label="Rating 4 dari 5">
                                 <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
                                     aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i
                                     class="fas fa-star" aria-hidden="true"></i><i class="far fa-star"
@@ -666,7 +693,7 @@
                         </div>
                         <div class="card-body p-4">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Senyawa House Blend</h5>
-                            <div class="mb-2 text-warning small" aria-label="Rating 4.5 dari 5">
+                            <div class="mb-2 text-star small" aria-label="Rating 4.5 dari 5">
                                 <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
                                     aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i
                                     class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt"
@@ -752,7 +779,7 @@
                         <div class="testimonial-box">
                             <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto Profil Budi Santoso"
                                 class="user-img-lg" width="80" height="80" loading="lazy">
-                            <div class="mb-3 text-warning">
+                            <div class="mb-3 text-star">
                                 <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
                                     aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i
                                     class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
@@ -769,7 +796,7 @@
                         <div class="testimonial-box">
                             <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Foto Profil Siti Aminah"
                                 class="user-img-lg" width="80" height="80" loading="lazy">
-                            <div class="mb-3 text-warning">
+                            <div class="mb-3 text-star">
                                 <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
                                     aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i
                                     class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
@@ -786,7 +813,7 @@
                         <div class="testimonial-box">
                             <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Foto Profil Reza Rahardian"
                                 class="user-img-lg" width="80" height="80" loading="lazy">
-                            <div class="mb-3 text-warning">
+                            <div class="mb-3 text-star">
                                 <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
                                     aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i
                                     class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt"
@@ -888,7 +915,8 @@
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <h5 class="fw-bold mb-3">SENYAWA KOPI</h5>
-                    <p class="small text-secondary">Menghadirkan harmoni rasa dari perkebunan nusantara langsung ke meja
+                    <p class="small" style="color: #d1d1d1;">Menghadirkan harmoni rasa dari perkebunan nusantara
+                        langsung ke meja
                         Anda.</p>
                 </div>
 
@@ -915,7 +943,7 @@
 
                 <div class="col-md-4 mb-4">
                     <h6 class="text-white mb-3">Hubungi Kami</h6>
-                    <ul class="list-unstyled small text-secondary">
+                    <ul class="list-unstyled small" style="color: #d1d1d1;">
                         <li class="mb-2">
                             <i class="fas fa-map-marker-alt me-2 text-white-50" aria-hidden="true"></i>
                             Jl. Senyawa Rasa No. 88, Malang, Jawa Timur
@@ -944,7 +972,7 @@
             <hr class="border-secondary mt-4 opacity-25">
 
             <div class="text-center pt-2">
-                <p class="small mb-0 text-secondary">&copy; 2024 Senyawa Kopi Indonesia.</p>
+                <p class="small mb-0" style="color: #d1d1d1;">&copy; 2024 Senyawa Kopi Indonesia.</p>
             </div>
         </div>
     </footer>
@@ -964,6 +992,9 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // Passive listener for better scrolling performance
+            window.addEventListener('scroll', function () { }, { passive: true });
+
             function updateCartBadge() {
                 const cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
                 const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
@@ -973,7 +1004,6 @@
                 if (mobBadge) mobBadge.innerText = totalItems;
             }
 
-            // Make it global to be accessible by inline onclick (though addEventListener is better practice)
             window.addToCart = function (name, price, image, event) {
                 event.stopPropagation();
                 let cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
@@ -1017,7 +1047,6 @@
                 }, 200);
             }
 
-            // Back to top Logic
             const backToTopBtn = document.getElementById('backToTopBtn');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 300) {
@@ -1025,7 +1054,7 @@
                 } else {
                     backToTopBtn.classList.remove('show');
                 }
-            });
+            }, { passive: true }); // Optimized listener
 
             backToTopBtn.addEventListener('click', (e) => {
                 e.preventDefault();

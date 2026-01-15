@@ -4,13 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog & Jurnal - Senyawa Kopi</title>
+
+    <title>Jurnal & Blog Senyawa Kopi - Tips, Edukasi, dan Resep</title>
+    <meta name="description"
+        content="Kumpulan artikel edukasi kopi, tips seduh manual (V60, Aeropress), resep kopi kekinian, dan cerita dari petani kopi Indonesia.">
+    <meta name="keywords"
+        content="blog kopi, resep kopi, cara seduh v60, perbedaan arabika robusta, tips barista, kopi gayo">
+    <meta name="author" content="Senyawa Kopi Indonesia">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Jurnal Senyawa - Edukasi & Inspirasi Kopi">
+    <meta property="og:description" content="Temukan resep, tips brewing, dan cerita di balik biji kopi nusantara.">
+    <meta property="og:image" content="img/kopi/hero.webp">
+    <meta property="og:url" content="https://senyawakopi.com/blog.html">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#3E2723">
+
+    <link rel="preload" as="image" href="img/kopi/hero.webp" fetchpriority="high">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+
     <link
         href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap"
         rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Jurnal Senyawa Kopi",
+      "description": "Kumpulan artikel edukasi kopi, resep, dan tips brewing.",
+      "url": "https://senyawakopi.com/blog.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Senyawa Kopi",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://senyawakopi.com/img/logo.png"
+        }
+      }
+    }
+    </script>
 
     <style>
         /* --- 1. SETUP VARIABLES --- */
@@ -20,6 +65,8 @@
             --accent-color: #FAF7F2;
             --text-dark: #2D2420;
             --light-bg: #ffffff;
+            /* Accessibility High Contrast */
+            --text-footer: #d1d1d1;
         }
 
         /* Anti Geser & Dasar Layout */
@@ -34,6 +81,8 @@
             color: var(--text-dark);
             background-color: var(--accent-color);
             padding-top: 0;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
         }
 
         h1,
@@ -47,7 +96,7 @@
         /* --- 2. NAVBAR --- */
         .navbar {
             background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px);
             padding: 1rem 0;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             z-index: 1000;
@@ -65,9 +114,12 @@
             color: var(--text-dark) !important;
             margin-left: 15px;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            /* Accessibility: Larger font */
             text-transform: uppercase;
             transition: color 0.3s;
+            padding: 10px;
+            /* Accessibility: Larger touch area */
         }
 
         .nav-link:hover,
@@ -82,12 +134,13 @@
             color: var(--primary-color);
             font-size: 1.2rem;
             transition: transform 0.2s;
+            padding: 10px;
         }
 
         .cart-badge {
             position: absolute;
-            top: -5px;
-            right: -8px;
+            top: 0;
+            right: -5px;
             background-color: var(--secondary-color);
             color: white;
             font-size: 0.65rem;
@@ -97,6 +150,7 @@
 
         /* --- 3. PAGE HEADER --- */
         .page-header {
+            /* LCP Optimization: Match preload */
             background: linear-gradient(rgba(62, 39, 35, 0.8), rgba(62, 39, 35, 0.7)), url('img/kopi/hero.webp');
             background-size: cover;
             background-position: center;
@@ -108,6 +162,8 @@
             color: white;
             margin-bottom: 0;
             padding-top: 80px;
+            content-visibility: auto;
+            /* Performance */
         }
 
         .page-title {
@@ -115,6 +171,8 @@
             font-weight: 600;
             font-style: italic;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            /* Readability */
         }
 
         /* --- 4. BLOG CARD STYLE --- */
@@ -141,6 +199,8 @@
             aspect-ratio: 4 / 3;
             overflow: hidden;
             position: relative;
+            background-color: #f0f0f0;
+            /* Placeholder color for CLS */
         }
 
         .blog-img-wrapper img {
@@ -244,6 +304,7 @@
             padding: 80px 0;
             text-align: center;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235d4037' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            content-visibility: auto;
         }
 
         .btn-whatsapp {
@@ -271,7 +332,8 @@
         /* --- 6. FOOTER --- */
         footer {
             background-color: #2b1d19;
-            color: #bbb;
+            color: var(--text-footer);
+            /* Accessibilty Fix */
             padding: 70px 0 30px;
         }
 
@@ -282,9 +344,13 @@
         }
 
         footer a {
-            color: #bbb;
+            color: var(--text-footer);
+            /* Accessibilty Fix */
             text-decoration: none;
             transition: 0.3s;
+            padding: 5px 0;
+            /* Touch target */
+            display: inline-block;
         }
 
         footer a:hover {
@@ -292,7 +358,7 @@
             padding-left: 5px;
         }
 
-        /* --- 9. FLOATING BUTTONS (FIXED & RESPONSIVE) --- */
+        /* --- 9. FLOATING BUTTONS --- */
         .floating-container {
             position: fixed;
             bottom: 30px;
@@ -300,10 +366,8 @@
             z-index: 9999;
             display: flex;
             flex-direction: column;
-            /* Menyusun tombol secara vertikal (atas-bawah) */
             align-items: center;
             gap: 15px;
-            /* Jarak antara tombol Back to Top dan WA */
         }
 
         .btn-floating {
@@ -320,10 +384,8 @@
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             border: none;
-            /* Menghilangkan border default button */
         }
 
-        /* Tombol WhatsApp */
         .btn-wa {
             background-color: #25D366;
         }
@@ -334,22 +396,16 @@
             color: white;
         }
 
-        /* Tombol Back to Top */
         .btn-top {
             background-color: var(--secondary-color);
-            /* Menggunakan warna Caramel/Latte */
             width: 50px;
-            /* Sedikit lebih kecil dari WA agar estetis */
             height: 50px;
             font-size: 24px;
-
-            /* State awal: Tersembunyi */
             opacity: 0;
             visibility: hidden;
             transform: translateY(20px);
         }
 
-        /* Class untuk memunculkan tombol Top saat discroll */
         .btn-top.show {
             opacity: 1;
             visibility: visible;
@@ -358,12 +414,10 @@
 
         .btn-top:hover {
             background-color: var(--primary-color);
-            /* Berubah jadi warna Espresso saat hover */
             transform: translateY(-5px);
             color: white;
         }
 
-        /* --- RESPONSIVE MOBILE --- */
         @media (max-width: 768px) {
             .floating-container {
                 bottom: 20px;
@@ -388,17 +442,19 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><i class="fas fa-coffee me-2"></i>SENYAWA.</a>
+            <a class="navbar-brand" href="index.html"><i class="fas fa-coffee me-2" aria-hidden="true"></i>SENYAWA.</a>
 
-            <a href="keranjang.html" class="d-lg-none ms-auto me-3 position-relative text-dark">
-                <i class="fas fa-shopping-bag fs-5"></i>
+            <a href="keranjang.html" class="d-lg-none ms-auto me-3 position-relative text-dark"
+                aria-label="Lihat Keranjang">
+                <i class="fas fa-shopping-bag fs-5" aria-hidden="true"></i>
                 <span class="cart-badge" id="mobile-cart-count">0</span>
             </a>
 
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="fas fa-bars text-dark"></span>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fas fa-bars text-dark" aria-hidden="true"></span>
             </button>
 
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -409,8 +465,9 @@
                     <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
 
                     <li class="nav-item d-none d-lg-block">
-                        <a href="keranjang.html" class="cart-nav-item text-decoration-none">
-                            <i class="fas fa-shopping-bag"></i>
+                        <a href="keranjang.html" class="cart-nav-item text-decoration-none"
+                            aria-label="Keranjang Belanja">
+                            <i class="fas fa-shopping-bag" aria-hidden="true"></i>
                             <span class="cart-badge" id="desktop-cart-count">0</span>
                         </a>
                     </li>
@@ -434,10 +491,11 @@
                     <div class="search-box-wrapper bg-white">
                         <div class="input-group">
                             <span class="input-group-text ps-4 text-muted">
-                                <i class="fas fa-search"></i>
+                                <i class="fas fa-search" aria-hidden="true"></i>
                             </span>
                             <input type="text" id="searchInput" class="form-control py-3"
-                                placeholder="Cari judul artikel..." onkeyup="filterArticles()">
+                                placeholder="Cari judul artikel..." aria-label="Cari artikel blog"
+                                onkeyup="filterArticles()">
                         </div>
                     </div>
                 </div>
@@ -447,14 +505,16 @@
                 <div class="col-md-4 col-sm-6 blog-item">
                     <div class="blog-card" onclick="location.href='blog-1.html'">
                         <div class="blog-img-wrapper">
-                            <img src="img/blog/pouring.webp" alt="Manual Brew">
+                            <img src="img/blog/pouring.webp" alt="Manual Brew V60" width="400" height="300"
+                                loading="lazy">
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">Edukasi • 10 Jan 2024</div>
                             <h3 class="blog-title">Panduan Lengkap V60 Untuk Pemula</h3>
                             <p class="blog-excerpt">Ingin menyeduh kopi manual di rumah? Simak teknik dasar pour over
                                 menggunakan V60 agar rasa kopi lebih bersih dan optimal.</p>
-                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></span>
+                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"
+                                    aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
@@ -462,14 +522,16 @@
                 <div class="col-md-4 col-sm-6 blog-item">
                     <div class="blog-card" onclick="location.href='blog-2.html'">
                         <div class="blog-img-wrapper">
-                            <img src="img/blog/grean-bean.webp" alt="Roasting">
+                            <img src="img/blog/grean-bean.webp" alt="Proses Roasting Kopi" width="400" height="300"
+                                loading="lazy">
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">Behind Scene • 05 Jan 2024</div>
                             <h3 class="blog-title">Mengapa Roasting Level Itu Penting?</h3>
                             <p class="blog-excerpt">Light, Medium, atau Dark? Ketahui bagaimana tingkat kematangan
                                 sangrai mempengaruhi rasa asam dan pahit pada biji kopi Anda.</p>
-                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></span>
+                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"
+                                    aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
@@ -477,14 +539,16 @@
                 <div class="col-md-4 col-sm-6 blog-item">
                     <div class="blog-card" onclick="location.href='blog-3.html'">
                         <div class="blog-img-wrapper">
-                            <img src="img/blog/arabika-gayo.webp" alt="Gayo">
+                            <img src="img/blog/arabika-gayo.webp" alt="Kebun Kopi Gayo" width="400" height="300"
+                                loading="lazy">
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">Origin • 28 Des 2023</div>
                             <h3 class="blog-title">Mengenal Karakter Kopi Gayo</h3>
                             <p class="blog-excerpt">Kopi Aceh Gayo dikenal dunia karena body yang tebal dan aroma rempah
                                 yang khas. Mari telusuri sejarah dan keunikannya.</p>
-                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></span>
+                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"
+                                    aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
@@ -492,14 +556,16 @@
                 <div class="col-md-4 col-sm-6 blog-item">
                     <div class="blog-card" onclick="location.href='blog-4.html'">
                         <div class="blog-img-wrapper">
-                            <img src="img/blog/toples-kopi.webp" alt="Penyimpanan">
+                            <img src="img/blog/toples-kopi.webp" alt="Toples Kopi Kedap Udara" width="400" height="300"
+                                loading="lazy">
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">Tips • 20 Des 2023</div>
                             <h3 class="blog-title">Cara Menyimpan Biji Kopi Agar Awet</h3>
                             <p class="blog-excerpt">Jangan simpan di kulkas! Berikut adalah tips menjaga kesegaran aroma
                                 biji kopi setelah kemasan dibuka agar tidak apek.</p>
-                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></span>
+                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"
+                                    aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
@@ -507,14 +573,16 @@
                 <div class="col-md-4 col-sm-6 blog-item">
                     <div class="blog-card" onclick="location.href='blog-5.html'">
                         <div class="blog-img-wrapper">
-                            <img src="img/blog/kopi-aren.webp" alt="Es Kopi">
+                            <img src="img/blog/kopi-aren.webp" alt="Es Kopi Susu Gula Aren" width="400" height="300"
+                                loading="lazy">
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">Resep • 15 Des 2023</div>
                             <h3 class="blog-title">Resep Es Kopi Susu Gula Aren</h3>
                             <p class="blog-excerpt">Bikin es kopi susu kekinian ternyata mudah. Ini dia rasio espresso,
                                 susu, dan gula aren yang pas untuk jualan atau diminum sendiri.</p>
-                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></span>
+                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"
+                                    aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
@@ -522,14 +590,16 @@
                 <div class="col-md-4 col-sm-6 blog-item">
                     <div class="blog-card" onclick="location.href='blog-6.html'">
                         <div class="blog-img-wrapper">
-                            <img src="img/blog/kopi-cherry.webp" alt="Bunga Kopi">
+                            <img src="img/blog/kopi-cherry.webp" alt="Buah Ceri Kopi" width="400" height="300"
+                                loading="lazy">
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">Edukasi • 10 Des 2023</div>
                             <h3 class="blog-title">Perbedaan Arabika dan Robusta</h3>
                             <p class="blog-excerpt">Masih bingung membedakan keduanya? Simak perbedaan dari segi bentuk
                                 biji, rasa, kandungan kafein, hingga harga pasarnya.</p>
-                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></span>
+                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"
+                                    aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
@@ -537,14 +607,16 @@
                 <div class="col-md-4 col-sm-6 blog-item">
                     <div class="blog-card" onclick="location.href='blog-7.html'">
                         <div class="blog-img-wrapper">
-                            <img src="img/blog/ukuran-gilingan.webp" alt="Grinder">
+                            <img src="img/blog/ukuran-gilingan.webp" alt="Grinder Kopi" width="400" height="300"
+                                loading="lazy">
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">Tips • 01 Des 2023</div>
                             <h3 class="blog-title">Pentingnya Ukuran Gilingan (Grind Size)</h3>
                             <p class="blog-excerpt">Mengapa kopi terasa terlalu asam atau terlalu pahit? Jawabannya
                                 seringkali terletak pada ukuran gilingan yang tidak sesuai alat seduh.</p>
-                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></span>
+                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"
+                                    aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
@@ -552,14 +624,16 @@
                 <div class="col-md-4 col-sm-6 blog-item">
                     <div class="blog-card" onclick="location.href='blog-8.html'">
                         <div class="blog-img-wrapper">
-                            <img src="img/blog/latte-art.webp" alt="Latte Art">
+                            <img src="img/blog/latte-art.webp" alt="Latte Art Tulip" width="400" height="300"
+                                loading="lazy">
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">Lifestyle • 25 Nov 2023</div>
                             <h3 class="blog-title">Seni Latte Art: Bukan Sekadar Hiasan</h3>
                             <p class="blog-excerpt">Melihat bagaimana tekstur susu (microfoam) yang sempurna dapat
                                 menciptakan visual indah sekaligus rasa creamy yang memanjakan lidah.</p>
-                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></span>
+                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"
+                                    aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
@@ -567,14 +641,16 @@
                 <div class="col-md-4 col-sm-6 blog-item">
                     <div class="blog-card" onclick="location.href='blog-9.html'">
                         <div class="blog-img-wrapper">
-                            <img src="img/blog/cold-brew.webp" alt="Cold Brew">
+                            <img src="img/blog/cold-brew.webp" alt="Cold Brew Bottle" width="400" height="300"
+                                loading="lazy">
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">Resep • 20 Nov 2023</div>
                             <h3 class="blog-title">Cold Brew: Seduh Dingin yang Menyegarkan</h3>
                             <p class="blog-excerpt">Metode seduh tanpa air panas yang menghasilkan kopi dengan keasaman
                                 rendah (low acid) dan rasa manis alami yang menonjol.</p>
-                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></span>
+                            <span class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right small"
+                                    aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
@@ -592,8 +668,8 @@
                         ke barista Senyawa.</p>
 
                     <a href="https://wa.me/6282257391460?text=Halo%20Senyawa%20Kopi,%20saya%20membaca%20blog%20Anda%20dan%20ingin%20bertanya..."
-                        class="btn btn-whatsapp" target="_blank">
-                        <i class="fab fa-whatsapp fs-4"></i> Chat WhatsApp Kami
+                        class="btn btn-whatsapp" target="_blank" aria-label="Chat WhatsApp Senyawa Kopi">
+                        <i class="fab fa-whatsapp fs-4" aria-hidden="true"></i> Chat WhatsApp Kami
                     </a>
                 </div>
             </div>
@@ -605,7 +681,8 @@
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <h5 class="fw-bold mb-3">SENYAWA KOPI</h5>
-                    <p class="small text-secondary">Menghadirkan harmoni rasa dari perkebunan nusantara langsung ke meja
+                    <p class="small" style="color: var(--text-footer);">Menghadirkan harmoni rasa dari perkebunan
+                        nusantara langsung ke meja
                         Anda.</p>
                 </div>
 
@@ -622,34 +699,37 @@
                 <div class="col-md-2 mb-4">
                     <h6 class="text-white mb-3">Bantuan</h6>
                     <ul class="list-unstyled small">
-                        <li><a href="https://wa.me/6282257391460">Konfirmasi Pembayaran</a></li>
-                        <li><a href="https://wa.me/6282257391460">Hubungi Kami</a></li>
+                        <li><a href="https://wa.me/6282257391460" aria-label="Konfirmasi Pembayaran">Konfirmasi
+                                Pembayaran</a></li>
+                        <li><a href="https://wa.me/6282257391460" aria-label="Hubungi Kami">Hubungi Kami</a></li>
                         <li><a href="#">Syarat & Ketentuan</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-4 mb-4">
                     <h6 class="text-white mb-3">Hubungi Kami</h6>
-                    <ul class="list-unstyled small text-secondary">
+                    <ul class="list-unstyled small" style="color: var(--text-footer);">
                         <li class="mb-2">
-                            <i class="fas fa-map-marker-alt me-2 text-white-50"></i>
+                            <i class="fas fa-map-marker-alt me-2 text-white-50" aria-hidden="true"></i>
                             Jl. Senyawa Rasa No. 88, Malang, Jawa Timur
                         </li>
                         <li class="mb-2">
-                            <i class="fas fa-phone me-2 text-white-50"></i>
+                            <i class="fas fa-phone me-2 text-white-50" aria-hidden="true"></i>
                             +62 822-5739-1460
                         </li>
                         <li class="mb-3">
-                            <i class="fas fa-envelope me-2 text-white-50"></i>
+                            <i class="fas fa-envelope me-2 text-white-50" aria-hidden="true"></i>
                             halo@senyawakopi.com
                         </li>
                     </ul>
 
                     <div>
-                        <a href="#" class="me-3 fs-5 text-white-50 hover-white"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/6282257391460" class="me-3 fs-5 text-white-50 hover-white"><i
-                                class="fab fa-whatsapp"></i></a>
-                        <a href="#" class="me-3 fs-5 text-white-50 hover-white"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="me-3 fs-5 text-white-50 hover-white" aria-label="Instagram"><i
+                                class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://wa.me/6282257391460" class="me-3 fs-5 text-white-50 hover-white"
+                            aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                        <a href="#" class="me-3 fs-5 text-white-50 hover-white" aria-label="TikTok"><i
+                                class="fab fa-tiktok" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -657,25 +737,24 @@
             <hr class="border-secondary mt-4 opacity-25">
 
             <div class="text-center pt-2">
-                <p class="small mb-0 text-secondary">&copy; 2024 Senyawa Kopi Indonesia.</p>
+                <p class="small mb-0" style="color: var(--text-footer);">&copy; 2024 Senyawa Kopi Indonesia.</p>
             </div>
         </div>
     </footer>
 
     <div class="floating-container">
-        <a href="#" class="btn-floating btn-top" id="backToTopBtn" title="Kembali ke Atas">
-            <i class="fas fa-arrow-up"></i>
+        <a href="#" class="btn-floating btn-top" id="backToTopBtn" title="Kembali ke Atas" aria-label="Kembali ke Atas">
+            <i class="fas fa-arrow-up" aria-hidden="true"></i>
         </a>
 
         <a href="https://wa.me/6282257391460?text=Halo%20Senyawa%20Kopi,%20saya%20tertarik%20dengan%20produk%20Anda."
-            target="_blank" class="btn-floating btn-wa" title="Chat WhatsApp">
-            <i class="fab fa-whatsapp"></i>
+            target="_blank" class="btn-floating btn-wa" title="Chat WhatsApp" aria-label="Chat WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
         </a>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     <script>
-        // Logic Cart Badge (Supaya sinkron)
         function updateCartBadge() {
             const cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
             const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
@@ -686,49 +765,43 @@
             if (mobileBadge) mobileBadge.innerText = totalItems;
         }
 
-        // --- FUNGSI SEARCH BLOG (BARU) ---
+        // --- FUNGSI SEARCH BLOG ---
         function filterArticles() {
-            // Ambil nilai input dan ubah ke huruf kecil
             let input = document.getElementById('searchInput');
             let filter = input.value.toLowerCase();
-
-            // Ambil semua elemen kolom blog
             let cards = document.getElementsByClassName('blog-item');
 
-            // Loop semua item
             for (let i = 0; i < cards.length; i++) {
-                // Cari elemen judul di dalam card
                 let titleElement = cards[i].querySelector('.blog-title');
                 let titleText = titleElement.innerText || titleElement.textContent;
 
-                // Cek apakah judul mengandung kata kunci
                 if (titleText.toLowerCase().indexOf(filter) > -1) {
-                    cards[i].style.display = ""; // Tampilkan
+                    cards[i].style.display = "";
                 } else {
-                    cards[i].style.display = "none"; // Sembunyikan
+                    cards[i].style.display = "none";
                 }
             }
         }
 
         document.addEventListener('DOMContentLoaded', updateCartBadge);
 
-        // --- LOGIC BACK TO TOP ---
+        // --- LOGIC BACK TO TOP (Performance Optimized) ---
         const backToTopBtn = document.getElementById('backToTopBtn');
 
+        // Passive listener for better scrolling performance
         window.addEventListener('scroll', () => {
-            // Jika scroll lebih dari 300px ke bawah, munculkan tombol
             if (window.scrollY > 300) {
                 backToTopBtn.classList.add('show');
             } else {
                 backToTopBtn.classList.remove('show');
             }
-        });
+        }, { passive: true });
 
         backToTopBtn.addEventListener('click', (e) => {
-            e.preventDefault(); // Mencegah loncat kasar (default anchor behavior)
+            e.preventDefault();
             window.scrollTo({
                 top: 0,
-                behavior: 'smooth' // Scroll halus ke atas
+                behavior: 'smooth'
             });
         });
     </script>
