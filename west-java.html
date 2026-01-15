@@ -4,13 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>West Java Preanger - Senyawa Kopi</title>
+
+    <title>Jual Kopi West Java Preanger Arabica - Senyawa Kopi</title>
+    <meta name="description"
+        content="Beli Kopi Arabika West Java Preanger (Java Preanger). Karakter rasa Clean, Tea-like, dan Honey Sweetness. Kopi legendaris Jawa Barat. Pengiriman dari Malang.">
+    <meta name="keywords"
+        content="kopi west java preanger, java preanger, kopi arabika jawa barat, jual biji kopi, senyawa kopi">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://senyawakopi.com/west-java.html">
+
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="West Java Preanger - A Cup of Java | Senyawa Kopi">
+    <meta property="og:description"
+        content="Kopi legendaris Priangan dengan notes Tea-like, Lemon, dan Honey. Tersedia kemasan 200g.">
+    <meta property="og:image" content="https://senyawakopi.com/img/produk/west-java.webp">
+    <meta property="og:url" content="https://senyawakopi.com/west-java.html">
+    <meta property="og:site_name" content="Senyawa Kopi">
+    <meta property="product:price:amount" content="115000">
+    <meta property="product:price:currency" content="IDR">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#3E2723">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap"
         rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "West Java Preanger Arabica Coffee",
+      "image": [
+        "https://senyawakopi.com/img/produk/west-java.webp"
+       ],
+      "description": "Kopi legendaris dari tanah Priangan yang dikenal sebagai A Cup of Java. West Java Preanger menawarkan kehalusan rasa yang istimewa dengan karakter clean, aroma teh, serta sentuhan manis madu.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Senyawa Kopi"
+      },
+      "sku": "WJP-PNG-200",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://senyawakopi.com/west-java.html",
+        "priceCurrency": "IDR",
+        "price": "115000",
+        "priceValidUntil": "2026-12-31",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "36"
+      }
+    }
+    </script>
 
     <style>
         /* --- 1. CONFIGURATION --- */
@@ -122,6 +180,9 @@
             max-height: 100%;
             object-fit: contain;
             transition: transform 0.3s;
+            /* PageSpeed: Prevent Layout Shift */
+            width: auto;
+            height: auto;
         }
 
         .main-product-img:hover {
@@ -280,10 +341,8 @@
             z-index: 9999;
             display: flex;
             flex-direction: column;
-            /* Menyusun tombol secara vertikal (atas-bawah) */
             align-items: center;
             gap: 15px;
-            /* Jarak antara tombol Back to Top dan WA */
         }
 
         .btn-floating {
@@ -300,10 +359,8 @@
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             border: none;
-            /* Menghilangkan border default button */
         }
 
-        /* Tombol WhatsApp */
         .btn-wa {
             background-color: #25D366;
         }
@@ -314,22 +371,16 @@
             color: white;
         }
 
-        /* Tombol Back to Top */
         .btn-top {
             background-color: var(--secondary-color);
-            /* Menggunakan warna Caramel/Latte */
             width: 50px;
-            /* Sedikit lebih kecil dari WA agar estetis */
             height: 50px;
             font-size: 24px;
-
-            /* State awal: Tersembunyi */
             opacity: 0;
             visibility: hidden;
             transform: translateY(20px);
         }
 
-        /* Class untuk memunculkan tombol Top saat discroll */
         .btn-top.show {
             opacity: 1;
             visibility: visible;
@@ -338,12 +389,10 @@
 
         .btn-top:hover {
             background-color: var(--primary-color);
-            /* Berubah jadi warna Espresso saat hover */
             transform: translateY(-5px);
             color: white;
         }
 
-        /* --- RESPONSIVE MOBILE --- */
         @media (max-width: 768px) {
             .floating-container {
                 bottom: 20px;
@@ -406,12 +455,13 @@
 
                 <div class="col-lg-6">
                     <div class="main-product-img-wrapper">
-                        <img src="img/produk/west-java.webp" alt="West Java Preanger" class="main-product-img">
+                        <img src="img/produk/west-java.webp" alt="Kopi West Java Preanger - Senyawa Kopi" width="500"
+                            height="500" class="main-product-img">
                     </div>
                 </div>
 
                 <div class="col-lg-6 ps-lg-5">
-                    <h1 class="fw-bold mb-2">West Java Preanger</h1>
+                    <h1 class="fw-bold mb-2">West Java Preanger Arabica</h1>
 
                     <div class="mb-3 text-warning">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
@@ -503,7 +553,8 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="product-card" onclick="window.location.href='flores-bajawa.html'">
                         <div class="product-img-wrapper">
-                            <img src="img/produk/flores-bajawa.webp" alt="Flores Bajawa">
+                            <img src="img/produk/flores-bajawa.webp" alt="Flores Bajawa" width="350" height="250"
+                                loading="lazy">
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Flores Bajawa</h5>
@@ -525,7 +576,8 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="product-card" onclick="window.location.href='arabika-gayo-wine.html'">
                         <div class="product-img-wrapper">
-                            <img src="img/produk/arabika-gayo.webp" alt="Arabika Gayo Wine">
+                            <img src="img/produk/arabika-gayo.webp" alt="Arabika Gayo Wine" width="350" height="250"
+                                loading="lazy">
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Arabika Gayo Wine</h5>
@@ -547,7 +599,8 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="product-card" onclick="window.location.href='bali-kintamani.html'">
                         <div class="product-img-wrapper">
-                            <img src="img/produk/bali-kintamani.webp" alt="Bali Kintamani">
+                            <img src="img/produk/bali-kintamani.webp" alt="Bali Kintamani" width="350" height="250"
+                                loading="lazy">
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Bali Kintamani</h5>

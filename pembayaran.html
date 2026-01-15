@@ -4,14 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="author" content="Senyawa Kopi">
+    <meta name="theme-color" content="#3E2723">
+    <meta name="description"
+        content="Halaman pembayaran aman Senyawa Kopi. Selesaikan pesanan kopi Arabika nusantara Anda.">
+
+    <link rel="canonical" href="https://www.senyawakopi.com/pembayaran.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pembayaran - Senyawa Kopi">
+    <meta property="og:description" content="Selesaikan pembayaran Anda untuk menikmati kopi terbaik nusantara.">
+    <meta property="og:url" content="https://www.senyawakopi.com/pembayaran.html">
+    <meta property="og:image" content="https://www.senyawakopi.com/img/logo-square.png">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
     <title>Pembayaran - Senyawa Kopi</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link
         href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&family=Courier+Prime&display=swap"
         rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CheckoutPage",
+      "name": "Halaman Pembayaran Senyawa Kopi",
+      "description": "Proses penyelesaian pesanan dan pembayaran kopi.",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "https://www.senyawakopi.com/"
+        },{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Keranjang",
+          "item": "https://www.senyawakopi.com/keranjang.html"
+        },{
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Pembayaran"
+        }]
+      }
+    }
+    </script>
 
     <style>
         /* --- 1. PALETTE WARNA (IDENTIK DENGAN INDEX) --- */
@@ -235,31 +286,32 @@
                     <form id="checkoutForm" onsubmit="processPayment(event)">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Nama Lengkap</label>
-                                <input type="text" class="form-control" id="customerName"
-                                    placeholder="Contoh: Budi Santoso" required>
+                                <label class="form-label" for="customerName">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="customerName" name="name"
+                                    placeholder="Contoh: Budi Santoso" autocomplete="name" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Nomor WhatsApp</label>
-                                <input type="tel" class="form-control" id="customerPhone" placeholder="0812..."
-                                    required>
+                                <label class="form-label" for="customerPhone">Nomor WhatsApp</label>
+                                <input type="tel" class="form-control" id="customerPhone" name="phone"
+                                    placeholder="0812..." autocomplete="tel" required>
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Alamat Lengkap</label>
-                            <textarea class="form-control" id="customerAddress" rows="2"
-                                placeholder="Jalan, No. Rumah, Kecamatan, Kota" required></textarea>
+                            <label class="form-label" for="customerAddress">Alamat Lengkap</label>
+                            <textarea class="form-control" id="customerAddress" name="address" rows="2"
+                                placeholder="Jalan, No. Rumah, Kecamatan, Kota" autocomplete="street-address"
+                                required></textarea>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Catatan Pesanan (Opsional)</label>
+                            <label class="form-label" for="customerNote">Catatan Pesanan (Opsional)</label>
                             <textarea class="form-control" id="customerNote" rows="2"
                                 placeholder="Contoh: Tolong giling halus untuk espresso, atau jangan pakai lakban berlebih..."></textarea>
                         </div>
 
                         <div class="mb-4">
-                            <label class="form-label">Metode Pembayaran</label>
+                            <label class="form-label" for="paymentMethod">Metode Pembayaran</label>
                             <select class="form-select" id="paymentMethod">
                                 <option value="Transfer BCA">Transfer Bank BCA</option>
                                 <option value="QRIS">QRIS (GoPay/Ovo/Dana)</option>
