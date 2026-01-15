@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panduan Lengkap V60 Untuk Pemula - Senyawa Kopi</title>
+    <title>Pentingnya Ukuran Gilingan (Grind Size) - Senyawa Kopi</title>
 
     <meta name="description"
-        content="Pelajari teknik menyeduh kopi manual brew V60 dari nol. Panduan lengkap rasio, suhu air, dan teknik pouring untuk hasil kopi yang bersih dan nikmat.">
+        content="Mengapa kopi terasa terlalu asam atau pahit? Pelajari panduan lengkap ukuran gilingan (grind size) dari Coarse hingga Extra Fine untuk hasil seduhan sempurna.">
     <meta name="author" content="Senyawa Kopi">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -17,7 +17,7 @@
         rel="stylesheet">
 
     <style>
-        /* --- 1. CONFIGURATION (SAMA DENGAN INDEX.HTML) --- */
+        /* --- 1. CONFIGURATION (SAMA DENGAN FILE REFERENSI) --- */
         :root {
             --primary-color: #3E2723;
             /* Espresso */
@@ -54,7 +54,7 @@
             color: var(--primary-color);
         }
 
-        /* --- 2. NAVBAR (SAMA PERSIS DENGAN INDEX) --- */
+        /* --- 2. NAVBAR --- */
         .navbar {
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
@@ -104,7 +104,7 @@
             border-radius: 50%;
         }
 
-        /* --- 3. HERO SECTION (BLOG DETAIL) --- */
+        /* --- 3. HERO SECTION --- */
         .blog-hero {
             height: 60vh;
             width: 100%;
@@ -113,7 +113,8 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            background: url('https://images.unsplash.com/photo-1519081836528-661726a4548d?q=80&w=1920&auto=format&fit=crop');
+            /* Background Image bertema gilingan kopi */
+            background: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -127,7 +128,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(62, 39, 35, 0.4), rgba(62, 39, 35, 0.9));
+            background: linear-gradient(to bottom, rgba(62, 39, 35, 0.5), rgba(62, 39, 35, 0.9));
         }
 
         .blog-hero-content {
@@ -209,7 +210,7 @@
 
         figure img {
             width: 100%;
-            /* MODIFIKASI: Mengatur rasio menjadi 4:3 */
+            /* WAJIB: Rasio 4:3 sesuai request */
             aspect-ratio: 4 / 3;
             object-fit: cover;
             border-radius: 15px;
@@ -384,7 +385,6 @@
             margin-bottom: 1rem;
         }
 
-        /* PENTING: Memaksa warna teks menjadi terang agar terlihat di background gelap */
         .conclusion-box p {
             color: var(--accent-color) !important;
             margin-bottom: 0;
@@ -573,13 +573,13 @@
 
     <header class="blog-hero">
         <div class="blog-hero-content">
-            <h1>Panduan Lengkap V60 Untuk Pemula</h1>
+            <h1>Pentingnya Ukuran Gilingan (Grind Size)</h1>
             <div class="author-meta">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"
                     alt="Author">
                 <div class="text-start">
                     <strong>Budi Barista</strong><br>
-                    <span style="opacity: 0.8;">10 Jan 2024 • 8 Menit Baca</span>
+                    <span style="opacity: 0.8;">01 Des 2023 • 12 Menit Baca</span>
                 </div>
             </div>
         </div>
@@ -590,9 +590,10 @@
 
             <article class="article-content">
                 <figure>
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                        alt="Proses menyeduh V60">
-                    <figcaption>Teknik penuangan (pouring) yang stabil adalah kunci kenikmatan V60.</figcaption>
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1200&auto=format&fit=crop"
+                        alt="Berbagai Ukuran Gilingan Kopi">
+                    <figcaption>Konsistensi ukuran partikel kopi adalah kunci utama ekstraksi yang seimbang.
+                    </figcaption>
                 </figure>
 
                 <div class="auto-toc-container">
@@ -604,151 +605,201 @@
                 </div>
 
                 <p>
-                    Dunia kopi manual brew (seduh manual) memang memiliki daya tarik tersendiri. Di antara sekian banyak
-                    metode, <strong>V60 Pour Over</strong> adalah raja yang tak tergantikan. Metode ini dikenal mampu
-                    menghasilkan secangkir kopi yang bersih (clean), menonjolkan karakter rasa asli biji kopi, dan
-                    memiliki aroma yang semerbak.
+                    Pernahkah Anda membeli biji kopi mahal dengan profil rasa "Blueberry, Jasmine, dan Honey", namun
+                    saat
+                    diseduh di rumah rasanya justru seperti air cuka yang tajam atau malah seperti obat puyer yang
+                    pahit? Sebelum Anda menyalahkan biji kopinya atau barista yang menjualnya, mari kita periksa satu
+                    variabel yang paling sering diabaikan oleh pemula: <strong>Ukuran Gilingan (Grind Size)</strong>.
                 </p>
                 <p>
-                    Bagi Anda yang baru ingin memulai hobi menyeduh kopi di rumah, V60 seringkali terlihat
-                    mengintimidasi. Ada banyak variabel: suhu air, ukuran gilingan, hingga gerakan tangan saat menuang.
-                    Namun, jangan khawatir! Artikel ini akan mengupas tuntas cara menyeduh V60 dari nol hingga Anda bisa
-                    menghasilkan kopi setara kafe.
+                    Banyak penikmat kopi rumahan berinvestasi pada alat seduh canggih, timbangan digital presisi, dan
+                    ketel leher angsa mahal, namun masih menggunakan gilingan (grinder) seadanya atau bahkan membeli
+                    kopi yang sudah digiling halus untuk semua metode. Padahal, ukuran gilingan adalah "kunci inggris"
+                    yang mengatur seberapa cepat air mengambil sari pati dari kopi.
+                </p>
+                <p>
+                    Dalam artikel mendalam ini, kita akan membongkar tuntas sains di balik ukuran gilingan, panduan
+                    visual untuk setiap metode seduh, dan cara "dial-in" agar kopi Anda tidak lagi terasa aneh.
+                    Siapkan catatan Anda, karena kita akan masuk ke detail teknis yang akan mengubah cara Anda menyeduh
+                    kopi selamanya.
                 </p>
 
                 <div class="baca-juga">
                     <i class="fas fa-lightbulb text-warning fs-4"></i>
                     <div>
-                        <strong>Baca Juga:</strong> <a href="#">Perbedaan Arabika dan Robusta: Mana yang Cocok
-                            Buatmu?</a>
+                        <strong>Baca Juga:</strong> <a href="blog-1.html">Panduan Lengkap V60 Untuk Pemula</a>
                     </div>
                 </div>
 
-                <h2>1. Mengenal Alat Hario V60</h2>
+                <h2>1. Memahami Konsep Ekstraksi</h2>
                 <p>
-                    Nama "V60" berasal dari bentuk alatnya yang menyerupai huruf "V" dengan sudut kemiringan tepat 60
-                    derajat. Desain ini bukan tanpa alasan. Sudut 60 derajat memungkinkan air mengalir ke pusat,
-                    memperpanjang waktu kontak dengan bubuk kopi.
+                    Sebelum membahas kasar atau halusnya bubuk kopi, kita harus paham konsep <strong>Ekstraksi</strong>.
+                    Ekstraksi adalah proses air melarutkan senyawa rasa (flavor compounds) dari biji kopi. Senyawa ini
+                    meliputi asam buah, gula alami, minyak, dan kafein.
                 </p>
                 <p>
-                    Selain itu, terdapat rigi-rigi (spiral ribs) di dinding dalam dripper yang berfungsi memberi celah
-                    udara agar kopi bisa "bernapas" saat diseduh. Lubang besar di bagian bawah juga memungkinkan barista
-                    mengontrol rasa kopi melalui kecepatan tuangan air.
+                    Prinsip dasarnya sederhana: <strong>Luas Permukaan (Surface Area)</strong>.
+                    Bayangkan Anda punya sebongkah es batu besar dan es batu yang dihancurkan (es serut). Jika disiram
+                    air panas, es serut akan mencair jauh lebih cepat daripada es batu bongkahan. Hal yang sama berlaku
+                    untuk kopi.
                 </p>
-
-                <figure>
-                    <img src="https://images.unsplash.com/photo-1544256627-28565b058c49?q=80&w=800&auto=format&fit=crop"
-                        alt="Peralatan V60">
-                    <figcaption>Alat wajib: Dripper, Paper Filter, Kettle Gooseneck, dan Timbangan.</figcaption>
-                </figure>
-
-                <h3>Peralatan Wajib Disiapkan:</h3>
                 <ul>
-                    <li><strong>Dripper V60:</strong> Bisa bahan keramik, kaca, plastik, atau metal. Untuk pemula,
-                        plastik (resin) sangat disarankan karena menahan panas lebih stabil.</li>
-                    <li><strong>Kertas Filter:</strong> Pastikan sesuai ukuran dripper (01 atau 02).</li>
-                    <li><strong>Gooseneck Kettle:</strong> Teko leher angsa mutlak diperlukan untuk mengontrol aliran
-                        air.</li>
-                    <li><strong>Timbangan (Scale):</strong> Kopi adalah kimia, presisi sangat penting.</li>
-                    <li><strong>Grinder:</strong> Penggiling kopi yang baik menghasilkan gilingan merata.</li>
+                    <li><strong>Gilingan Halus (Fine):</strong> Memiliki luas permukaan total yang sangat besar. Air
+                        bisa mengekstrak rasa dengan sangat cepat. Cocok untuk metode seduh cepat (seperti Espresso).
+                    </li>
+                    <li><strong>Gilingan Kasar (Coarse):</strong> Memiliki luas permukaan lebih kecil. Air butuh waktu
+                        lebih lama untuk meresap ke dalam partikel kopi. Cocok untuk metode seduh lama (seperti French
+                        Press).</li>
                 </ul>
 
-                <h2>2. Menentukan Rasio dan Gilingan (Grind Size)</h2>
+                <h2>2. Spektrum Rasa: Sour vs Bitter</h2>
                 <p>
-                    Inilah pondasi utama. Untuk V60, gunakan <strong>gilingan Medium-Fine</strong> (sedikit lebih kasar
-                    dari gula pasir). Jika terlalu halus, air akan mampet dan kopi menjadi pahit (over-extracted). Jika
-                    terlalu kasar, air mengalir terlalu cepat dan kopi terasa asam kecut (under-extracted).
+                    Ukuran gilingan yang salah akan langsung tercermin pada rasa di lidah Anda. Ini adalah kompas rasa
+                    yang harus Anda pegang:
+                </p>
+                <h3>Under-Extraction (Kurang Ekstraksi)</h3>
+                <p>
+                    Terjadi jika gilingan <strong>terlalu kasar</strong>. Air mengalir terlalu cepat melewati
+                    celah-celah
+                    kopi, hanya sempat mengambil zat asam di permukaan tapi belum sempat mengambil gula manisnya.
+                    <br><em>Tanda rasa: Asam tajam (sour), asin, tipis (watery), dan rasa cepat hilang (short
+                        finish).</em>
+                </p>
+
+                <h3>Over-Extraction (Lebih Ekstraksi)</h3>
+                <p>
+                    Terjadi jika gilingan <strong>terlalu halus</strong>. Air tertahan lama (mampet), sehingga
+                    mengambil terlalu banyak zat, termasuk serat kayu dan tanin yang tidak enak.
+                    <br><em>Tanda rasa: Pahit (bitter), sepat (astringent/dry) seperti makan kulit salak, dan rasa
+                        gosong.</em>
                 </p>
 
                 <blockquote>
-                    "Rasio emas untuk V60 adalah 1:15. Artinya, setiap 1 gram kopi membutuhkan 15 ml air. Jika Anda
-                    menggunakan 15 gram kopi, siapkan 225 ml air."
+                    "Tujuan kita adalah 'Sweet Spot': titik keseimbangan di mana keasaman, rasa manis, dan kepahitan
+                    berpadu harmonis. Kuncinya ada di Grind Size."
                 </blockquote>
 
-                <div class="promo-gif">
-                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZ0ZnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKrEzvLbsVAud8I/giphy.gif"
-                        alt="Promo Coffee Beans">
-                    <div class="bg-dark text-white p-2 text-center small">Gunakan Biji Kopi Fresh Roast dari Senyawa
-                        Kopi untuk Hasil Terbaik!</div>
-                </div>
-
-                <h2>3. Langkah Menyeduh (Step-by-Step)</h2>
+                <h2>3. Panduan Ukuran Gilingan (Grind Size Chart)</h2>
                 <p>
-                    Siapkan air panas dengan suhu ideal <strong>90°C - 93°C</strong>. Jangan gunakan air mendidih
-                    (100°C) karena akan membuat kopi gosong.
-                </p>
-
-                <h3>Langkah 1: Rinsing (Membilas)</h3>
-                <p>
-                    Letakkan kertas filter di dripper. Tuang air panas membasahi seluruh kertas. Ini bertujuan
-                    menghilangkan bau kertas dan memanaskan alat. Buang air bilasan di server.
-                </p>
-
-                <div class="baca-juga">
-                    <i class="fas fa-fire text-danger fs-4"></i>
-                    <div>
-                        <strong>Baca Juga:</strong> <a href="#">Mengapa Roasting Level Sangat Mempengaruhi Rasa?</a>
-                    </div>
-                </div>
-
-                <h3>Langkah 2: Blooming (Fase Mekar)</h3>
-                <p>
-                    Masukkan 15gr kopi. Tuang air sebanyak 30ml-40ml secara memutar. Tunggu 30-45 detik. Anda akan
-                    melihat gelembung gas karbondioksida keluar (blooming). Fase ini penting untuk melepaskan gas agar
-                    ekstraksi selanjutnya maksimal.
-                </p>
-
-                <h3>Langkah 3: Tuangan Utama (Pouring)</h3>
-                <p>
-                    Setelah blooming selesai, tuang sisa air secara perlahan dengan gerakan memutar (spiral) dari tengah
-                    ke luar, lalu kembali ke tengah. Jaga agar aliran air tidak mengenai dinding kertas filter secara
-                    langsung. Tuang hingga timbangan menunjukkan angka target (225ml).
+                    Tidak ada standar baku universal (angka 3 di grinder merk A bisa beda dengan merk B), tapi kita bisa
+                    menggunakan patokan tekstur berikut ini:
                 </p>
 
                 <figure>
-                    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=800&auto=format&fit=crop"
-                        alt="Pouring Technique">
-                    <figcaption>Gerakan memutar yang stabil (agitation) membantu ekstraksi merata.</figcaption>
+                    <img src="https://images.unsplash.com/photo-1504630083234-141d74f9ae92?q=80&w=1200&auto=format&fit=crop"
+                        alt="Barista Mengatur Grinder">
+                    <figcaption>Mengatur tingkat kehalusan pada grinder (Dialing In) adalah skill wajib barista.
+                    </figcaption>
                 </figure>
 
-                <h2>4. Kesalahan Umum Pemula</h2>
+                <h3>a. Coarse (Kasar)</h3>
                 <p>
-                    Seringkali hasil seduhan pertama terasa kurang pas. Berikut beberapa penyebabnya:
+                    <strong>Tekstur:</strong> Seperti garam laut kasar (Kosher salt).<br>
+                    <strong>Metode:</strong> French Press, Cold Brew, Cupping.<br>
+                    Karena metode ini merendam kopi dalam waktu lama (4 menit hingga 12 jam), kita butuh partikel besar
+                    agar tidak pahit.
+                </p>
+
+                <h3>b. Medium-Coarse</h3>
+                <p>
+                    <strong>Tekstur:</strong> Seperti pasir kasar.<br>
+                    <strong>Metode:</strong> Chemex, Clever Dripper.<br>
+                    Chemex menggunakan kertas tebal, jadi butuh gilingan agak kasar agar aliran air tidak mampet.
+                </p>
+
+                <h3>c. Medium</h3>
+                <p>
+                    <strong>Tekstur:</strong> Seperti pasir pantai biasa.<br>
+                    <strong>Metode:</strong> Flat bottom dripper (Kalita Wave), Coffee Maker mesin otomatis.<br>
+                    Titik awal yang aman untuk sebagian besar metode seduh tuang.
+                </p>
+
+                <h3>d. Medium-Fine</h3>
+                <p>
+                    <strong>Tekstur:</strong> Seperti garam meja halus.<br>
+                    <strong>Metode:</strong> Hario V60, Aeropress (metode 2-3 menit).<br>
+                    Ini adalah ukuran paling populer untuk manual brew *Pour Over*. Cukup halus untuk menahan air, tapi
+                    cukup kasar untuk membiarkan air mengalir lancar.
+                </p>
+
+                <h3>e. Fine (Halus)</h3>
+                <p>
+                    <strong>Tekstur:</strong> Seperti gula halus atau tepung jagung.<br>
+                    <strong>Metode:</strong> Espresso, Moka Pot.<br>
+                    Di sini kita bermain dengan tekanan (pressure). Kopi harus sangat padat agar air bertekanan 9 bar
+                    bisa "melawan" dan menghasilkan *crema*.
+                </p>
+
+                <h3>f. Extra Fine (Sangat Halus)</h3>
+                <p>
+                    <strong>Tekstur:</strong> Seperti bedak tabur atau tepung terigu.<br>
+                    <strong>Metode:</strong> Turkish Coffee (Ibrik).<br>
+                    Kopi direbus langsung bersama air dan ampasnya ikut diminum, sehingga butuh partikel super halus.
+                </p>
+
+                <div class="promo-gif">
+                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZ0ZnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKrEzvLbsVAud8I/giphy.gif"
+                        alt="Promo Coffee Grinder">
+                    <div class="bg-dark text-white p-2 text-center small">Upgrade Kopi Rumahanmu dengan Grinder Manual
+                        Terbaik dari Senyawa!</div>
+                </div>
+
+                <h2>4. Blade Grinder vs Burr Grinder</h2>
+                <p>
+                    Ini adalah investasi terpenting. Jangan gunakan <strong>Blade Grinder</strong> (model pisau berputar
+                    seperti blender bumbu). Blade grinder mencincang biji kopi secara acak; ada yang jadi debu halus,
+                    ada yang masih bongkahan besar.
+                </p>
+                <p>
+                    Hasilnya? Ekstraksi yang kacau. Debu halusnya membuat pahit (over-extract), bongkahan besarnya
+                    membuat asam (under-extract). Anda mendapatkan secangkir kopi yang pahit DAN asam sekaligus.
+                </p>
+                <p>
+                    Gunakanlah <strong>Burr Grinder</strong> (gerigi). Alat ini "menggerus" kopi dengan celah yang
+                    konsisten. Partikel yang dihasilkan seragam (uniform), sehingga ekstraksi merata dan rasa kopi
+                    menjadi bersih (clean) serta manis.
+                </p>
+
+                <h2>5. Kesimpulan dan Tips "Dialing In"</h2>
+                <p>
+                    Menguasai grind size adalah perjalanan eksperimen. Berikut tips terakhir dari kami:
                 </p>
                 <ul>
-                    <li><strong>Channeling:</strong> Air mencari jalan tercepat lewat celah bubuk kopi, membuat
-                        ekstraksi tidak rata. Solusinya: ratakan bubuk kopi sebelum diseduh.</li>
-                    <li><strong>Suhu Air Salah:</strong> Terlalu dingin membuat kopi hambar, terlalu panas membuat
-                        pahit.</li>
-                    <li><strong>Kualitas Air:</strong> Gunakan air mineral atau air filtrasi, jangan air keran mentah
-                        karena kandungan klorin merusak rasa.</li>
+                    <li>Jika seduhan V60 Anda memakan waktu lebih dari 3:30 menit dan rasanya pahit, <strong>kasarkan
+                            gilingan</strong>.</li>
+                    <li>Jika seduhan V60 Anda selesai dalam 2:00 menit dan rasanya cemplang/asam, <strong>haluskan
+                            gilingan</strong>.</li>
+                    <li>Giling kopi sesaat sebelum diseduh. Kopi bubuk kehilangan 60% aromanya dalam 15 menit setelah
+                        digiling karena oksidasi.</li>
                 </ul>
 
                 <div class="mt-5">
                     <h2 style="border:none; padding:0;">Pertanyaan Sering Diajukan (FAQ)</h2>
                     <details class="faq-item">
-                        <summary>Apakah harus pakai timbangan digital?</summary>
-                        <p>Sangat disarankan. Tanpa timbangan, rasio air dan kopi hanya perkiraan, sehingga sulit
-                            mendapatkan rasa yang konsisten (konsistensi) di setiap seduhan.</p>
+                        <summary>Apakah bubuk kopi ada kadaluarsanya?</summary>
+                        <p>Secara teknis tidak basi membusuk, tapi rasanya akan "mati" (stale). Bubuk kopi yang sudah
+                            terbuka sebaiknya dihabiskan dalam 2 minggu. Biji kopi utuh bisa bertahan 1-2 bulan.</p>
                     </details>
                     <details class="faq-item">
-                        <summary>Berapa lama total waktu seduh ideal?</summary>
-                        <p>Total brew time idealnya antara 2 menit 30 detik hingga 3 menit. Jika lebih dari itu,
-                            gilingan mungkin terlalu halus.</p>
+                        <summary>Kenapa grind size untuk Espresso sangat sulit diatur?</summary>
+                        <p>Espresso sangat sensitif. Pergeseran sedikit saja pada grinder (mikron) bisa mengubah waktu
+                            ekstraksi hingga 5-10 detik. Faktor kelembaban udara dan umur biji kopi juga mempengaruhi
+                            gilingan espresso.</p>
                     </details>
                     <details class="faq-item">
-                        <summary>Apa beda filter putih (bleached) dan coklat?</summary>
-                        <p>Filter putih sudah melalui proses pemutihan oksigen dan cenderung tidak berbau. Filter coklat
-                            alami kadang meninggalkan sedikit bau kayu/kertas jika tidak dibilas dengan baik.</p>
+                        <summary>Bolehkah saya meminta cafe menggilingkan biji kopi saya?</summary>
+                        <p>Tentu boleh! Beri tahu barista alat seduh apa yang Anda pakai di rumah (misal: "Tolong giling
+                            buat V60" atau "Buat Tubruk"). Namun, ingat aromanya akan cepat hilang dibandingkan giling
+                            dadakan.</p>
                     </details>
                 </div>
 
                 <div class="conclusion-box">
-                    <h2>Kesimpulan</h2>
+                    <h2>Kesimpulan Akhir</h2>
                     <p>
-                        Menyeduh dengan V60 adalah seni menyeimbangkan variabel. Jangan takut bereksperimen dengan suhu
-                        atau ukuran gilingan untuk menemukan rasa yang paling cocok di lidah Anda. Kunci utamanya
-                        adalah: Kopi Segar, Gilingan Tepat, dan Kesabaran. Selamat menyeduh!
+                        Jangan takut salah. Kopi adalah selera personal. Panduan di atas adalah peta, tapi lidah Anda
+                        adalah penentunya. Mulailah memperhatikan ukuran gilingan Anda hari ini, dan rasakan peningkatan
+                        drastis pada cangkir pagi Anda. Selamat menyeduh!
                     </p>
                 </div>
 
@@ -794,14 +845,15 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="related-card">
                         <div class="r-img">
-                            <img src="https://images.unsplash.com/photo-1511537632536-34a70295626e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Roasting">
+                            <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Manual Brew">
                         </div>
                         <div class="r-content">
-                            <h5 class="fw-bold mb-2">Pentingnya Roasting Level</h5>
-                            <p class="small text-muted mb-3">Ketahui pengaruh light, medium, dan dark roast terhadap
-                                rasa.</p>
-                            <a href="#" class="r-btn">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></a>
+                            <h5 class="fw-bold mb-2">Teknik Manual Brew</h5>
+                            <p class="small text-muted mb-3">Cara menyeduh kopi V60 agar rasa Arabika keluar maksimal.
+                            </p>
+                            <a href="blog-1.html" class="r-btn">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right small"></i></a>
                         </div>
                     </div>
                 </div>

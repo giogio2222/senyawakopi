@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panduan Lengkap V60 Untuk Pemula - Senyawa Kopi</title>
+    <title>Mengapa Roasting Level Itu Penting? - Senyawa Kopi</title>
 
     <meta name="description"
-        content="Pelajari teknik menyeduh kopi manual brew V60 dari nol. Panduan lengkap rasio, suhu air, dan teknik pouring untuk hasil kopi yang bersih dan nikmat.">
+        content="Light, Medium, atau Dark? Ketahui bagaimana tingkat kematangan sangrai (roasting level) mempengaruhi rasa asam, body, dan aroma kopi Anda secara mendalam.">
     <meta name="author" content="Senyawa Kopi">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -17,7 +17,7 @@
         rel="stylesheet">
 
     <style>
-        /* --- 1. CONFIGURATION (SAMA DENGAN INDEX.HTML) --- */
+        /* --- 1. CONFIGURATION (SAMA PERSIS DENGAN BLOG-1) --- */
         :root {
             --primary-color: #3E2723;
             /* Espresso */
@@ -54,7 +54,7 @@
             color: var(--primary-color);
         }
 
-        /* --- 2. NAVBAR (SAMA PERSIS DENGAN INDEX) --- */
+        /* --- 2. NAVBAR --- */
         .navbar {
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
@@ -105,6 +105,7 @@
         }
 
         /* --- 3. HERO SECTION (BLOG DETAIL) --- */
+        /* Menggunakan gambar background yang berbeda sesuai tema Roasting */
         .blog-hero {
             height: 60vh;
             width: 100%;
@@ -113,7 +114,7 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            background: url('https://images.unsplash.com/photo-1519081836528-661726a4548d?q=80&w=1920&auto=format&fit=crop');
+            background: url('https://images.unsplash.com/photo-1521302080334-4bebac2763a6?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -127,7 +128,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(62, 39, 35, 0.4), rgba(62, 39, 35, 0.9));
+            background: linear-gradient(to bottom, rgba(62, 39, 35, 0.5), rgba(62, 39, 35, 0.95));
         }
 
         .blog-hero-content {
@@ -209,7 +210,7 @@
 
         figure img {
             width: 100%;
-            /* MODIFIKASI: Mengatur rasio menjadi 4:3 */
+            /* WAJIB 4:3 SESUAI REQUEST */
             aspect-ratio: 4 / 3;
             object-fit: cover;
             border-radius: 15px;
@@ -384,7 +385,6 @@
             margin-bottom: 1rem;
         }
 
-        /* PENTING: Memaksa warna teks menjadi terang agar terlihat di background gelap */
         .conclusion-box p {
             color: var(--accent-color) !important;
             margin-bottom: 0;
@@ -573,13 +573,13 @@
 
     <header class="blog-hero">
         <div class="blog-hero-content">
-            <h1>Panduan Lengkap V60 Untuk Pemula</h1>
+            <h1>Mengapa Roasting Level Itu Penting?</h1>
             <div class="author-meta">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"
                     alt="Author">
                 <div class="text-start">
                     <strong>Budi Barista</strong><br>
-                    <span style="opacity: 0.8;">10 Jan 2024 • 8 Menit Baca</span>
+                    <span style="opacity: 0.8;">05 Jan 2024 • 12 Menit Baca</span>
                 </div>
             </div>
         </div>
@@ -590,9 +590,9 @@
 
             <article class="article-content">
                 <figure>
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                        alt="Proses menyeduh V60">
-                    <figcaption>Teknik penuangan (pouring) yang stabil adalah kunci kenikmatan V60.</figcaption>
+                    <img src="https://images.unsplash.com/photo-1511537632536-34a70295626e?q=80&w=1200&auto=format&fit=crop"
+                        alt="Level Sangrai Kopi">
+                    <figcaption>Perbedaan warna biji kopi dari Green Bean hingga Dark Roast.</figcaption>
                 </figure>
 
                 <div class="auto-toc-container">
@@ -604,151 +604,202 @@
                 </div>
 
                 <p>
-                    Dunia kopi manual brew (seduh manual) memang memiliki daya tarik tersendiri. Di antara sekian banyak
-                    metode, <strong>V60 Pour Over</strong> adalah raja yang tak tergantikan. Metode ini dikenal mampu
-                    menghasilkan secangkir kopi yang bersih (clean), menonjolkan karakter rasa asli biji kopi, dan
-                    memiliki aroma yang semerbak.
+                    Pernahkah Anda membeli biji kopi dari daerah yang sama, misalnya Gayo, namun ketika diseduh rasanya
+                    sangat berbeda di dua kedai kopi yang berlainan? Di satu tempat, kopi tersebut terasa sangat asam,
+                    segar, dan memiliki aroma bunga. Di tempat lain, kopi Gayo yang "katanya" sama itu justru terasa
+                    pahit, tebal, dan beraroma seperti cokelat gosong. Apakah mereka berbohong soal asal bijinya?
+                    Jawabannya kemungkinan besar tidak.
                 </p>
                 <p>
-                    Bagi Anda yang baru ingin memulai hobi menyeduh kopi di rumah, V60 seringkali terlihat
-                    mengintimidasi. Ada banyak variabel: suhu air, ukuran gilingan, hingga gerakan tangan saat menuang.
-                    Namun, jangan khawatir! Artikel ini akan mengupas tuntas cara menyeduh V60 dari nol hingga Anda bisa
-                    menghasilkan kopi setara kafe.
+                    Kunci dari perbedaan drastis tersebut terletak pada satu proses krusial yang sering dilupakan oleh
+                    penikmat kopi awam: <strong>Roasting Level</strong> atau tingkat kematangan sangrai. Biji kopi
+                    mentah (green bean) sebenarnya tidak memiliki aroma kopi yang kita kenal; mereka berbau seperti
+                    kacang-kacangan mentah atau rumput. Proses penyangraianlah yang "membangunkan" ratusan senyawa rasa
+                    yang tertidur di dalam biji kopi tersebut.
+                </p>
+                <p>
+                    Dalam artikel mendalam ini, kita akan mengupas tuntas mengapa roasting level itu sangat penting,
+                    bagaimana sains di baliknya bekerja, dan bagaimana Anda bisa memilih level roasting yang paling
+                    sesuai dengan lidah Anda.
                 </p>
 
                 <div class="baca-juga">
                     <i class="fas fa-lightbulb text-warning fs-4"></i>
                     <div>
-                        <strong>Baca Juga:</strong> <a href="#">Perbedaan Arabika dan Robusta: Mana yang Cocok
-                            Buatmu?</a>
+                        <strong>Baca Juga:</strong> <a href="blog-1.html">Panduan Lengkap V60 Untuk Pemula</a>
                     </div>
                 </div>
 
-                <h2>1. Mengenal Alat Hario V60</h2>
+                <h2>1. Sains di Balik Penyangraian (The Chemistry)</h2>
                 <p>
-                    Nama "V60" berasal dari bentuk alatnya yang menyerupai huruf "V" dengan sudut kemiringan tepat 60
-                    derajat. Desain ini bukan tanpa alasan. Sudut 60 derajat memungkinkan air mengalir ke pusat,
-                    memperpanjang waktu kontak dengan bubuk kopi.
+                    Menyangrai kopi bukan sekadar memanaskan biji hingga cokelat. Ini adalah proses kimia yang kompleks.
+                    Ketika biji kopi dipanaskan di dalam drum roaster, terjadi serangkaian reaksi kimia yang masif.
+                    Salah
+                    satu yang paling penting adalah <strong>Reaksi Maillard</strong>.
                 </p>
                 <p>
-                    Selain itu, terdapat rigi-rigi (spiral ribs) di dinding dalam dripper yang berfungsi memberi celah
-                    udara agar kopi bisa "bernapas" saat diseduh. Lubang besar di bagian bawah juga memungkinkan barista
-                    mengontrol rasa kopi melalui kecepatan tuangan air.
+                    Reaksi Maillard terjadi pada suhu sekitar 150°C - 200°C, di mana gula alami dan asam amino dalam
+                    biji
+                    kopi bereaksi membentuk senyawa aroma dan rasa baru, sekaligus mengubah warna biji menjadi
+                    kecokelatan.
+                    Selanjutnya, terjadi karamelisasi sukrosa yang memberikan rasa manis dan kompleksitas body.
+                </p>
+                <p>
+                    Seorang roaster (penyangrai) memegang kendali penuh. Jika mereka menghentikan proses terlalu cepat,
+                    rasa biji mungkin "mentah". Jika terlalu lama, rasa khas biji (origin characteristic) akan hilang
+                    tertutup rasa asap dan karbon. Inilah seni menyeimbangkan waktu dan temperatur.
                 </p>
 
-                <figure>
-                    <img src="https://images.unsplash.com/photo-1544256627-28565b058c49?q=80&w=800&auto=format&fit=crop"
-                        alt="Peralatan V60">
-                    <figcaption>Alat wajib: Dripper, Paper Filter, Kettle Gooseneck, dan Timbangan.</figcaption>
-                </figure>
-
-                <h3>Peralatan Wajib Disiapkan:</h3>
-                <ul>
-                    <li><strong>Dripper V60:</strong> Bisa bahan keramik, kaca, plastik, atau metal. Untuk pemula,
-                        plastik (resin) sangat disarankan karena menahan panas lebih stabil.</li>
-                    <li><strong>Kertas Filter:</strong> Pastikan sesuai ukuran dripper (01 atau 02).</li>
-                    <li><strong>Gooseneck Kettle:</strong> Teko leher angsa mutlak diperlukan untuk mengontrol aliran
-                        air.</li>
-                    <li><strong>Timbangan (Scale):</strong> Kopi adalah kimia, presisi sangat penting.</li>
-                    <li><strong>Grinder:</strong> Penggiling kopi yang baik menghasilkan gilingan merata.</li>
-                </ul>
-
-                <h2>2. Menentukan Rasio dan Gilingan (Grind Size)</h2>
+                <h2>2. Klasifikasi Roasting Level</h2>
                 <p>
-                    Inilah pondasi utama. Untuk V60, gunakan <strong>gilingan Medium-Fine</strong> (sedikit lebih kasar
-                    dari gula pasir). Jika terlalu halus, air akan mampet dan kopi menjadi pahit (over-extracted). Jika
-                    terlalu kasar, air mengalir terlalu cepat dan kopi terasa asam kecut (under-extracted).
+                    Secara umum, industri kopi membagi tingkat kematangan menjadi tiga kategori besar: Light, Medium,
+                    dan
+                    Dark. Namun, di antara kategori tersebut terdapat spektrum yang luas. Mari kita bedah satu per satu.
+                </p>
+
+                <h3>Light Roast (Sangrai Ringan)</h3>
+                <p>
+                    Light roast biasanya dihentikan sesaat setelah "First Crack" (bunyi retakan pertama seperti
+                    popcorn).
+                    Biji berwarna cokelat muda, kering, dan tidak berminyak di permukaannya.
+                </p>
+                <p>
+                    <strong>Karakter Rasa:</strong> Light roast mempertahankan karakter asli biji kopi (origin) paling
+                    kuat. Tingkat keasaman (acidity) sangat tinggi, body tipis, dan sering memiliki notes floral (bunga)
+                    atau fruity (buah-buahan). Ini adalah level favorit pecinta kopi gelombang ketiga (Third Wave
+                    Coffee)
+                    yang ingin merasakan keaslian terroir kopi.
+                </p>
+
+                <h3>Medium Roast (Sangrai Menengah)</h3>
+                <p>
+                    Sering disebut sebagai "American Roast" atau "City Roast". Biji berwarna cokelat sedang, dan masih
+                    belum ada minyak (oil) yang keluar di permukaan biji. Level ini dicapai antara akhir First Crack
+                    hingga sesaat sebelum Second Crack.
+                </p>
+                <p>
+                    <strong>Karakter Rasa:</strong> Ini adalah titik keseimbangan (balance). Acidity mulai menurun,
+                    namun
+                    rasa manis (sweetness) dari karamelisasi mulai menonjol. Body kopi menjadi lebih tebal dibanding
+                    Light
+                    Roast, namun aroma gosong belum muncul. Medium roast adalah level paling aman bagi pemula karena
+                    rasanya yang "bersahabat".
+                </p>
+
+                <h3>Dark Roast (Sangrai Gelap)</h3>
+                <p>
+                    Pada level ini, biji kopi berwarna cokelat tua hingga hampir hitam. Minyak kopi akan terlihat jelas
+                    mengilap di permukaan biji. Proses biasanya dihentikan saat atau setelah "Second Crack" (bunyi
+                    retakan
+                    kedua yang lebih halus).
+                </p>
+                <p>
+                    <strong>Karakter Rasa:</strong> Karakter asli biji kopi (origin) hampir hilang sepenuhnya,
+                    digantikan
+                    oleh rasa hasil penyangraian. Acidity sangat rendah, body sangat tebal, dan dominan rasa pahit
+                    (bitter),
+                    smoky, dark chocolate, atau kacang-kacangan. Kopi tipe ini sangat cocok dicampur susu kental manis
+                    atau dijadikan bahan dasar minuman kopi kekinian yang manis.
                 </p>
 
                 <blockquote>
-                    "Rasio emas untuk V60 adalah 1:15. Artinya, setiap 1 gram kopi membutuhkan 15 ml air. Jika Anda
-                    menggunakan 15 gram kopi, siapkan 225 ml air."
+                    "Semakin gelap level roasting, semakin sedikit karakter asli daerah (origin) yang tersisa. Anda
+                    tidak
+                    lagi mencicipi 'Kopi Gayo' atau 'Kopi Bali', melainkan mencicipi rasa panggangan (roast taste)."
                 </blockquote>
+
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1581635390977-83d8753232c9?q=80&w=1200&auto=format&fit=crop"
+                        alt="Mesin Roasting Kopi">
+                    <figcaption>Drum Roaster modern yang dilengkapi kontrol suhu presisi.</figcaption>
+                </figure>
+
+                <h2>3. Mitos Kafein: Mana yang Lebih Kuat?</h2>
+                <p>
+                    Ini adalah pertanyaan paling umum: "Apakah Dark Roast memiliki kafein lebih banyak karena rasanya
+                    lebih
+                    pahit dan 'nendang'?"
+                </p>
+                <p>
+                    Faktanya justru mengejutkan. Secara teknis, kadar kafein sangat stabil dan hanya berkurang sedikit
+                    sekali selama proses pemanasan. Namun, jika diukur berdasarkan volume (sendok takar), <strong>Light
+                        Roast justru memiliki lebih banyak kafein</strong>.
+                </p>
+                <p>
+                    Mengapa? Karena biji Dark Roast mengembang lebih besar dan kehilangan massa air lebih banyak. Jadi,
+                    satu sendok biji Light Roast (yang lebih padat dan berat) mengandung lebih banyak biji kopi secara
+                    massa dibandingkan satu sendok Dark Roast. Rasa "kuat" pada Dark Roast hanyalah persepsi dari rasa
+                    pahit, bukan indikasi kadar kafein.
+                </p>
 
                 <div class="promo-gif">
                     <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZ0ZnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKrEzvLbsVAud8I/giphy.gif"
                         alt="Promo Coffee Beans">
-                    <div class="bg-dark text-white p-2 text-center small">Gunakan Biji Kopi Fresh Roast dari Senyawa
-                        Kopi untuk Hasil Terbaik!</div>
+                    <div class="bg-dark text-white p-2 text-center small">Cari Profil Roasting Favoritmu di Senyawa
+                        Kopi!</div>
                 </div>
 
-                <h2>3. Langkah Menyeduh (Step-by-Step)</h2>
+                <h2>4. Memilih Metode Seduh Berdasarkan Roasting Level</h2>
                 <p>
-                    Siapkan air panas dengan suhu ideal <strong>90°C - 93°C</strong>. Jangan gunakan air mendidih
-                    (100°C) karena akan membuat kopi gosong.
-                </p>
-
-                <h3>Langkah 1: Rinsing (Membilas)</h3>
-                <p>
-                    Letakkan kertas filter di dripper. Tuang air panas membasahi seluruh kertas. Ini bertujuan
-                    menghilangkan bau kertas dan memanaskan alat. Buang air bilasan di server.
-                </p>
-
-                <div class="baca-juga">
-                    <i class="fas fa-fire text-danger fs-4"></i>
-                    <div>
-                        <strong>Baca Juga:</strong> <a href="#">Mengapa Roasting Level Sangat Mempengaruhi Rasa?</a>
-                    </div>
-                </div>
-
-                <h3>Langkah 2: Blooming (Fase Mekar)</h3>
-                <p>
-                    Masukkan 15gr kopi. Tuang air sebanyak 30ml-40ml secara memutar. Tunggu 30-45 detik. Anda akan
-                    melihat gelembung gas karbondioksida keluar (blooming). Fase ini penting untuk melepaskan gas agar
-                    ekstraksi selanjutnya maksimal.
-                </p>
-
-                <h3>Langkah 3: Tuangan Utama (Pouring)</h3>
-                <p>
-                    Setelah blooming selesai, tuang sisa air secara perlahan dengan gerakan memutar (spiral) dari tengah
-                    ke luar, lalu kembali ke tengah. Jaga agar aliran air tidak mengenai dinding kertas filter secara
-                    langsung. Tuang hingga timbangan menunjukkan angka target (225ml).
-                </p>
-
-                <figure>
-                    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=800&auto=format&fit=crop"
-                        alt="Pouring Technique">
-                    <figcaption>Gerakan memutar yang stabil (agitation) membantu ekstraksi merata.</figcaption>
-                </figure>
-
-                <h2>4. Kesalahan Umum Pemula</h2>
-                <p>
-                    Seringkali hasil seduhan pertama terasa kurang pas. Berikut beberapa penyebabnya:
+                    Tidak semua alat seduh cocok untuk semua jenis roasting. Untuk mendapatkan hasil maksimal, sesuaikan
+                    alat Anda dengan tingkat kematangan biji:
                 </p>
                 <ul>
-                    <li><strong>Channeling:</strong> Air mencari jalan tercepat lewat celah bubuk kopi, membuat
-                        ekstraksi tidak rata. Solusinya: ratakan bubuk kopi sebelum diseduh.</li>
-                    <li><strong>Suhu Air Salah:</strong> Terlalu dingin membuat kopi hambar, terlalu panas membuat
-                        pahit.</li>
-                    <li><strong>Kualitas Air:</strong> Gunakan air mineral atau air filtrasi, jangan air keran mentah
-                        karena kandungan klorin merusak rasa.</li>
+                    <li><strong>Untuk Light Roast:</strong> Gunakan metode <em>Pour Over</em> (V60, Kalita Wave) atau
+                        <em>Aeropress</em>. Metode ini menonjolkan kejernihan rasa dan keasaman yang kompleks. Hindari
+                        menggunakan mesin Espresso karena akan menghasilkan rasa yang terlalu asam (sour).
+                    </li>
+                    <li><strong>Untuk Medium Roast:</strong> Sangat fleksibel. Bisa digunakan untuk Pour Over, French
+                        Press,
+                        Siphon, hingga Cold Brew. Ini adalah level serba bisa.</li>
+                    <li><strong>Untuk Dark Roast:</strong> Gunakan <em>French Press</em>, <em>Moka Pot</em>, atau mesin
+                        <em>Espresso</em>. Karakter Dark Roast yang berminyak dan rendah asam sangat cocok untuk
+                        ekstraksi
+                        tekanan tinggi yang menghasilkan krema tebal. Juga sangat cocok untuk Vietnam Drip.
+                    </li>
                 </ul>
+
+                <h2>5. Kesimpulan: Tidak Ada yang "Paling Benar"</h2>
+                <p>
+                    Pada akhirnya, perdebatan mengenai roasting level mana yang terbaik adalah subjektif. Jika Anda
+                    menyukai rasa buah-buahan dan teh, Light Roast adalah sahabat Anda. Jika Anda mencari kopi "klasik"
+                    yang nyaman diminum pagi hari, Medium Roast adalah jawabannya. Jika Anda butuh tendangan rasa pahit
+                    untuk menemani begadang, Dark Roast siap melayani.
+                </p>
+                <p>
+                    Di Senyawa Kopi, kami menyediakan berbagai profil roasting agar Anda bisa bereksperimen. Saran kami?
+                    Cobalah semuanya, dan temukan "Senyawa" yang paling pas dengan lidah Anda.
+                </p>
 
                 <div class="mt-5">
                     <h2 style="border:none; padding:0;">Pertanyaan Sering Diajukan (FAQ)</h2>
                     <details class="faq-item">
-                        <summary>Apakah harus pakai timbangan digital?</summary>
-                        <p>Sangat disarankan. Tanpa timbangan, rasio air dan kopi hanya perkiraan, sehingga sulit
-                            mendapatkan rasa yang konsisten (konsistensi) di setiap seduhan.</p>
+                        <summary>Apakah kopi Dark Roast lebih tidak sehat?</summary>
+                        <p>Tidak ada bukti medis yang menyatakan Dark Roast lebih berbahaya. Namun, Dark Roast cenderung
+                            memiliki kadar asam klorogenat (antioksidan) yang lebih rendah dibanding Light Roast karena
+                            terurai saat pemanasan tinggi.</p>
                     </details>
                     <details class="faq-item">
-                        <summary>Berapa lama total waktu seduh ideal?</summary>
-                        <p>Total brew time idealnya antara 2 menit 30 detik hingga 3 menit. Jika lebih dari itu,
-                            gilingan mungkin terlalu halus.</p>
+                        <summary>Kenapa kopi Light Roast terasa kecut/asam?</summary>
+                        <p>Itu bukan kecut basi, melainkan <em>acidity</em> alami buah kopi. Kopi adalah buah ceri.
+                            Light
+                            roast mempertahankan asam organik (seperti malic acid, citric acid) yang memberikan rasa
+                            segar.</p>
                     </details>
                     <details class="faq-item">
-                        <summary>Apa beda filter putih (bleached) dan coklat?</summary>
-                        <p>Filter putih sudah melalui proses pemutihan oksigen dan cenderung tidak berbau. Filter coklat
-                            alami kadang meninggalkan sedikit bau kayu/kertas jika tidak dibilas dengan baik.</p>
+                        <summary>Berapa lama umur simpan biji kopi berdasarkan roasting?</summary>
+                        <p>Dark Roast cenderung lebih cepat apek (stale) karena minyaknya sudah keluar ke permukaan dan
+                            teroksidasi udara. Light Roast biasanya lebih awet disimpan dalam bentuk biji utuh.</p>
                     </details>
                 </div>
 
                 <div class="conclusion-box">
-                    <h2>Kesimpulan</h2>
+                    <h2>Rangkuman</h2>
                     <p>
-                        Menyeduh dengan V60 adalah seni menyeimbangkan variabel. Jangan takut bereksperimen dengan suhu
-                        atau ukuran gilingan untuk menemukan rasa yang paling cocok di lidah Anda. Kunci utamanya
-                        adalah: Kopi Segar, Gilingan Tepat, dan Kesabaran. Selamat menyeduh!
+                        Roasting Level adalah faktor penentu utama rasa kopi setelah varietas biji. Memahami perbedaan
+                        Light, Medium, dan Dark akan membantu Anda membeli biji kopi yang tidak mengecewakan dan
+                        menyeduhnya
+                        dengan metode yang tepat. Jangan takut mencoba profil rasa baru!
                     </p>
                 </div>
 
@@ -764,12 +815,12 @@
                             alt="Budi Barista">
                         <div>
                             <h5 class="fw-bold mb-1" style="color: var(--primary-color);">Budi Barista</h5>
-                            <small class="text-muted">Head Roaster @SenyawaKopi. Pecinta kopi hitam dan eksplorasi rasa
-                                nusantara.</small>
+                            <small class="text-muted">Head Roaster @SenyawaKopi. Spesialis kurasi green bean dan profil
+                                sangrai.</small>
                         </div>
                     </div>
                     <div class="share-box text-center text-md-end w-100 w-md-auto">
-                        <p class="small text-muted mb-2">Bagikan artikel ini:</p>
+                        <p class="small text-muted mb-2">Bagikan wawasan ini:</p>
                         <button class="social-share-btn" onclick="shareSocial('wa')"><i
                                 class="fab fa-whatsapp"></i></button>
                         <button class="social-share-btn" onclick="shareSocial('fb')"><i
@@ -794,14 +845,15 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="related-card">
                         <div class="r-img">
-                            <img src="https://images.unsplash.com/photo-1511537632536-34a70295626e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Roasting">
+                            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="V60 Guide">
                         </div>
                         <div class="r-content">
-                            <h5 class="fw-bold mb-2">Pentingnya Roasting Level</h5>
-                            <p class="small text-muted mb-3">Ketahui pengaruh light, medium, dan dark roast terhadap
-                                rasa.</p>
-                            <a href="#" class="r-btn">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></a>
+                            <h5 class="fw-bold mb-2">Panduan V60 Pemula</h5>
+                            <p class="small text-muted mb-3">Cara menyeduh kopi manual brew V60 dari nol hingga mahir.
+                            </p>
+                            <a href="blog-1.html" class="r-btn">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right small"></i></a>
                         </div>
                     </div>
                 </div>
@@ -904,6 +956,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // SCRIPT SAMA PERSIS DENGAN BLOG-1 UNTUK KONSISTENSI FUNGSI
+
         // 1. GENERATE AUTOMATIC TOC
         document.addEventListener('DOMContentLoaded', function () {
             const tocList = document.getElementById('auto-toc-list');

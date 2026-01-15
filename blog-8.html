@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panduan Lengkap V60 Untuk Pemula - Senyawa Kopi</title>
+    <title>Seni Latte Art: Bukan Sekadar Hiasan - Senyawa Kopi</title>
 
     <meta name="description"
-        content="Pelajari teknik menyeduh kopi manual brew V60 dari nol. Panduan lengkap rasio, suhu air, dan teknik pouring untuk hasil kopi yang bersih dan nikmat.">
+        content="Mengapa barista menggambar di atas kopi Anda? Pelajari sains di balik microfoam, teknik latte art, dan bagaimana tekstur susu mempengaruhi rasa kopi.">
     <meta name="author" content="Senyawa Kopi">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -17,7 +17,7 @@
         rel="stylesheet">
 
     <style>
-        /* --- 1. CONFIGURATION (SAMA DENGAN INDEX.HTML) --- */
+        /* --- 1. CONFIGURATION (SAMA DENGAN FILE REFERENSI) --- */
         :root {
             --primary-color: #3E2723;
             /* Espresso */
@@ -54,7 +54,7 @@
             color: var(--primary-color);
         }
 
-        /* --- 2. NAVBAR (SAMA PERSIS DENGAN INDEX) --- */
+        /* --- 2. NAVBAR --- */
         .navbar {
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
@@ -104,7 +104,7 @@
             border-radius: 50%;
         }
 
-        /* --- 3. HERO SECTION (BLOG DETAIL) --- */
+        /* --- 3. HERO SECTION --- */
         .blog-hero {
             height: 60vh;
             width: 100%;
@@ -113,7 +113,8 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            background: url('https://images.unsplash.com/photo-1519081836528-661726a4548d?q=80&w=1920&auto=format&fit=crop');
+            /* Background Image bertema Latte Art */
+            background: url('https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -127,7 +128,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(62, 39, 35, 0.4), rgba(62, 39, 35, 0.9));
+            background: linear-gradient(to bottom, rgba(62, 39, 35, 0.5), rgba(62, 39, 35, 0.9));
         }
 
         .blog-hero-content {
@@ -209,7 +210,7 @@
 
         figure img {
             width: 100%;
-            /* MODIFIKASI: Mengatur rasio menjadi 4:3 */
+            /* WAJIB: Rasio 4:3 sesuai request */
             aspect-ratio: 4 / 3;
             object-fit: cover;
             border-radius: 15px;
@@ -384,7 +385,6 @@
             margin-bottom: 1rem;
         }
 
-        /* PENTING: Memaksa warna teks menjadi terang agar terlihat di background gelap */
         .conclusion-box p {
             color: var(--accent-color) !important;
             margin-bottom: 0;
@@ -573,13 +573,13 @@
 
     <header class="blog-hero">
         <div class="blog-hero-content">
-            <h1>Panduan Lengkap V60 Untuk Pemula</h1>
+            <h1>Seni Latte Art: Bukan Sekadar Hiasan</h1>
             <div class="author-meta">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"
                     alt="Author">
                 <div class="text-start">
                     <strong>Budi Barista</strong><br>
-                    <span style="opacity: 0.8;">10 Jan 2024 • 8 Menit Baca</span>
+                    <span style="opacity: 0.8;">25 Nov 2023 • 10 Menit Baca</span>
                 </div>
             </div>
         </div>
@@ -590,9 +590,9 @@
 
             <article class="article-content">
                 <figure>
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                        alt="Proses menyeduh V60">
-                    <figcaption>Teknik penuangan (pouring) yang stabil adalah kunci kenikmatan V60.</figcaption>
+                    <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=1200&auto=format&fit=crop"
+                        alt="Latte Art Rosetta">
+                    <figcaption>Secangkir Flat White dengan pola Rosetta yang kontras dan simetris.</figcaption>
                 </figure>
 
                 <div class="auto-toc-container">
@@ -604,151 +604,176 @@
                 </div>
 
                 <p>
-                    Dunia kopi manual brew (seduh manual) memang memiliki daya tarik tersendiri. Di antara sekian banyak
-                    metode, <strong>V60 Pour Over</strong> adalah raja yang tak tergantikan. Metode ini dikenal mampu
-                    menghasilkan secangkir kopi yang bersih (clean), menonjolkan karakter rasa asli biji kopi, dan
-                    memiliki aroma yang semerbak.
+                    Saat pesanan <em>Cappuccino</em> atau <em>Latte</em> Anda tiba di meja, hal pertama yang menarik
+                    perhatian tentu adalah visualnya. Pola hati yang cantik, daun pakis (rosetta) yang rumit, atau
+                    bahkan karakter angsa yang elegan di atas permukaan busa susu. Banyak yang mengira bahwa
+                    <strong>Latte Art</strong> hanyalah sekadar kosmetik—cara barista pamer kebolehan atau agar kopi
+                    terlihat "Instagrammable".
                 </p>
                 <p>
-                    Bagi Anda yang baru ingin memulai hobi menyeduh kopi di rumah, V60 seringkali terlihat
-                    mengintimidasi. Ada banyak variabel: suhu air, ukuran gilingan, hingga gerakan tangan saat menuang.
-                    Namun, jangan khawatir! Artikel ini akan mengupas tuntas cara menyeduh V60 dari nol hingga Anda bisa
-                    menghasilkan kopi setara kafe.
+                    Namun, anggapan itu keliru. Latte Art bukan hanya soal estetika visual. Keberadaan gambar di atas
+                    kopi Anda sebenarnya adalah indikator kualitas. Ia adalah bukti fisik dari teknik <em>steaming</em>
+                    susu yang sempurna, suhu yang tepat, dan rasio ekstraksi espresso yang baik. Tanpa tekstur susu yang
+                    benar, mustahil seorang barista bisa menggambar dengan jelas.
+                </p>
+                <p>
+                    Dalam artikel ini, kita akan menyelami lebih dalam dunia Latte Art. Kita akan membahas sains di
+                    balik susu panas (kenapa susu panas rasanya lebih manis?), teknik dasar yang digunakan barista, dan
+                    mengapa pola cantik di cangkir Anda sebenarnya menjanjikan kenikmatan rasa yang lebih baik.
                 </p>
 
                 <div class="baca-juga">
                     <i class="fas fa-lightbulb text-warning fs-4"></i>
                     <div>
-                        <strong>Baca Juga:</strong> <a href="#">Perbedaan Arabika dan Robusta: Mana yang Cocok
-                            Buatmu?</a>
+                        <strong>Baca Juga:</strong> <a href="blog-1.html">Panduan Lengkap V60 Untuk Pemula</a>
                     </div>
                 </div>
 
-                <h2>1. Mengenal Alat Hario V60</h2>
+                <h2>1. Sains di Balik Microfoam</h2>
                 <p>
-                    Nama "V60" berasal dari bentuk alatnya yang menyerupai huruf "V" dengan sudut kemiringan tepat 60
-                    derajat. Desain ini bukan tanpa alasan. Sudut 60 derajat memungkinkan air mengalir ke pusat,
-                    memperpanjang waktu kontak dengan bubuk kopi.
+                    Rahasia utama Latte Art terletak pada satu kata: <strong>Microfoam</strong>. Ini bukanlah busa sabun
+                    yang gelembungnya besar-besar dan kering seperti yang sering kita lihat pada kopi jaman dulu.
+                    Microfoam adalah tekstur susu yang dipanaskan dengan uap (steam) sehingga terbentuk gelembung udara
+                    mikroskopis yang terperangkap dalam protein susu.
                 </p>
                 <p>
-                    Selain itu, terdapat rigi-rigi (spiral ribs) di dinding dalam dripper yang berfungsi memberi celah
-                    udara agar kopi bisa "bernapas" saat diseduh. Lubang besar di bagian bawah juga memungkinkan barista
-                    mengontrol rasa kopi melalui kecepatan tuangan air.
+                    Secara kimiawi, susu sapi mengandung protein (kasein dan whey) serta lemak. Saat susu di-<em>steam</em>,
+                    udara dimasukkan (aerasi). Protein susu kemudian bekerja membungkus gelembung udara tersebut agar
+                    tidak pecah, sementara lemak memberikan rasa <em>creamy</em>. Hasil akhirnya adalah tekstur yang
+                    mengkilap (shiny), halus seperti cat basah (wet paint), dan kental.
+                </p>
+                <p>
+                    Jika busa terlalu kasar atau bergelembung besar (dry foam), susu akan terpisah dari kopi dan
+                    mengapung begitu saja, membuat gambar mustahil dibentuk. Microfoam yang sempurna akan menyatu dengan
+                    <em>crema</em> espresso, menciptakan kanvas cair yang bisa dilukis.
                 </p>
 
-                <figure>
-                    <img src="https://images.unsplash.com/photo-1544256627-28565b058c49?q=80&w=800&auto=format&fit=crop"
-                        alt="Peralatan V60">
-                    <figcaption>Alat wajib: Dripper, Paper Filter, Kettle Gooseneck, dan Timbangan.</figcaption>
-                </figure>
+                <h2>2. Peran Suhu: Mengapa Susu Panas Terasa Manis?</h2>
+                <p>
+                    Pernahkah Anda menyadari bahwa susu yang di-steam terasa jauh lebih manis daripada susu dingin,
+                    padahal tidak ditambahkan gula? Ini terjadi karena reaksi kimia pada laktosa (gula susu).
+                </p>
+                <p>
+                    Pada suhu tertentu, laktosa menjadi lebih mudah larut dan lebih bisa dideteksi oleh lidah kita.
+                    Suhu ideal untuk memanaskan susu adalah antara <strong>60°C hingga 65°C</strong>. Jika suhu
+                    melebihi 70°C, protein susu akan rusak (denaturasi) dan susu akan terasa seperti gosong atau
+                    "matang", menghilangkan rasa manis alaminya. Itulah sebabnya barista profesional menggunakan
+                    termometer atau kepekaan tangan untuk memastikan susu tidak pernah mendidih.
+                </p>
 
-                <h3>Peralatan Wajib Disiapkan:</h3>
+                <h2>3. Peralatan Wajib untuk Latte Art</h2>
+                <p>
+                    Anda tidak bisa membuat Latte Art hanya dengan mengocok susu secara manual. Diperlukan tekanan uap
+                    yang stabil. Berikut adalah senjata utama seorang barista:
+                </p>
                 <ul>
-                    <li><strong>Dripper V60:</strong> Bisa bahan keramik, kaca, plastik, atau metal. Untuk pemula,
-                        plastik (resin) sangat disarankan karena menahan panas lebih stabil.</li>
-                    <li><strong>Kertas Filter:</strong> Pastikan sesuai ukuran dripper (01 atau 02).</li>
-                    <li><strong>Gooseneck Kettle:</strong> Teko leher angsa mutlak diperlukan untuk mengontrol aliran
-                        air.</li>
-                    <li><strong>Timbangan (Scale):</strong> Kopi adalah kimia, presisi sangat penting.</li>
-                    <li><strong>Grinder:</strong> Penggiling kopi yang baik menghasilkan gilingan merata.</li>
+                    <li><strong>Mesin Espresso dengan Steam Wand:</strong> Alat ini menyemburkan uap panas bertekanan
+                        tinggi untuk memutar dan memanaskan susu.</li>
+                    <li><strong>Milk Jug (Pitcher):</strong> Biasanya terbuat dari stainless steel dengan moncong
+                        (spout) berbentuk lancip (v-spout) atau bulat (round spout). Bentuk moncong ini mempengaruhi
+                        detail gambar.</li>
+                    <li><strong>Espresso yang Baik:</strong> Anda butuh "kanvas" yang bagus. Espresso harus memiliki
+                        <em>crema</em> (minyak kopi berwarna cokelat kemerahan) yang tebal dan elastis agar bisa
+                        menahan beban susu.</li>
                 </ul>
 
-                <h2>2. Menentukan Rasio dan Gilingan (Grind Size)</h2>
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1200&auto=format&fit=crop"
+                        alt="Barista Pouring Milk">
+                    <figcaption>Teknik 'Free Pour' membutuhkan kontrol pergelangan tangan yang presisi.</figcaption>
+                </figure>
+
+                <h2>4. Teknik Dasar: Free Pour vs Etching</h2>
                 <p>
-                    Inilah pondasi utama. Untuk V60, gunakan <strong>gilingan Medium-Fine</strong> (sedikit lebih kasar
-                    dari gula pasir). Jika terlalu halus, air akan mampet dan kopi menjadi pahit (over-extracted). Jika
-                    terlalu kasar, air mengalir terlalu cepat dan kopi terasa asam kecut (under-extracted).
+                    Ada dua aliran utama dalam seni menghias kopi ini:
+                </p>
+                <h3>a. Free Pouring (Tuang Bebas)</h3>
+                <p>
+                    Ini adalah teknik yang paling dihormati dan umum dilihat di kompetisi. Barista menggambar pola hanya
+                    dengan memanipulasi aliran susu dari pitcher, tanpa alat bantu lain. Gerakan tangan meliputi tinggi
+                    rendahnya tuangan (untuk menenggelamkan atau memunculkan susu), goyangan (wiggle) untuk membuat
+                    garis, dan potongan (cut) untuk menyelesaikan gambar. Pola klasik teknik ini adalah <em>Heart</em>
+                    (hati), <em>Rosetta</em> (pakis), dan <em>Tulip</em>.
+                </p>
+
+                <h3>b. Etching</h3>
+                <p>
+                    Teknik ini menggunakan alat bantu seperti stik metal atau tusuk gigi untuk "melukis" di atas busa.
+                    Biasanya digunakan untuk membuat gambar yang sangat detail seperti wajah beruang, kucing, atau
+                    tulisan. Seringkali dibantu dengan sirup cokelat untuk memberi warna garis yang tegas.
                 </p>
 
                 <blockquote>
-                    "Rasio emas untuk V60 adalah 1:15. Artinya, setiap 1 gram kopi membutuhkan 15 ml air. Jika Anda
-                    menggunakan 15 gram kopi, siapkan 225 ml air."
+                    "Latte Art yang baik harus memiliki kontras warna yang tajam antara cokelat espresso dan putih
+                    susu, simetris, dan berada tepat di tengah cangkir."
                 </blockquote>
+
+                <h2>5. Mengapa Latte Art Mempengaruhi Rasa?</h2>
+                <p>
+                    Kembali ke judul artikel ini: apakah ini hanya hiasan? Jawabannya tegas: Tidak. Latte Art adalah
+                    jaminan <strong>Mouthfeel</strong> (sensasi di mulut).
+                </p>
+                <p>
+                    Ketika barista berhasil membuat gambar yang rumit seperti Tulip bersusun lima, itu artinya tekstur
+                    susunya sangatlah halus (microfoam). Saat Anda meminumnya, susu dan kopi tercampur sempurna. Anda
+                    tidak meminum busa kering di awal lalu kopi cair di akhir. Sejak tegukan pertama hingga terakhir,
+                    Anda mendapatkan konsistensi rasa yang *velvety* (seperti beludru), *creamy*, dan manis alami.
+                </p>
+                <p>
+                    Sebaliknya, Cappuccino tanpa latte art yang terlihat seperti "pulau busa" di tengah lautan kopi
+                    biasanya memiliki tekstur yang kasar, memisahkan rasa kopi pahit dan busa tawar.
+                </p>
 
                 <div class="promo-gif">
                     <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZ0ZnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bnZ5bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKrEzvLbsVAud8I/giphy.gif"
                         alt="Promo Coffee Beans">
-                    <div class="bg-dark text-white p-2 text-center small">Gunakan Biji Kopi Fresh Roast dari Senyawa
-                        Kopi untuk Hasil Terbaik!</div>
+                    <div class="bg-dark text-white p-2 text-center small">Ingin belajar bikin Latte Art? Mulai dengan
+                        Biji Espresso Blend Senyawa!</div>
                 </div>
 
-                <h2>3. Langkah Menyeduh (Step-by-Step)</h2>
+                <h2>6. Tips untuk Pemula di Rumah</h2>
                 <p>
-                    Siapkan air panas dengan suhu ideal <strong>90°C - 93°C</strong>. Jangan gunakan air mendidih
-                    (100°C) karena akan membuat kopi gosong.
-                </p>
-
-                <h3>Langkah 1: Rinsing (Membilas)</h3>
-                <p>
-                    Letakkan kertas filter di dripper. Tuang air panas membasahi seluruh kertas. Ini bertujuan
-                    menghilangkan bau kertas dan memanaskan alat. Buang air bilasan di server.
-                </p>
-
-                <div class="baca-juga">
-                    <i class="fas fa-fire text-danger fs-4"></i>
-                    <div>
-                        <strong>Baca Juga:</strong> <a href="#">Mengapa Roasting Level Sangat Mempengaruhi Rasa?</a>
-                    </div>
-                </div>
-
-                <h3>Langkah 2: Blooming (Fase Mekar)</h3>
-                <p>
-                    Masukkan 15gr kopi. Tuang air sebanyak 30ml-40ml secara memutar. Tunggu 30-45 detik. Anda akan
-                    melihat gelembung gas karbondioksida keluar (blooming). Fase ini penting untuk melepaskan gas agar
-                    ekstraksi selanjutnya maksimal.
-                </p>
-
-                <h3>Langkah 3: Tuangan Utama (Pouring)</h3>
-                <p>
-                    Setelah blooming selesai, tuang sisa air secara perlahan dengan gerakan memutar (spiral) dari tengah
-                    ke luar, lalu kembali ke tengah. Jaga agar aliran air tidak mengenai dinding kertas filter secara
-                    langsung. Tuang hingga timbangan menunjukkan angka target (225ml).
-                </p>
-
-                <figure>
-                    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=800&auto=format&fit=crop"
-                        alt="Pouring Technique">
-                    <figcaption>Gerakan memutar yang stabil (agitation) membantu ekstraksi merata.</figcaption>
-                </figure>
-
-                <h2>4. Kesalahan Umum Pemula</h2>
-                <p>
-                    Seringkali hasil seduhan pertama terasa kurang pas. Berikut beberapa penyebabnya:
+                    Jika Anda memiliki mesin espresso rumahan dan ingin belajar, berikut tips singkatnya:
                 </p>
                 <ul>
-                    <li><strong>Channeling:</strong> Air mencari jalan tercepat lewat celah bubuk kopi, membuat
-                        ekstraksi tidak rata. Solusinya: ratakan bubuk kopi sebelum diseduh.</li>
-                    <li><strong>Suhu Air Salah:</strong> Terlalu dingin membuat kopi hambar, terlalu panas membuat
-                        pahit.</li>
-                    <li><strong>Kualitas Air:</strong> Gunakan air mineral atau air filtrasi, jangan air keran mentah
-                        karena kandungan klorin merusak rasa.</li>
+                    <li><strong>Posisi Steam Wand:</strong> Jangan celupkan terlalu dalam. Letakkan ujung steam wand
+                        sedikit di bawah permukaan susu untuk fase awal (stretching) agar udara masuk (bunyi sobekan
+                        kertas "tsschhh"), lalu celupkan sedikit lebih dalam untuk memutar susu (rolling).</li>
+                    <li><strong>Jangan Terlalu Panas:</strong> Berhenti saat pitcher terasa terlalu panas untuk dipegang
+                        tangan (sekitar 60°C).</li>
+                    <li><strong>Ketuk dan Putar:</strong> Setelah selesai steaming, ketuk pitcher ke meja untuk memecah
+                        gelembung besar, dan putar-putar (swirl) agar susu tetap menyatu (homogen) sebelum dituang.</li>
                 </ul>
 
                 <div class="mt-5">
                     <h2 style="border:none; padding:0;">Pertanyaan Sering Diajukan (FAQ)</h2>
                     <details class="faq-item">
-                        <summary>Apakah harus pakai timbangan digital?</summary>
-                        <p>Sangat disarankan. Tanpa timbangan, rasio air dan kopi hanya perkiraan, sehingga sulit
-                            mendapatkan rasa yang konsisten (konsistensi) di setiap seduhan.</p>
+                        <summary>Apakah susu oat/almond bisa untuk Latte Art?</summary>
+                        <p>Bisa, namun lebih sulit. Susu nabati (plant-based) memiliki kandungan protein yang berbeda
+                            dengan susu sapi. Biasanya diperlukan susu nabati edisi khusus "Barista Series" yang
+                            ditambahkan penstabil agar bisa membentuk microfoam yang elastis.</p>
                     </details>
                     <details class="faq-item">
-                        <summary>Berapa lama total waktu seduh ideal?</summary>
-                        <p>Total brew time idealnya antara 2 menit 30 detik hingga 3 menit. Jika lebih dari itu,
-                            gilingan mungkin terlalu halus.</p>
+                        <summary>Kenapa gambar saya selalu hilang/tenggelam?</summary>
+                        <p>Kemungkinan besar Anda menuang terlalu tinggi saat hendak menggambar. Saat menggambar, moncong
+                            pitcher harus sangat dekat dengan permukaan kopi (hampir menyentuh) agar busa putih muncul ke
+                            atas.</p>
                     </details>
                     <details class="faq-item">
-                        <summary>Apa beda filter putih (bleached) dan coklat?</summary>
-                        <p>Filter putih sudah melalui proses pemutihan oksigen dan cenderung tidak berbau. Filter coklat
-                            alami kadang meninggalkan sedikit bau kayu/kertas jika tidak dibilas dengan baik.</p>
+                        <summary>Mana yang lebih sulit: Rosetta atau Tulip?</summary>
+                        <p>Secara teknis, Rosetta membutuhkan kontrol goyangan (wiggle) yang konstan dan ritmis. Tulip
+                            membutuhkan kontrol "start-stop" (tuang-henti-tuang). Banyak pemula merasa Tulip sedikit
+                            lebih mudah dipelajari dasar tumpuknya dibanding goyangan halus Rosetta.</p>
                     </details>
                 </div>
 
                 <div class="conclusion-box">
                     <h2>Kesimpulan</h2>
                     <p>
-                        Menyeduh dengan V60 adalah seni menyeimbangkan variabel. Jangan takut bereksperimen dengan suhu
-                        atau ukuran gilingan untuk menemukan rasa yang paling cocok di lidah Anda. Kunci utamanya
-                        adalah: Kopi Segar, Gilingan Tepat, dan Kesabaran. Selamat menyeduh!
+                        Lain kali Anda menerima secangkir kopi dengan lukisan indah di atasnya, hargailah itu lebih dari
+                        sekadar objek foto. Itu adalah tanda dedikasi barista yang menyajikan kopi dengan tekstur
+                        terbaik, suhu ternikmat, dan rasa yang seimbang. Latte Art adalah jembatan yang menghubungkan
+                        sains pangan dengan seni visual, semuanya demi satu tujuan: kepuasan Anda dalam satu cangkir.
                     </p>
                 </div>
 
@@ -794,13 +819,13 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="related-card">
                         <div class="r-img">
-                            <img src="https://images.unsplash.com/photo-1511537632536-34a70295626e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Roasting">
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Grind Size">
                         </div>
                         <div class="r-content">
-                            <h5 class="fw-bold mb-2">Pentingnya Roasting Level</h5>
-                            <p class="small text-muted mb-3">Ketahui pengaruh light, medium, dan dark roast terhadap
-                                rasa.</p>
+                            <h5 class="fw-bold mb-2">Pentingnya Grind Size</h5>
+                            <p class="small text-muted mb-3">Kopi terlalu pahit atau asam? Cek ukuran gilingan Anda
+                                sekarang.</p>
                             <a href="#" class="r-btn">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></a>
                         </div>
                     </div>
@@ -809,13 +834,13 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="related-card">
                         <div class="r-img">
-                            <img src="https://images.unsplash.com/photo-1525610553991-2bede1a236e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Gayo">
+                            <img src="https://images.unsplash.com/photo-1524350876685-2740593328f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Arabika vs Robusta">
                         </div>
                         <div class="r-content">
-                            <h5 class="fw-bold mb-2">Karakter Kopi Gayo</h5>
-                            <p class="small text-muted mb-3">Menelusuri jejak sejarah dan cita rasa kopi Aceh yang
-                                mendunia.</p>
+                            <h5 class="fw-bold mb-2">Arabika vs Robusta</h5>
+                            <p class="small text-muted mb-3">Kenali perbedaan mendasar dua jenis kopi paling populer di
+                                dunia.</p>
                             <a href="#" class="r-btn">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></a>
                         </div>
                     </div>
@@ -824,14 +849,15 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="related-card">
                         <div class="r-img">
-                            <img src="https://images.unsplash.com/photo-1517701604599-bb29b5dd7359?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Simpan Kopi">
+                            <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Manual Brew V60">
                         </div>
                         <div class="r-content">
-                            <h5 class="fw-bold mb-2">Tips Menyimpan Biji Kopi</h5>
-                            <p class="small text-muted mb-3">Cara menjaga kesegaran aroma biji kopi agar awet dan tidak
-                                apek.</p>
-                            <a href="#" class="r-btn">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></a>
+                            <h5 class="fw-bold mb-2">Tutorial V60 Pemula</h5>
+                            <p class="small text-muted mb-3">Langkah demi langkah menyeduh kopi filter yang bersih dan
+                                nikmat.</p>
+                            <a href="blog-1.html" class="r-btn">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right small"></i></a>
                         </div>
                     </div>
                 </div>

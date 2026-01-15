@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arabika Gayo Wine - Senyawa Kopi</title>
+    <title>Flores Bajawa - Senyawa Kopi</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,7 +13,7 @@
         rel="stylesheet">
 
     <style>
-        /* --- 1. CONFIGURATION (SAMA PERSIS DENGAN INDEX) --- */
+        /* --- 1. CONFIGURATION (SAMA PERSIS DENGAN REFERENSI) --- */
         :root {
             --primary-color: #3E2723;
             --secondary-color: #C08B5C;
@@ -43,7 +43,7 @@
             font-family: 'Lora', serif;
         }
 
-        /* --- 2. NAVBAR (SAMA PERSIS) --- */
+        /* --- 2. NAVBAR --- */
         .navbar {
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
@@ -104,7 +104,7 @@
             color: var(--text-dark);
         }
 
-        /* Image Wrapper agar terlihat premium */
+        /* Image Wrapper */
         .main-product-img-wrapper {
             background-color: white;
             padding: 20px;
@@ -112,7 +112,6 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             text-align: center;
             height: 500px;
-            /* Tinggi fix agar konsisten */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -139,7 +138,6 @@
 
         .flavor-badge {
             background-color: rgba(192, 139, 92, 0.1);
-            /* Secondary color soft */
             color: var(--primary-color);
             padding: 8px 15px;
             border-radius: 20px;
@@ -187,7 +185,7 @@
             box-shadow: none;
         }
 
-        /* --- 4. CARD STYLE (Untuk Related Products - SAMA DENGAN INDEX) --- */
+        /* --- 4. CARD STYLE --- */
         .product-card {
             border: none;
             border-radius: 15px;
@@ -242,7 +240,7 @@
             color: var(--primary-color);
         }
 
-        /* --- 5. FOOTER (SAMA PERSIS) --- */
+        /* --- 5. FOOTER --- */
         footer {
             background-color: #2b1d19;
             color: #bbb;
@@ -315,38 +313,37 @@
 
                 <div class="col-lg-6">
                     <div class="main-product-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Arabika Gayo Wine" class="main-product-img">
+                        <img src="https://images.unsplash.com/photo-1611854779393-1b2ae93a9d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Flores Bajawa" class="main-product-img">
                     </div>
                 </div>
 
                 <div class="col-lg-6 ps-lg-5">
-                    <h1 class="fw-bold mb-2">Arabika Gayo Wine</h1>
+                    <h1 class="fw-bold mb-2">Flores Bajawa</h1>
 
                     <div class="mb-3 text-warning">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-muted ms-2 small">(45 Ulasan)</span>
+                            class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span class="text-muted ms-2 small">(32 Ulasan)</span>
                     </div>
 
-                    <div class="product-price-lg">Rp 125.000 <span class="text-muted fs-6 fw-normal">/ 200g</span></div>
+                    <div class="product-price-lg">Rp 115.000 <span class="text-muted fs-6 fw-normal">/ 200g</span></div>
 
                     <p class="text-muted leading-relaxed mb-4">
-                        Kopi Arabika Gayo dengan proses pasca panen <em>Wine Process</em> yang menghasilkan aroma
-                        fermentasi buah yang kuat dan menyegarkan. Dipetik merah sempurna dari dataran tinggi Aceh
-                        Tengah, biji kopi ini menawarkan pengalaman rasa eksotis dengan body yang tebal dan clean
-                        aftertaste.
+                        Nikmati keharuman aroma bunga yang khas berpadu dengan gurihnya kacang-kacangan.
+                        Arabika Flores Bajawa ini memiliki tekstur kekentalan sedang (medium body) yang seimbang,
+                        ditutup dengan rasa manis yang lembut dan memanjakan lidah Anda.
                     </p>
 
                     <div class="mb-4">
                         <h6 class="text-uppercase small fw-bold text-secondary mb-2">Tasting Notes:</h6>
-                        <span class="flavor-badge">Jackfruit</span>
-                        <span class="flavor-badge">Dark Chocolate</span>
-                        <span class="flavor-badge">High Acidity</span>
-                        <span class="flavor-badge">Winey</span>
+                        <span class="flavor-badge">Floral</span>
+                        <span class="flavor-badge">Nutty</span>
+                        <span class="flavor-badge">Medium Body</span>
+                        <span class="flavor-badge">Sweet Aftertaste</span>
                     </div>
 
-                    <button class="btn btn-add-large" onclick="addToCart('Arabika Gayo Wine', 125000, event)">
+                    <button class="btn btn-add-large" onclick="addToCart('Flores Bajawa', 115000, event)">
                         <i class="fas fa-shopping-bag me-2"></i> Tambahkan ke Keranjang
                     </button>
 
@@ -362,9 +359,9 @@
                                 data-bs-parent="#productAccordion">
                                 <div class="accordion-body px-0 text-muted small">
                                     <ul class="list-unstyled">
-                                        <li><strong>Wilayah:</strong> Takengon, Aceh Tengah</li>
-                                        <li><strong>Ketinggian:</strong> 1.500 - 1.700 mdpl</li>
-                                        <li><strong>Varietas:</strong> Ateng Super, Tim Tim</li>
+                                        <li><strong>Wilayah:</strong> Bajawa, Flores, NTT</li>
+                                        <li><strong>Ketinggian:</strong> 1.200 - 1.600 mdpl</li>
+                                        <li><strong>Varietas:</strong> Kartika, Lini S</li>
                                     </ul>
                                 </div>
                             </div>
@@ -379,9 +376,9 @@
                             <div id="collapseTwo" class="accordion-collapse collapse"
                                 data-bs-parent="#productAccordion">
                                 <div class="accordion-body px-0 text-muted small">
-                                    Natural Wine Process. Cherry kopi difermentasi utuh selama 30-45 hari hingga
-                                    mengering seperti kismis, menciptakan profil rasa buah fermentasi yang menyerupai
-                                    wine.
+                                    Full Washed Process. Proses pencucian penuh yang menghasilkan karakter rasa yang
+                                    bersih (clean cup),
+                                    menonjolkan keasaman yang cerah, dan memperkuat aroma floral alaminya.
                                 </div>
                             </div>
                         </div>
@@ -395,8 +392,9 @@
                             <div id="collapseThree" class="accordion-collapse collapse"
                                 data-bs-parent="#productAccordion">
                                 <div class="accordion-body px-0 text-muted small">
-                                    Sangat cocok diseduh menggunakan metode V60 atau Japanese Iced Coffee untuk
-                                    menonjolkan karakter fruity dan acidity-nya yang menyegarkan.
+                                    Cocok diseduh dengan metode Manual Brew (V60/Kalita) untuk menonjolkan aroma
+                                    bunganya,
+                                    atau Tubruk untuk mendapatkan body yang lebih tebal dan manis.
                                 </div>
                             </div>
                         </div>
@@ -412,23 +410,24 @@
             <h3 class="fw-bold mb-4" style="color: var(--primary-color);">Produk Sejenis</h3>
 
             <div class="row g-4">
+
                 <div class="col-md-4 col-sm-6">
-                    <div class="product-card" onclick="window.location.href='#'">
+                    <div class="product-card" onclick="window.location.href='arabika-gayo-wine.html'">
                         <div class="product-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1611854779393-1b2ae93a9d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Flores Bajawa">
+                            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Arabika Gayo Wine">
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
-                            <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Flores Bajawa</h5>
+                            <h5 class="card-title fw-bold" style="font-family: 'Lora', serif;">Arabika Gayo Wine</h5>
                             <div class="mb-2 text-warning small">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="far fa-star"></i>
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
-                            <p class="text-muted small mb-3">Notes: Floral, Nutty, Medium Body.</p>
+                            <p class="text-muted small mb-3">Notes: Jackfruit, Dark Choco, Winey.</p>
                             <div class="d-flex justify-content-between align-items-center mt-auto">
-                                <span class="price-tag">Rp 115.000</span>
+                                <span class="price-tag">Rp 125.000</span>
                                 <button class="btn btn-custom-dark btn-sm"
-                                    onclick="addToCart('Flores Bajawa', 115000, event)">+ Add</button>
+                                    onclick="addToCart('Arabika Gayo Wine', 125000, event)">+ Add</button>
                             </div>
                         </div>
                     </div>
@@ -545,7 +544,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // --- LOGIC KERANJANG BELANJA (FIXED BUTTON SIZE) ---
+        // --- LOGIC KERANJANG BELANJA (SAME AS REFERENCE) ---
         function updateCartBadge() {
             const cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
             const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
@@ -570,7 +569,8 @@
                     name: name,
                     price: price,
                     qty: 1,
-                    image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80'
+                    // Menggunakan gambar default/thumbnail untuk cart
+                    image: 'https://images.unsplash.com/photo-1611854779393-1b2ae93a9d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80'
                 });
             }
 
@@ -580,8 +580,6 @@
             // --- VISUAL EFFECT LOGIC ---
             const btn = event.target.closest('button');
             const originalHTML = btn.innerHTML;
-
-            // Cek apakah ini tombol besar (halaman detail) atau kecil (card produk)
             const isLargeButton = btn.classList.contains('btn-add-large');
 
             // 1. Ubah Teks & Warna
@@ -590,7 +588,7 @@
             btn.classList.add('btn-success', 'text-white');
             btn.style.borderColor = '#198754';
 
-            // 2. PERBAIKAN: Jika tombol aslinya besar, paksa tetap lebar 100%
+            // 2. Jika tombol aslinya besar, paksa tetap lebar 100%
             if (isLargeButton) {
                 btn.classList.add('w-100');
             }
@@ -598,9 +596,8 @@
             // 3. Kembalikan ke semula setelah 1.5 detik
             setTimeout(() => {
                 btn.innerHTML = originalHTML;
-                btn.classList.remove('btn-success', 'text-white', 'w-100'); // Hapus class w-100 juga
+                btn.classList.remove('btn-success', 'text-white', 'w-100');
 
-                // Kembalikan class asli sesuai jenis tombol
                 if (isLargeButton) {
                     btn.classList.add('btn-add-large');
                 } else {
