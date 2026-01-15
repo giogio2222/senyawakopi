@@ -4,25 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Kami - Senyawa Kopi</title>
+
+    <title>Tentang Senyawa Kopi - Filosofi, Petani, dan Perjalanan Kami</title>
+    <meta name="description"
+        content="Mengenal perjalanan Senyawa Kopi sejak 2018. Bermitra langsung dengan petani lokal Gayo hingga Flores (Direct Trade) untuk menghadirkan kopi Indonesia terbaik.">
+    <meta name="keywords"
+        content="tentang senyawa kopi, supplier biji kopi, direct trade coffee indonesia, artisan roastery malang, sejarah senyawa kopi">
+    <meta name="author" content="Senyawa Kopi Indonesia">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tentang Kami - Senyawa Kopi Indonesia">
+    <meta property="og:description"
+        content="Sebuah dedikasi untuk petani, alam, dan penikmat kopi. Simak cerita kami menghubungkan hulu ke hilir.">
+    <meta property="og:image" content="img/kopi/about.webp">
+    <meta property="og:url" content="https://senyawakopi.com/tentang.html">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#3E2723">
+
+    <link rel="preload" as="image" href="img/kopi/hero.webp" fetchpriority="high">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+
     <link
         href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap"
         rel="stylesheet">
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "Senyawa Kopi",
+        "foundingDate": "2018",
+        "description": "Artisan Roastery yang fokus pada biji kopi Indonesia dengan sistem Direct Trade.",
+        "url": "https://senyawakopi.com",
+        "logo": "https://senyawakopi.com/img/logo.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+6282257391460",
+          "contactType": "customer service"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Jl. Senyawa Rasa No. 88",
+          "addressLocality": "Malang",
+          "addressRegion": "Jawa Timur",
+          "postalCode": "65100",
+          "addressCountry": "ID"
+        }
+      }
+    }
+    </script>
+
     <style>
-        /* --- 1. SAMAKAN CSS VARIABLES DENGAN INDEX --- */
+        /* --- 1. CONFIGURATION --- */
         :root {
             --primary-color: #3E2723;
-            /* Espresso */
             --secondary-color: #C08B5C;
-            /* Caramel/Latte */
             --accent-color: #FAF7F2;
-            /* Cream Background */
             --text-dark: #2D2420;
             --light-bg: #ffffff;
+            /* Accessibility: High Contrast Footer Text */
+            --text-footer: #d1d1d1;
         }
 
         /* Anti Geser Kanan Kiri */
@@ -37,6 +92,8 @@
             color: var(--text-dark);
             background-color: var(--accent-color);
             padding-top: 0;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
         }
 
         h1,
@@ -47,11 +104,10 @@
             font-family: 'Lora', serif;
         }
 
-        /* --- 2. NAVBAR STYLE (COPY DARI INDEX) --- */
+        /* --- 2. NAVBAR STYLE --- */
         .navbar {
             background-color: rgba(255, 255, 255, 0.95);
-            /* Sedikit lebih solid untuk halaman internal */
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px);
             padding: 1rem 0;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             z-index: 1000;
@@ -69,9 +125,12 @@
             color: var(--text-dark) !important;
             margin-left: 15px;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            /* Accessibility: Larger font */
             text-transform: uppercase;
             transition: color 0.3s;
+            padding: 10px;
+            /* Accessibility: Touch target */
         }
 
         .nav-link:hover,
@@ -86,12 +145,13 @@
             color: var(--primary-color);
             font-size: 1.2rem;
             transition: transform 0.2s;
+            padding: 10px;
         }
 
         .cart-badge {
             position: absolute;
-            top: -5px;
-            right: -8px;
+            top: 0;
+            right: -5px;
             background-color: var(--secondary-color);
             color: white;
             font-size: 0.65rem;
@@ -101,11 +161,11 @@
 
         /* --- 3. PAGE HEADER HERO --- */
         .page-header {
+            /* LCP Optimization: Match preload */
             background: linear-gradient(rgba(62, 39, 35, 0.8), rgba(62, 39, 35, 0.7)), url('img/kopi/hero.webp');
             background-size: cover;
             background-position: center;
             height: 60vh;
-            /* Tinggi header halaman internal */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -113,7 +173,8 @@
             color: white;
             margin-bottom: 0;
             padding-top: 80px;
-            /* Kompensasi navbar fixed */
+            content-visibility: auto;
+            /* Performance */
         }
 
         .page-title {
@@ -121,11 +182,14 @@
             font-weight: 600;
             font-style: italic;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            /* Readability */
         }
 
         /* --- 4. CONTENT STYLES --- */
         .content-section {
             padding: 80px 0;
+            content-visibility: auto;
         }
 
         .story-img {
@@ -165,6 +229,7 @@
             padding: 80px 0;
             text-align: center;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235d4037' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            content-visibility: auto;
         }
 
         .btn-whatsapp {
@@ -180,6 +245,7 @@
             align-items: center;
             gap: 10px;
             box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            text-decoration: none;
         }
 
         .btn-whatsapp:hover {
@@ -188,10 +254,11 @@
             transform: scale(1.05);
         }
 
-        /* --- 6. FOOTER (COPY DARI INDEX) --- */
+        /* --- 6. FOOTER --- */
         footer {
             background-color: #2b1d19;
-            color: #bbb;
+            color: var(--text-footer);
+            /* Accessibility Fix */
             padding: 70px 0 30px;
         }
 
@@ -202,9 +269,13 @@
         }
 
         footer a {
-            color: #bbb;
+            color: var(--text-footer);
+            /* Accessibility Fix */
             text-decoration: none;
             transition: 0.3s;
+            padding: 5px 0;
+            /* Touch Target */
+            display: inline-block;
         }
 
         footer a:hover {
@@ -228,7 +299,7 @@
             }
         }
 
-        /* --- 9. FLOATING BUTTONS (FIXED & RESPONSIVE) --- */
+        /* --- 9. FLOATING BUTTONS --- */
         .floating-container {
             position: fixed;
             bottom: 30px;
@@ -236,10 +307,8 @@
             z-index: 9999;
             display: flex;
             flex-direction: column;
-            /* Menyusun tombol secara vertikal (atas-bawah) */
             align-items: center;
             gap: 15px;
-            /* Jarak antara tombol Back to Top dan WA */
         }
 
         .btn-floating {
@@ -256,10 +325,8 @@
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             border: none;
-            /* Menghilangkan border default button */
         }
 
-        /* Tombol WhatsApp */
         .btn-wa {
             background-color: #25D366;
         }
@@ -270,22 +337,16 @@
             color: white;
         }
 
-        /* Tombol Back to Top */
         .btn-top {
             background-color: var(--secondary-color);
-            /* Menggunakan warna Caramel/Latte */
             width: 50px;
-            /* Sedikit lebih kecil dari WA agar estetis */
             height: 50px;
             font-size: 24px;
-
-            /* State awal: Tersembunyi */
             opacity: 0;
             visibility: hidden;
             transform: translateY(20px);
         }
 
-        /* Class untuk memunculkan tombol Top saat discroll */
         .btn-top.show {
             opacity: 1;
             visibility: visible;
@@ -294,12 +355,10 @@
 
         .btn-top:hover {
             background-color: var(--primary-color);
-            /* Berubah jadi warna Espresso saat hover */
             transform: translateY(-5px);
             color: white;
         }
 
-        /* --- RESPONSIVE MOBILE --- */
         @media (max-width: 768px) {
             .floating-container {
                 bottom: 20px;
@@ -324,17 +383,19 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><i class="fas fa-coffee me-2"></i>SENYAWA.</a>
+            <a class="navbar-brand" href="index.html"><i class="fas fa-coffee me-2" aria-hidden="true"></i>SENYAWA.</a>
 
-            <a href="keranjang.html" class="d-lg-none ms-auto me-3 position-relative text-dark">
-                <i class="fas fa-shopping-bag fs-5"></i>
+            <a href="keranjang.html" class="d-lg-none ms-auto me-3 position-relative text-dark"
+                aria-label="Lihat Keranjang Belanja">
+                <i class="fas fa-shopping-bag fs-5" aria-hidden="true"></i>
                 <span class="cart-badge" id="mobile-cart-count">0</span>
             </a>
 
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="fas fa-bars text-dark"></span>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fas fa-bars text-dark" aria-hidden="true"></span>
             </button>
 
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -345,8 +406,9 @@
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
 
                     <li class="nav-item d-none d-lg-block">
-                        <a href="keranjang.html" class="cart-nav-item text-decoration-none">
-                            <i class="fas fa-shopping-bag"></i>
+                        <a href="keranjang.html" class="cart-nav-item text-decoration-none"
+                            aria-label="Keranjang Belanja">
+                            <i class="fas fa-shopping-bag" aria-hidden="true"></i>
                             <span class="cart-badge" id="desktop-cart-count">0</span>
                         </a>
                     </li>
@@ -398,7 +460,8 @@
                 </div>
 
                 <div class="col-lg-6 order-1 order-lg-2 mb-5 mb-lg-0 ps-lg-5">
-                    <img src="img/kopi/about.webp" alt="Proses Kopi" class="story-img">
+                    <img src="img/kopi/about.webp" alt="Proses Kopi" class="story-img" width="636" height="400"
+                        loading="lazy">
                 </div>
             </div>
         </div>
@@ -415,7 +478,7 @@
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="value-card">
-                        <i class="fas fa-hand-holding-heart value-icon"></i>
+                        <i class="fas fa-hand-holding-heart value-icon" aria-hidden="true"></i>
                         <h5 class="fw-bold mb-3">Direct Trade</h5>
                         <p class="text-muted small">Kami memangkas rantai distribusi yang panjang agar petani
                             mendapatkan keuntungan lebih besar dan kualitas biji lebih terjaga.</p>
@@ -423,7 +486,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="value-card">
-                        <i class="fas fa-fire value-icon"></i>
+                        <i class="fas fa-fire value-icon" aria-hidden="true"></i>
                         <h5 class="fw-bold mb-3">Artisan Roasting</h5>
                         <p class="text-muted small">Disangrai menggunakan mesin modern dengan profil yang dikurasi
                             khusus untuk menonjolkan karakter unik setiap daerah (Origin).</p>
@@ -431,7 +494,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="value-card">
-                        <i class="fas fa-leaf value-icon"></i>
+                        <i class="fas fa-leaf value-icon" aria-hidden="true"></i>
                         <h5 class="fw-bold mb-3">Sustainable</h5>
                         <p class="text-muted small">Kami mendukung praktik pertanian ramah lingkungan untuk menjaga
                             kesuburan tanah bagi generasi mendatang.</p>
@@ -450,8 +513,8 @@
                         yang bingung memilih biji? Tim kami siap membantu Anda.</p>
 
                     <a href="https://wa.me/6282257391460?text=Halo%20Senyawa%20Kopi,%20saya%20tertarik%20bertanya%20tentang%20produk%20Anda."
-                        class="btn btn-whatsapp" target="_blank">
-                        <i class="fab fa-whatsapp fs-4"></i> Chat WhatsApp Kami
+                        class="btn btn-whatsapp" target="_blank" aria-label="Chat WhatsApp Senyawa Kopi">
+                        <i class="fab fa-whatsapp fs-4" aria-hidden="true"></i> Chat WhatsApp Kami
                     </a>
                 </div>
             </div>
@@ -463,7 +526,8 @@
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <h5 class="fw-bold mb-3">SENYAWA KOPI</h5>
-                    <p class="small text-secondary">Menghadirkan harmoni rasa dari perkebunan nusantara langsung ke meja
+                    <p class="small" style="color: var(--text-footer);">Menghadirkan harmoni rasa dari perkebunan
+                        nusantara langsung ke meja
                         Anda.</p>
                 </div>
 
@@ -480,34 +544,37 @@
                 <div class="col-md-2 mb-4">
                     <h6 class="text-white mb-3">Bantuan</h6>
                     <ul class="list-unstyled small">
-                        <li><a href="https://wa.me/6282257391460">Konfirmasi Pembayaran</a></li>
-                        <li><a href="https://wa.me/6282257391460">Hubungi Kami</a></li>
+                        <li><a href="https://wa.me/6282257391460" aria-label="Konfirmasi Pembayaran">Konfirmasi
+                                Pembayaran</a></li>
+                        <li><a href="https://wa.me/6282257391460" aria-label="Hubungi Kami">Hubungi Kami</a></li>
                         <li><a href="#">Syarat & Ketentuan</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-4 mb-4">
                     <h6 class="text-white mb-3">Hubungi Kami</h6>
-                    <ul class="list-unstyled small text-secondary">
+                    <ul class="list-unstyled small" style="color: var(--text-footer);">
                         <li class="mb-2">
-                            <i class="fas fa-map-marker-alt me-2 text-white-50"></i>
+                            <i class="fas fa-map-marker-alt me-2 text-white-50" aria-hidden="true"></i>
                             Jl. Senyawa Rasa No. 88, Malang, Jawa Timur
                         </li>
                         <li class="mb-2">
-                            <i class="fas fa-phone me-2 text-white-50"></i>
+                            <i class="fas fa-phone me-2 text-white-50" aria-hidden="true"></i>
                             +62 822-5739-1460
                         </li>
                         <li class="mb-3">
-                            <i class="fas fa-envelope me-2 text-white-50"></i>
+                            <i class="fas fa-envelope me-2 text-white-50" aria-hidden="true"></i>
                             halo@senyawakopi.com
                         </li>
                     </ul>
 
                     <div>
-                        <a href="#" class="me-3 fs-5 text-white-50 hover-white"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/6282257391460" class="me-3 fs-5 text-white-50 hover-white"><i
-                                class="fab fa-whatsapp"></i></a>
-                        <a href="#" class="me-3 fs-5 text-white-50 hover-white"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="me-3 fs-5 text-white-50 hover-white" aria-label="Instagram"><i
+                                class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://wa.me/6282257391460" class="me-3 fs-5 text-white-50 hover-white"
+                            aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                        <a href="#" class="me-3 fs-5 text-white-50 hover-white" aria-label="TikTok"><i
+                                class="fab fa-tiktok" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -515,25 +582,24 @@
             <hr class="border-secondary mt-4 opacity-25">
 
             <div class="text-center pt-2">
-                <p class="small mb-0 text-secondary">&copy; 2024 Senyawa Kopi Indonesia.</p>
+                <p class="small mb-0" style="color: var(--text-footer);">&copy; 2024 Senyawa Kopi Indonesia.</p>
             </div>
         </div>
     </footer>
 
     <div class="floating-container">
-        <a href="#" class="btn-floating btn-top" id="backToTopBtn" title="Kembali ke Atas">
-            <i class="fas fa-arrow-up"></i>
+        <a href="#" class="btn-floating btn-top" id="backToTopBtn" title="Kembali ke Atas" aria-label="Kembali ke atas">
+            <i class="fas fa-arrow-up" aria-hidden="true"></i>
         </a>
 
         <a href="https://wa.me/6282257391460?text=Halo%20Senyawa%20Kopi,%20saya%20tertarik%20dengan%20produk%20Anda."
-            target="_blank" class="btn-floating btn-wa" title="Chat WhatsApp">
-            <i class="fab fa-whatsapp"></i>
+            target="_blank" class="btn-floating btn-wa" title="Chat WhatsApp" aria-label="Chat via WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
         </a>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     <script>
-        // SCRIPT CART BADGE (Supaya angka keranjang tetap muncul)
         function updateCartBadge() {
             const cart = JSON.parse(localStorage.getItem('senyawaCart')) || [];
             const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
@@ -544,26 +610,24 @@
             if (mobileBadge) mobileBadge.innerText = totalItems;
         }
 
-        // Load saat halaman siap
         document.addEventListener('DOMContentLoaded', updateCartBadge);
 
-        // --- LOGIC BACK TO TOP ---
+        // --- LOGIC BACK TO TOP (Optimized) ---
         const backToTopBtn = document.getElementById('backToTopBtn');
 
         window.addEventListener('scroll', () => {
-            // Jika scroll lebih dari 300px ke bawah, munculkan tombol
             if (window.scrollY > 300) {
                 backToTopBtn.classList.add('show');
             } else {
                 backToTopBtn.classList.remove('show');
             }
-        });
+        }, { passive: true }); // Performance Boost
 
         backToTopBtn.addEventListener('click', (e) => {
-            e.preventDefault(); // Mencegah loncat kasar (default anchor behavior)
+            e.preventDefault();
             window.scrollTo({
                 top: 0,
-                behavior: 'smooth' // Scroll halus ke atas
+                behavior: 'smooth'
             });
         });
     </script>
